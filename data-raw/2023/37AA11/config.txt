@@ -1,0 +1,18 @@
+!
+{
+	"DVBWM_v1":
+	{
+		"line0":
+		{
+			"GSM_CHECKIN": 0900,
+			"GSM_DOW": "ALL",
+			"GSM_CHECKIN_MODE": "LOCAL"
+		},
+		"General":
+		{
+			"Debug": 1,
+			"ConfigID": "006699887711AABB"
+		}
+	}
+}
+*3756&
