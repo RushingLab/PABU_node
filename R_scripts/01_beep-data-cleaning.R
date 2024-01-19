@@ -22,7 +22,7 @@
 ##        3. Functions_CTT.Network.R file that contains function to run the script below - saved in the working directory defined below
 ##
 ##        4. Raw Beep data files
-##            - For this, I am attempting to just use the Node beep data downloaded via the CTT Node SD cards.
+##            - For this, I am attempting to just use the Node beep data downloaded via the CTT Node SD cards, but most instructions include downloading data using an API (which I did not do here).
 ##            - When you download data from CTT using API - all csv files of raw beep data will be in a folder for your project and within that folder there will be folders for each Base Station 
 ##             - and within each Base Station folder there will be a folder named 'raw' that has raw beep data
 ##                   Ex. "/Users/kpaxton/DataFiles_CTT/Guam Sali/8EEEF7F20F8E/raw/CTT-8EEEF7F20F8E-raw-data.2020-08-26_111951.csv"
@@ -71,7 +71,7 @@ subfolders <- list.dirs(main_folder, full.names = FALSE, recursive = FALSE)
 # Create an empty dataframe to store the combined node data after the for loop
 combined_data <- data.frame()
 
-# Create an object of 
+# Create an object of combined beep data from all nodes 
 # for the pattern = added 0-9 since some beep files are beep_1
 my_beeps <- list.files(pattern = "*beep_[0-9].csv$", include.dirs = TRUE, recursive = TRUE)
 
