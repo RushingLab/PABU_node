@@ -22,6 +22,7 @@
 ##        3. Functions_CTT.Network.R file that contains function to run the script below - saved in the working directory defined below
 ##
 ##        4. Raw Beep data files
+##            - For this, I am attempting to just use the Node beep data downloaded via the CTT Node SD cards.
 ##            - When you download data from CTT using API - all csv files of raw beep data will be in a folder for your project and within that folder there will be folders for each Base Station 
 ##             - and within each Base Station folder there will be a folder named 'raw' that has raw beep data
 ##                   Ex. "/Users/kpaxton/DataFiles_CTT/Guam Sali/8EEEF7F20F8E/raw/CTT-8EEEF7F20F8E-raw-data.2020-08-26_111951.csv"
@@ -83,7 +84,7 @@ str(nodes) # check that data imported properly
 head(nodes)
 
 
-############# Diane attempting to combine beep data from each node into one single dataset
+############# Diane attempting to combine beep data from each node into one single dataset############################
 
 
 # Set the path to the main folder containing the node subfolders with the beep_0 CSV files
@@ -96,7 +97,7 @@ subfolders <- list.dirs(main_folder, recursive = FALSE)
 combined_data <- data.frame()
 
 
-# Loop through each subfolder
+# Loop through each node subfolder
 for (subfolder in subfolders) {
   # Construct the file path for beep_0 in the current subfolder
   file_path <- file.path(subfolder, "beep_0.csv")  # Change the file extension if necessary
@@ -110,17 +111,41 @@ for (subfolder in subfolders) {
     current_data$NodeId <- basename(subfolder)
     
     # Combine the data with the existing combined_data
-    node_combined_data <- rbind(combined_data, current_data)
+    combined_data <- rbind(combined_data, current_data)
   }
 }
 
 # Save the node combined data (new csv with all the beep data from each file and a new column listing node id) to a new dataset or perform further analysis
-write.csv(node_combined_data, "/PABU_node/data/node_combined_data.csv", row.names = FALSE)
+write.csv(combined_data, "/PABU_node/data/node_combined_data.csv", row.names = FALSE)
 
 
 # Print the combined dataset
-print(node_combined_data)
+print(combined_data)
+####################################################################################################
+########### Diane attempting to download Node data through an API ##################################
+#install.packages("devtools")
+library(devtools)
+install_github('cellular-tracking-technologies/celltracktech')
+library(celltracktech)
+library(DBI)
+start <- Sys.time()
 
+####SETTINGS#####
+my_token <- "734b29e9fe8fc7ac9c6b3083f548c1df66c38508c1dec8a4424b7a6bb48f7d11"
+db_name <- "mydb"
+myproject <- "Little St. Simons Motus" #this is your project name on your CTT account
+conn <- dbConnect(RPostgres::Postgres(), dbname=db_name)
+################
+outpath <- "~/D:/CTT_data_files" #where your downloaded files are to go
+get_my_data(my_token, "~/D:/CTT_data_files", conn, myproject=myproject)
+update_db(conn, outpath, myproject)
+dbDisconnect(conn)
+
+#findfiles(outpath, "directory path where you want your caught files to go")
+
+time_elapse <- Sys.time() - start
+print(time_elapse)
+##################################################################################
 
 
 ########### Run function to get beep data and a count of the detections removed at different steps #############
