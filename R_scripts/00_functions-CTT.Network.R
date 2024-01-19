@@ -10,8 +10,6 @@
 
 ####### Function to import raw beep data and format ##########
 
-
-
 # Function to import raw data for a particular date range
 import.beeps <- function(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END) {
   # set working directory where files can be found
@@ -46,7 +44,7 @@ import.beeps <- function(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END) {
   count.import <- sum(sapply(beep_data,nrow))
   
   # Format Time column
-  beep_data <- lapply(beep_data, transform, Time = as.POSIXct(Time,format="%Y-%m-%d %H:%M:%OS",tz = "UTC"))
+  beep_data <- lapply(beep_data, transform, Time = as.POSIXct(Time,format="%Y-%m-%d %H:%M:%OS",tz = "UTC-4"))
   
   # Make Time local timezone
   beep_data <- lapply(beep_data, transform, Time.local = lubridate::with_tz(Time, tzone = TIMEZONE))
