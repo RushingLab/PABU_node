@@ -92,30 +92,30 @@ main_folder<- "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node
 # Get a list of all node subfolders in the main folder
 subfolders <- list.dirs(main_folder, full.names = FALSE, recursive = FALSE)
 
-# Create an empty dataframe to store the combined data after for loop
+# Create an empty dataframe to store the combined node data after the for loop
 combined_data <- data.frame()
 
+# Create an object of 
+# for the pattern = added 0-9 since some beep files are beep_1
+my_beeps <- list.files(pattern = "*beep_[0-9].csv$", include.dirs = TRUE, recursive = TRUE)
 
 # Loop through each node subfolder
-for (subfolder in subfolders) {
-  # Construct the file path for beep_0 in the current subfolder
-  file_path <- file.path(subfolder, "beep_0.csv")  # Change the file extension if necessary
+for (i in 1:length(my_beeps)) {
+  my_current_beep <- read.csv(my_beeps[i]) #grab first node folder 
+ 
+  #readLines(my_beeps[30]) #figuring out where problem characters were
+  my_current_beep$node <- substr(my_beeps[i], 1,6)
   
-  # Check if the file exists in the current subfolder
-  if (file.exists(file_path)) {
-    # Read the data from beep_0 file
-    current_data <- read.csv(file_path)
-    
-    # Add a column with the subfolder name
-    current_data$NodeId <- basename(subfolder)
-    
+  head(my_current_beep)
+  
     # Combine the data with the existing combined_data
-    combined_data <- rbind(combined_data, current_data)
+    combined_node_data <- rbind(combined_data, my_current_beep)
   }
-}
 
+str(combined_node_data)
 # Save the node combined data (new csv with all the beep data from each file and a new column listing node id) to a new dataset or perform further analysis
-write.csv(combined_data, "/PABU_node/data/node_combined_data.csv", row.names = FALSE)
+
+write.csv(combined_node_data, "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_combined_data.csv", row.names = FALSE)
 
 
 # Print the combined dataset
@@ -126,7 +126,6 @@ print(combined_data)
 
 # Set the path to the main directory containing subfolders
 main_directory <- "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files"
-getwd()
 
 # Get a list of all subfolders in the main folder
 subfolders <- list.dirs(path = main_directory, full.names = FALSE, recursive = FALSE)
