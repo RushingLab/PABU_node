@@ -25,8 +25,7 @@ Files for the analysis of Painted Bunting (PABU) movement data from Cellular Tra
       - csv file that contains a formatted test data set from node triangulation tests conducted near the end of the field season (based off of Paxton 2022 scripts)
       
 * 2023_node_combined_dataset
-
-      - Includes all of the beep data from all nodes combined into one datasheet with a seperate column for node name.
+      - Includes all of the beep data from all nodes combined into one datasheet with a separate column for node name.
   
 ### data
 Empty but hope to fill soon!

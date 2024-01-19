@@ -46,7 +46,7 @@
 
 
 
-# installing packages needed
+# Installing packages needed:
 #install.packages('dplyr')
 #install.packages('lubridate')
 #install.packages('purrr')
@@ -79,7 +79,7 @@ my_beeps <- list.files(pattern = "*beep_[0-9].csv$", include.dirs = TRUE, recurs
 for (i in 1:length(my_beeps)) {
   my_current_beep <- read.csv(my_beeps[i]) #grab first node folder 
  
-  #readLines(my_beeps[30]) #code for figuring out where problem characters were located in the beep dataset 
+  #readLines(my_beeps[30]) #code for figuring out where problem characters were located in the beep dataset -- had to do for a few nodes that contained weird characters
   
   my_current_beep$node <- substr(my_beeps[i], 1,6) # Creating a column in the dataset that includes the name of the node. We included character 1-6 since it was reading the entire file path.
   
