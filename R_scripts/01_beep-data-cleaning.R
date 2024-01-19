@@ -59,32 +59,8 @@ library(purrr)
 # Reset R's brain - removes all previous objects
 rm(list=ls())
 
-### Set by User
-# Working Directory - Provide/path/on/your/computer/where/master/csv/file/of/tags/and/nodes/is/found/and/where/Functions_CTT.Network.R/is/located
-working.directory <- "PABU_node/data-raw/2023_node_files"
 
-# Directory for Output data - Provide/path/where/you/want/output/data/to/be/stored/
-outpath <- "PABU_node/data/2023_node_files/"
-
-
-# Bring in functions 
-## setwd(working.directory)
-## source("00_functions_CTT.Network.R")
-
-# Bring in files with TagId and NodeId information 
-
-## this file includes columns for TagID, StartDate, Species, Name, and Band
-tags <- read.csv("data-raw/2023_node_files/Tags_trilateration.csv", header = T) 
-str(tags)  # check that data imported properly
-head(tags)
-
-## this file includes columns for NodeId, NodeUTMx, and NodeUTMy
-nodes <- read.csv("data-raw/2023_node_files/Nodes_Example.csv", header = T)
-str(nodes) # check that data imported properly
-head(nodes)
-
-
-############# Diane attempting to combine beep data from each node into one single dataset############################
+############# Combining beep data from each node into one single dataset (with help from Heather Gaya) ###############################
 
 # Set the path to the main folder containing the node subfolders with the beep_0 CSV files
 main_folder<- "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files"
@@ -103,91 +79,52 @@ my_beeps <- list.files(pattern = "*beep_[0-9].csv$", include.dirs = TRUE, recurs
 for (i in 1:length(my_beeps)) {
   my_current_beep <- read.csv(my_beeps[i]) #grab first node folder 
  
-  #readLines(my_beeps[30]) #figuring out where problem characters were
-  my_current_beep$node <- substr(my_beeps[i], 1,6)
+  #readLines(my_beeps[30]) #code for figuring out where problem characters were located in the beep dataset 
+  
+  my_current_beep$node <- substr(my_beeps[i], 1,6) # Creating a column in the dataset that includes the name of the node. We included character 1-6 since it was reading the entire file path.
   
   head(my_current_beep)
   
-    # Combine the data with the existing combined_data
-    combined_node_data <- rbind(combined_data, my_current_beep)
+  combined_node_data <- rbind(combined_data, my_current_beep) # Combine the data with the existing combined_data blank dataframe.
   }
 
-str(combined_node_data)
-# Save the node combined data (new csv with all the beep data from each file and a new column listing node id) to a new dataset or perform further analysis
+str(combined_node_data) # Checking the data structure
 
+# Save the node combined data (new csv with all the beep data from each file and a new column listing node id) to a new dataset or perform further analysis
 write.csv(combined_node_data, "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_combined_data.csv", row.names = FALSE)
 
 
 # Print the combined dataset
 print(combined_data)
 
-####################################################################################################
- #### Diane attempt number 2
+###################################################################################################################################
 
-# Set the path to the main directory containing subfolders
-main_directory <- "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files"
+### Set by User
+# Working Directory - Provide/path/on/your/computer/where/master/csv/file/of/tags/and/nodes/is/found/and/where/Functions_CTT.Network.R/is/located
+working.directory <- "PABU_node/data-raw/2023_node_files"
 
-# Get a list of all subfolders in the main folder
-subfolders <- list.dirs(path = main_directory, full.names = FALSE, recursive = FALSE)
-
-# Specify the file name you want to extract
-target_file_name <- "beep_0.csv"
-
-# Create an empty list to store data frames
-file_data_frames <- list()
-
-# Loop through each subfolder
-for (subfolder in subfolders) {
-  # Get a list of files in the current subfolder
-  files <- list.files(subfolder, full.names = TRUE)
-  
-  # Check if the target file exists in the current subfolder
-  if (target_file_name %in% basename(files)) {
-    # Add the file path to the list
-    file_path <- files[basename(files) == target_file_name]
-    
-    # Read the file into a data frame
-    file_data <- read.table(file_path, header = TRUE)  # Adjust parameters based on your file format
-    
-    # Add a new column with the name of the folder
-    file_data$folder_name <- basename(subfolder)
-    
-    # Store the data frame in the list
-    file_data_frames <- c(file_data_frames, list(file_data))
-  }
-}
-
-# Print the list of data frames
-print(file_data_frames)
+# Directory for Output data - Provide/path/where/you/want/output/data/to/be/stored/
+outpath <- "PABU_node/data/"
 
 
-########### Diane attempting to download Node data through an API ##################################
-#install.packages("devtools")
-library(devtools)
-install_github('cellular-tracking-technologies/celltracktech')
-library(celltracktech)
-library(DBI)
-start <- Sys.time()
+# Bring in functions 
+setwd(working.directory)
+source("00_functions_CTT.Network.R")
 
-####SETTINGS#####
-my_token <- "734b29e9fe8fc7ac9c6b3083f548c1df66c38508c1dec8a4424b7a6bb48f7d11"
-db_name <- "mydb"
-myproject <- "Little St. Simons Motus" #this is your project name on your CTT account
-conn <- dbConnect(RPostgres::Postgres(), dbname=db_name)
-################
-outpath <- "~/D:/CTT_data_files" #where your downloaded files are to go
-get_my_data(my_token, "~/D:/CTT_data_files", conn, myproject=myproject)
-update_db(conn, outpath, myproject)
-dbDisconnect(conn)
+# Bring in files with TagId and NodeId information 
 
-#findfiles(outpath, "directory path where you want your caught files to go")
+## this file includes columns for TagID, StartDate, Species, Name, and Band
+tags <- read.csv("C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files/Tags_trilateration.csv", header = T) 
+str(tags)  # check that data imported properly
+head(tags)
 
-time_elapse <- Sys.time() - start
-print(time_elapse)
-##################################################################################
+## this file includes columns for NodeId, NodeUTMx, and NodeUTMy
+nodes <- read.csv("C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files/Nodes_Example.csv", header = T)
+str(nodes) # check that data imported properly
+head(nodes)
 
 
-########### Run function to get beep data and a count of the detections removed at different steps #############
+########### Run function to get beep data and a count of the detections removed at different steps ############################
 
 ## Variables to define for function
 ## INFILE = Path where folders for multiple sensor stations are found 
@@ -218,9 +155,10 @@ INFILE <- "/Users/kpaxton/DataFiles_CTT/Guam Sali"
 NODE.VERSION <- 2
 RADIOID <- c(1,2)
 TIMEZONE <- "Pacific/Guam" 
-START <- "2021-05-18"
+START <- "2023-05-11"
 END <- "2021-06-02"
 
+grep("<UTC-4>", OlsonNames(), value=TRUE)
 
 # Function to import raw beep data
 beep.output <- import.beeps(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END)
