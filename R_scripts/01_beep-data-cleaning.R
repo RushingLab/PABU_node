@@ -86,12 +86,11 @@ head(nodes)
 
 ############# Diane attempting to combine beep data from each node into one single dataset############################
 
-
 # Set the path to the main folder containing the node subfolders with the beep_0 CSV files
-main_folder <- "data-raw/2023_node_files"
+main_folder<- "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files"
 
 # Get a list of all node subfolders in the main folder
-subfolders <- list.dirs(main_folder, recursive = FALSE)
+subfolders <- list.dirs(main_folder, full.names = FALSE, recursive = FALSE)
 
 # Create an empty dataframe to store the combined data after for loop
 combined_data <- data.frame()
@@ -121,7 +120,48 @@ write.csv(combined_data, "/PABU_node/data/node_combined_data.csv", row.names = F
 
 # Print the combined dataset
 print(combined_data)
+
 ####################################################################################################
+ #### Diane attempt number 2
+
+# Set the path to the main directory containing subfolders
+main_directory <- "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files"
+getwd()
+
+# Get a list of all subfolders in the main folder
+subfolders <- list.dirs(path = main_directory, full.names = FALSE, recursive = FALSE)
+
+# Specify the file name you want to extract
+target_file_name <- "beep_0.csv"
+
+# Create an empty list to store data frames
+file_data_frames <- list()
+
+# Loop through each subfolder
+for (subfolder in subfolders) {
+  # Get a list of files in the current subfolder
+  files <- list.files(subfolder, full.names = TRUE)
+  
+  # Check if the target file exists in the current subfolder
+  if (target_file_name %in% basename(files)) {
+    # Add the file path to the list
+    file_path <- files[basename(files) == target_file_name]
+    
+    # Read the file into a data frame
+    file_data <- read.table(file_path, header = TRUE)  # Adjust parameters based on your file format
+    
+    # Add a new column with the name of the folder
+    file_data$folder_name <- basename(subfolder)
+    
+    # Store the data frame in the list
+    file_data_frames <- c(file_data_frames, list(file_data))
+  }
+}
+
+# Print the list of data frames
+print(file_data_frames)
+
+
 ########### Diane attempting to download Node data through an API ##################################
 #install.packages("devtools")
 library(devtools)
