@@ -118,13 +118,35 @@ combined_data$rssi <- as.integer(combined_data$rssi) # wouldn't convert due to o
 # Finding incorrect rssi values and removing those rows from the dataset
 unique(combined_data$rssi) #finding the non-integer values in the rssi column
 
-# removing non-integer value rows in the new df combined_data1
+# Removing non-integer value rows in the new df combined_data1
 values_to_remove <- c("\xf5\003\x99\xfb\xee֕t\xd0o\xaa\030\xb5\xb4\xc6O\x87\xa6\xeeU\x93\xe8\xc2{n",
                       "a\xf0\xf7\xde\006\x9a0\022\x88\xb4\x9f\xd0=\001{\xea̹3\x94\x83\xf6\xb4\023:9z\035؇\x96[\xa3\x80催\002M\xfbQ\x91;\x8b\xfb\xf7\v<\005\xf6\xee%ı\034V\x88\xb2}K\xae\x89=",
                       "" )
 combined_data1<- combined_data %>% filter(!(rssi %in% values_to_remove))
 
 unique(combined_data1$rssi) #checking that the non-integers have been removed
+combined_data1$rssi <- as.integer(combined_data1$rssi)
+str(combined_data1)
+unique(combined_data1$id) #omitted 47798 entries
+
+combined_data$id <- as.factor(combined_data$id) # making tag id a factor
+unique(combined_data1$id) #omitted 47798 entries
+
+# changing the column names to fit Paxton's convention
+colnames(combined_data1)
+colnames(combined_data1) <- c("Time", "TagId", "TagRSSI", "NodeId")
+colnames(combined_data1) # checking that column names have changed
+
+# Changing the Time column to a POSIXct format from this format "%Y-%m-%dT%H:%M:%SZ" in UTC time
+combined_data1$Time <- as.POSIXct(combined_data1$Time, format = "%Y-%m-%dT%H:%M:%SZ", tz= "UTC")
+str(combined_data1)
+
+# Make Time the local timezone column in df
+combined_data1$Time.local <- as.POSIXct(combined_data1$Time, tz="America/New_York")
+str(combined_data1)
+
+# Format NodeId so all letters are capatilized
+unique(combined_data1$NodeId) #all NodeId letters were already capitalized
 
 
 ###################################################################################################################################
