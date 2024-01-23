@@ -4,3 +4,6 @@
 .Ruserdata
 *.Rproj
 *.pdf
+/data-raw/2023_node_combined_data.csv
+2023_node_combined_data.csv
+data-raw/2023_node_combined_data.csv

@@ -46,15 +46,17 @@
 
 
 
-# Installing packages needed:
+## Installing packages needed:
 #install.packages('dplyr')
 #install.packages('lubridate')
 #install.packages('purrr')
+#install.packages('hablar')
 
 # loading required packages
 library(dplyr)
 library(lubridate)
 library(purrr)
+library(hablar)
 
 # Reset R's brain - removes all previous objects
 rm(list=ls())
@@ -63,7 +65,7 @@ rm(list=ls())
 ############# Combining beep data from each node into one single dataset (with help from Heather Gaya) ###############################
 
 # Set the path to the main folder containing the node subfolders with the beep_0 CSV files
-main_folder<- "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files"
+main_folder<- "/data-raw/2023_node_files"
 
 # Get a list of all node subfolders in the main folder
 subfolders <- list.dirs(main_folder, full.names = FALSE, recursive = FALSE)
@@ -75,51 +77,76 @@ combined_data <- data.frame()
 # for the pattern = added 0-9 since some beep files are beep_1
 my_beeps <- list.files(pattern = "*beep_[0-9].csv$", include.dirs = TRUE, recursive = TRUE)
 
+total_nodes <- length(my_beeps)
+
 # Loop through each node subfolder
 for (i in 1:length(my_beeps)) {
-  my_current_beep <- read.csv(my_beeps[i]) #grab first node folder 
- 
+  current_beep <- read.csv(my_beeps[i]) #grab first node folder 
+  
   #readLines(my_beeps[30]) #code for figuring out where problem characters were located in the beep dataset -- had to do for a few nodes that contained weird characters
   
-  my_current_beep$node <- substr(my_beeps[i], 1,6) # Creating a column in the dataset that includes the name of the node. We included character 1-6 since it was reading the entire file path.
+  current_beep$NodeId <- substr(my_beeps[i], 26,31) # Creating a column in the dataset that includes the name of the node. We included character 26-31 since it was reading the entire file path.
   
-  head(my_current_beep)
+  head(current_beep) # Checking that data imported properly.
   
-  combined_node_data <- rbind(combined_data, my_current_beep) # Combine the data with the existing combined_data blank dataframe.
+  combined_data <- rbind(combined_data, current_beep) # Combine the data with the existing combined_data blank dataframe.
   }
 
-str(combined_node_data) # Checking the data structure
+str(combined_data) # Checking the data structure
+unique(combined_data$NodeId) # Checking that all 31ish nodes are included
+length(unique(combined_data$NodeId)) # 30 nodes (due to 1 node not having beep data)
 
 # Save the node combined data (new csv with all the beep data from each file and a new column listing node id) to a new dataset or perform further analysis
-write.csv(combined_node_data, "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_combined_data.csv", row.names = FALSE)
+#write.csv(combined_data,file= 'data-raw/2023_node_combined_data.csv', row.names = FALSE)
+head(combined_data)
+tail(combined_data)
+nrow(combined_data)# 10169876 rows! Exceeded the 100 MB file size limit for GitHub.:-( whomp whomp)
+
+## combined_data = the list of all node data without any formatting or removing of records
+
+####################################################################################################################################
+
+### Cleaning up the node data
+
+# Converted NodeId into a factor
+combined_data$NodeId <- as.factor(combined_data$NodeId)
+
+# Converting rssi into a factor
+combined_data$rssi <- as.integer(combined_data$rssi) # wouldn't convert due to odd character rssis
 
 
-# Print the combined dataset
-print(combined_data)
+# Finding incorrect rssi values and removing those rows from the dataset
+unique(combined_data$rssi) #finding the non-integer values in the rssi column
+
+# removing non-integer value rows in the new df combined_data1
+values_to_remove <- c("\xf5\003\x99\xfb\xee֕t\xd0o\xaa\030\xb5\xb4\xc6O\x87\xa6\xeeU\x93\xe8\xc2{n",
+                      "a\xf0\xf7\xde\006\x9a0\022\x88\xb4\x9f\xd0=\001{\xea̹3\x94\x83\xf6\xb4\023:9z\035؇\x96[\xa3\x80催\002M\xfbQ\x91;\x8b\xfb\xf7\v<\005\xf6\xee%ı\034V\x88\xb2}K\xae\x89=",
+                      "" )
+combined_data1<- combined_data %>% filter(!(rssi %in% values_to_remove))
+
+unique(combined_data1$rssi) #checking that the non-integers have been removed
+
 
 ###################################################################################################################################
 
-### Set by User
-# Working Directory - Provide/path/on/your/computer/where/master/csv/file/of/tags/and/nodes/is/found/and/where/Functions_CTT.Network.R/is/located
-working.directory <- "PABU_node/data-raw/2023_node_files"
+### Code for bringing in other Node-related data before cleaning the all of the node data (combined_data)
 
 # Directory for Output data - Provide/path/where/you/want/output/data/to/be/stored/
 outpath <- "PABU_node/data/"
 
 
 # Bring in functions 
-setwd(working.directory)
-source("00_functions_CTT.Network.R")
+source("R_scripts/00_functions-CTT.Network.R")
 
 # Bring in files with TagId and NodeId information 
 
 ## this file includes columns for TagID, StartDate, Species, Name, and Band
-tags <- read.csv("C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files/Tags_trilateration.csv", header = T) 
+tags <- read.csv("data-raw/2023_node_files/Tags_trilateration.csv", header = T) 
 str(tags)  # check that data imported properly
 head(tags)
 
 ## this file includes columns for NodeId, NodeUTMx, and NodeUTMy
-nodes <- read.csv("C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data-raw/2023_node_files/Nodes_Example.csv", header = T)
+nodes <- read.csv("data-raw/2023_node_files/Nodes_Example.csv", header = T)
 str(nodes) # check that data imported properly
 head(nodes)
 
@@ -148,24 +175,27 @@ head(nodes)
 ## Output saved
 # .rds file of the beep_data save in the specified outpath
 
+## We want our beep data to have the following format:
+## 2. BeepData.rds: file with the raw RSS values collected by the node network during the time period of the test. The file should be saved in the working directory defined below
+##            -- output file from Import_beep.data.Github.R script (see BeepData_Example.rds)
+##            -- If using a file created from another source the following columns are needed in the specified format: 
+##                -- TagId: Factor identifying the unique code of a tag
+##                -- Time.local: POSIXct value in the format: "2021-12-29 09:02:51" that identifies the unique datetime stamp (IN THE LOCAL TIME ZONE OF THE STUDY) when the tag was detected by the specified node
+##                    ***** If you don't have a column with the local time, but only UTC time - then change lines 42-44 in Functions_RSS.Based.Localizations.R from 'Time.local' to 'Time' ************
+##                    ***** BUT be sure that Dates and Times in TestInfo.csv are also in UTC time and not local time *********
+##                -- NodeId: Factor identifying the node in the network that detected the specified tag
+##                -- TagRSSI: Integer indicating the RSS value (in dB) of the signal of the specified tag received by the specified node
+##
+## Diane's data currently has: time, id, rssi, node
+
 
 
 # Variables to define for function - replace values below with user specified values -
-INFILE <- "/Users/kpaxton/DataFiles_CTT/Guam Sali"
+INFILE <- "/data-raw/2023_node_combined_data.csv"
 NODE.VERSION <- 2
-RADIOID <- c(1,2)
-TIMEZONE <- "Pacific/Guam" 
+RADIOID <- c(1,2,3)
+TIMEZONE <- "America/Halifax" 
 START <- "2023-05-11"
-END <- "2021-06-02"
-
-grep("<UTC-4>", OlsonNames(), value=TRUE)
-
-# Function to import raw beep data
-beep.output <- import.beeps(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END)
+END <- "2023-11-19"
 
 
-# Isolate raw detection data to be used in next steps
-beep_data <- beep.output[[1]]
-
-# Examine beep data that had bad dates (e.g., 1970, 2024, etc.) to see help diagnose potential nodes that are malfunctioning
-beep_bad <- beep.output[[2]]

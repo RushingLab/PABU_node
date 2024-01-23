@@ -6,6 +6,13 @@
 ##
 ###################################################################################
 
+# Variables to define for function - replace values below with user specified values -
+INFILE <- "/data-raw/2023_node_combined_data.csv"
+NODE.VERSION <- 2
+RADIOID <- c(1,2)
+TIMEZONE <- "America/Halifax" 
+START <- "2023-05-11"
+END <- "2023-11-19"
 
 
 ####### Function to import raw beep data and format ##########
@@ -27,8 +34,8 @@ import.beeps <- function(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END) {
   list_dates <- as.Date(substr(beep_files, 44,53), format = "%Y-%m-%d")
   
   #Define start and end date to select from files
-  start_range <- as.Date(START, format = "%Y-%m-%d")
-  end_range <- as.Date(END,  format = "%Y-%m-%d")
+  start_range <- as.Date(START, format = "2023-05-11")
+  end_range <- as.Date(END,  format = "2023-11-19")
   
   # select only the files that lie in the range of dates 
   beep_files_date <- beep_files[list_dates %in% seq(start_range, end_range, by = "1 day")]
