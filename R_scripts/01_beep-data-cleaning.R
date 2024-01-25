@@ -62,7 +62,7 @@ library(hablar)
 rm(list=ls())
 
 
-############# Combining beep data from each node into one single dataset (with help from Heather Gaya) ###############################
+############# Combining beep data from each node into one single dataset ###############################
 
 # Set the path to the main folder containing the node subfolders with the beep_0 CSV files
 main_folder<- "/data-raw/2023_node_files"
@@ -97,7 +97,6 @@ unique(combined_data$NodeId) # Checking that all 31ish nodes are included
 length(unique(combined_data$NodeId)) # 30 nodes (due to 1 node not having beep data)
 
 # Save the node combined data (new csv with all the beep data from each file and a new column listing node id) to a new dataset or perform further analysis
-#write.csv(combined_data,file= 'data-raw/2023_node_combined_data.csv', row.names = FALSE)
 head(combined_data)
 tail(combined_data)
 nrow(combined_data)# 10169876 rows! Exceeded the 100 MB file size limit for GitHub.:-( whomp whomp)
@@ -113,7 +112,6 @@ combined_data$NodeId <- as.factor(combined_data$NodeId)
 
 # Converting rssi into a factor
 combined_data$rssi <- as.integer(combined_data$rssi) # wouldn't convert due to odd character rssis
-
 
 # Finding incorrect rssi values and removing those rows from the dataset
 unique(combined_data$rssi) #finding the non-integer values in the rssi column
@@ -145,8 +143,8 @@ str(combined_data1)
 combined_data1$Time.local <- as.POSIXct(combined_data1$Time, tz="America/New_York")
 str(combined_data1)
 
-# Format NodeId so all letters are capatilized
-unique(combined_data1$NodeId) #all NodeId letters were already capitalized
+# Checking that NodeId letters are capitalized
+unique(combined_data1$NodeId) 
 
 
 ###################################################################################################################################
