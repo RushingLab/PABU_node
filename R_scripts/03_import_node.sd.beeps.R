@@ -1,6 +1,6 @@
 ###################################################################################
 ## Diane Klement
-## January 22 2023
+## January 22 2024
 ##
 ## Code to collect/download raw detections (or beeps) from Node microSD cards into a file
 ##                            and clean those files

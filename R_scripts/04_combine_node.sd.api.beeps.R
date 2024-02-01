@@ -8,12 +8,14 @@
 ##
 ## R Script for combining CTT Node beep data retrieved from physical Node microSD cards and the CTT cellular API
 ##
-##    To use this script, you will need two rds files created using previous scripts:
+##    Files Needed:
+##      To use this script, you will need two rds files created using previous scripts:
 ##        - beep_api : this rds will contain all beep data that was cleaned and downloaded using using "02_import_node.api.beeps.R" and "02_functions_node.api.beeps.R" 
 ##        - beep_sd : this rds will contain all beep data that was cleaned and downloaded using using "03_import_node.sd.beeps.R"
 ##
-##    First step: Data preparation -- clean up node sd and api beeps so that they match the same format
-##    Second step: Data combination -- combine node sd and api data into one rds file
+##    Woirkflow:
+##        First step: Data preparation -- clean up node sd and api beeps so that they match the same format
+##        Second step: Data combination -- combine node sd and api data into one rds file
 ##
 ##    Output:
 ##        - BeepMerge.rds: merged beep data from api and node sd cards as a rds (R Data Serialization) file

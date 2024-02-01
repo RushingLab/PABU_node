@@ -1,6 +1,6 @@
 ###################################################################################
 ## Diane Klement
-## January 26 2023
+## January 26 2024
 ##
 ## Code to collect/download raw detections (or beeps) from multiple Sensor Stations into a folder using the CTT API method
 ##
