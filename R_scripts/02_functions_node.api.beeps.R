@@ -44,14 +44,14 @@ import.beeps <- function(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END) {
   beep_files_date <- beep_files[list_dates %in% seq(start_range, end_range, by = "1 day")] #3578
   
   # import csv files in the list
-  beep_data <- lapply(beep_files_date, read.csv, header = T, colClasses=c("NodeId"="character","TagId"="character"))
+  beep_data <- lapply(beep_files_date, read.csv, header = T, colClasses=c("NodeId"="character","TagId"="character")) #3578
   
   # Defines the name of each element based on the outcome of substr which is base station name
   # Substr - extracts the sensor station name from beep_file list (each sensor station is 12 characters and is the start of the name)
   beep_data.names <- names(beep_data) <- substr(beep_files_date, 1,12)  # alternatively stringr::str_sub(beep_files, start = 1, end = 12)
   
   # count number of records imported
-  count.import <- sum(sapply(beep_data,nrow)) 
+  count.import <- sum(sapply(beep_data,nrow)) #3535308
   
   # Format Time column
   beep_data <- lapply(beep_data, transform, Time = as.POSIXct(Time,format="%Y-%m-%d %H:%M:%OS",tz = "UTC"))
@@ -60,7 +60,7 @@ import.beeps <- function(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END) {
   beep_data <- lapply(beep_data, transform, Time.local = lubridate::with_tz(Time, tzone = TIMEZONE))
   
   # Add a column indicating the version of the nodes
-  beep_data <- lapply(beep_data, transform, v = NODE.VERSION) #3578
+  beep_data <- lapply(beep_data, transform, v = NODE.VERSION) #3578 elements
   
   # Format NodeId so all letters are capitalized
   beep_data <- lapply(beep_data, transform, NodeId = toupper(NodeId))
@@ -69,13 +69,13 @@ import.beeps <- function(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END) {
   beep_data <- lapply(beep_data, function(x) x[x$TagId %in% tags$TagId,])
   
   # count number of records removed
-  count.ghosts <- count.import - sum(sapply(beep_data,nrow)) 
+  count.ghosts <- count.import - sum(sapply(beep_data,nrow)) #50957
   
   # Keep only rows with specified RadioId (only 1 omni-anntenna)
   beep_data <- lapply(beep_data, function(x) x[x$RadioId %in% RADIOID,])     
   
   # count number of records removed
-  count.RadioId <-  count.import - count.ghosts - sum(sapply(beep_data,nrow)) 
+  count.RadioId <-  count.import - count.ghosts - sum(sapply(beep_data,nrow)) #76158
   
   # Keep only rows with NodeId values in lookup table 
   beep_data <- lapply(beep_data, function(x) x[x$NodeId %in% nodes$NodeId,])
@@ -84,30 +84,30 @@ import.beeps <- function(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END) {
   count.nodes <-  count.import - count.ghosts - count.RadioId - sum(sapply(beep_data,nrow)) 
   
   # Merge all of elements of the list into a dataframe and add an column - SensorId - which indicates the Sensor Station name
-  BeepMerge <- dplyr::bind_rows(beep_data, .id = "SensorId") #3396847
+  BeepMerge <- dplyr::bind_rows(beep_data, .id = "SensorId") #3408191
   
   # Make a dataframe with dates exclude to see if certain nodes are potentially malfunctioning
   BadDates <- BeepMerge %>%
-    dplyr::filter(!(Time.local >= start_range & Time.local <= seq(end_range + 1, end_range + 1, by = "1 day"))) #94605
+    dplyr::filter(!(Time.local >= start_range & Time.local <= seq(end_range + 1, end_range + 1, by = "1 day"))) #95312
   
   # Filter local time so only requested dates are outputted
   # to include times past 00:00:00 needed to have end date = 1 day past end date specified
   BeepMerge <- BeepMerge %>%
-    dplyr::filter(Time.local >= start_range & Time.local <= seq(end_range + 1, end_range + 1, by = "1 day")) #3302242
+    dplyr::filter(Time.local >= start_range & Time.local <= seq(end_range + 1, end_range + 1, by = "1 day")) #3312879
   
   # count number of detections removed with local times not in the network
-  count.date <-  count.import - count.ghosts - count.RadioId - count.nodes - nrow(BeepMerge) #94605
+  count.date <-  count.import - count.ghosts - count.RadioId - count.nodes - nrow(BeepMerge) #95312
   
   # Remove rows with NA values
   # example for a list - beep_data <- lapply(beep_data,function(x) x[complete.cases(x),])
-  BeepMerge <- BeepMerge[complete.cases(BeepMerge),]
+  BeepMerge <- BeepMerge[complete.cases(BeepMerge),] #3312879
   
   # count number of detections with NA
   count.NA <-  count.import - count.ghosts - count.RadioId - count.nodes - count.date - nrow(BeepMerge) #0
   
   # remove duplicate data (e.g. detected at multiple Sensor Stations)
   BeepMerge <- BeepMerge %>%
-    dplyr::distinct(Time, TagId, NodeId, TagRSSI, .keep_all = T) #3301942
+    dplyr::distinct(Time, TagId, NodeId, TagRSSI, .keep_all = T) #3312579
   
   # count number of duplicate rows
   count.duplicates <- count.import - count.ghosts - count.RadioId - count.nodes - count.date - count.NA - nrow(BeepMerge) #300
@@ -118,7 +118,7 @@ import.beeps <- function(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END) {
   BeepMerge$SensorId <- as.factor(BeepMerge$SensorId)
   
   # save beep data
-  saveRDS(BeepMerge, paste0(outpath, "beep_data", "_", START, "_", END, ".rds")) #3301942
+  saveRDS(BeepMerge, paste0(outpath, "beep_data", "_", START, "_", END, ".rds")) #3312579
   
   # Make a list of data to output from function
   list <- list("beep_data" = BeepMerge, "beep.bad.dates" =  BadDates, "count.import" = count.import,"count.NA" =  count.NA, "count.RadioId" = count.RadioId,

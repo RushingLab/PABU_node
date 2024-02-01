@@ -84,7 +84,7 @@ source("data-raw/node_api_files/Little St. Simons Motus/02_functions_node.api.be
 
 ## this file includes columns for TagID, StartDate, Species, Name, and Band
 tags <- read.csv("data-raw/node_api_files/Little St. Simons Motus/nodes/Tags_trilateration.csv", header = T) 
-str(tags)  # check that data imported properly, 18 tags
+str(tags)  # check that data imported properly, 19 tags (including test tag)
 head(tags)
 
 ## this file includes columns for NodeId, NodeUTMx, and NodeUTMy
@@ -134,10 +134,10 @@ beep.output <- import.beeps(INFILE, NODE.VERSION, RADIOID, TIMEZONE, START, END)
 
 # Isolate raw detection data to be used in next steps
 beep_data <- beep.output[[1]] 
-str(beep_data) #3301942
+str(beep_data) #3312579
 # Examine beep data that had bad dates (e.g., 1970, 2024, etc.) to see help diagnose potential nodes that are malfunctioning
 beep_bad <- beep.output[[2]]
-str(beep_bad) #94605
+str(beep_bad) #95312
 
 # Saving beep_data as an rds
 saveRDS(beep_data, file = "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data/beep_api.rds")
