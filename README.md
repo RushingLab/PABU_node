@@ -79,4 +79,8 @@ Files for the analysis of Painted Bunting (PABU) movement data from Cellular Tra
     - R script to import beep/detection data into a usable format from node microSD cards 
   
   + 04_combine_node.sd.beeps.R
-    - R script to combine beep/detection data into a usable format from node microSD cards and the API  
+    - R script to combine beep/detection data into a usable format from node microSD cards and the API
+
+  + 05_rss_by_distance_calibration.R
+    - R script to examine the relationship between RSS values and distance for a given study area using an exponential decay model
+    
