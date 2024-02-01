@@ -1,6 +1,6 @@
 ###################################################################################
 ## Diane Klement
-## January 30 2023
+## January 30 2024
 ##
 ## Code for combining CTT Node beep data retrieved from physical Node microSD cards and the CTT cellular API
 ##
@@ -8,10 +8,27 @@
 ##
 ## R Script for combining CTT Node beep data retrieved from physical Node microSD cards and the CTT cellular API
 ##
-## To use this script, you will need two rds files created using previous scripts:
+##    To use this script, you will need two rds files created using previous scripts:
 ##        - beep_api : this rds will contain all beep data that was cleaned and downloaded using using "02_import_node.api.beeps.R" and "02_functions_node.api.beeps.R" 
 ##        - beep_sd : this rds will contain all beep data that was cleaned and downloaded using using "03_import_node.sd.beeps.R"
 ##
+##    First step: Data preparation -- clean up node sd and api beeps so that they match the same format
+##    Second step: Data combination -- combine node sd and api data into one rds file
+##
+##    Output:
+##        - BeepMerge.rds: merged beep data from api and node sd cards as a rds (R Data Serialization) file
+##        - BeepMerge.csv: merged beep data from api and node sd cards as a csv  (comma-separated values) file
+##            - Columns
+##                - SensorId: Factor identifying the SensorStation name for the beep detection
+##                - Time: POSIXct value in the format: "2021-12-29 09:02:51" that identifies the unique datetime stamp in UTC
+##                - RadioId: Integer value of the RadioId from the tower (ie. 1, 2, or 3)
+##                - TagId: Factor identifying the unique code of a tag
+##                - TagRSSI: Integer indicating the RSS value (in dB) of the signal of the specified tag received by the specified node
+##                - NodeId: Factor identifying the node in the network that detected the specified tag
+##                - Time.local: POSIXct value in the format: "2021-12-29 09:02:51" that identifies the unique datetime stamp (IN THE LOCAL TIME ZONE OF THE STUDY) when the tag was detected by the specified node
+##                - Date: Date when the specified beep was received
+##                - Hour: Hour when the specified beep was received
+##                - Min: Minute the specified beep was received
 ##
 ###################################################################################
 
