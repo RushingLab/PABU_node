@@ -99,3 +99,30 @@ summary(comparedf(BeepMerge1, BeepMerge2)) #summary showed that dataframes are t
 # Saving BeepMerge1 
 saveRDS(BeepMerge1, file= "data/beeps/BeepMerge.rds ")
 
+######################################################################################
+
+## Bring in Test Information for next script
+test.info <- read.csv("data-raw/2023_node_files/Test.Info_Example.csv", header = T)
+str(test.info) # check that data imported properly
+test.info$TagId <- "6166071E" # had to change TagId value column to all one value because for some reason R was importing it as 6166071 instead of 6166071E
+test.info <- subset(test.info, select = -Notes)
+str(test.info) # check that data imported properly
+
+
+# Preparing Test.Info_Example.csv for use in the next few examples
+
+# Setting seed for reproducibility
+set.seed(123)
+
+# Get the number of unique values for TestId in the dataframe
+num.tests <- n_distinct(test.info$TestId)
+num <- unique(test.info$TestId)
+
+# Randomly select 87 unique values for TestId
+random_values_A <- sample(1:num.tests, 87) #triangulation
+random_values_B <- num[!num %in% random_values_A] #test
+
+# Create a new dataframe with a column that assigns an A or B depending on which number is in the TestId column
+test.info$TestAB <- ifelse(test.info$TestId %in% random_values_A, 'A', 'B')
+
+#write.csv(test.info, file= 'data-raw/2023_node_files/Test.Info_ExampleAB.csv')
