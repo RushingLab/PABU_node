@@ -44,6 +44,8 @@
 ##                    -- gps.csv: includes gps locations of node taken while deployed
 ##                    -- test.txt: unsure of utility regarding these files
 ##
+##    Output:
+##        
 #####################################################################################
 # loading required packages
 library(dplyr)
@@ -83,11 +85,9 @@ for (i in 1:length(my_beeps)) {
   combined_data <- rbind(combined_data, current_beep) # Combine the data with the existing combined_data blank dataframe.
   }
 
-str(combined_data) # Checking the data structure
+# Checking the data structure
+str(combined_data) 
 length(unique(combined_data$NodeId)) # 30 nodes (due to 1 node not having beep data)
-
-# Save the node combined data (new csv with all the beep data from each file and a new column listing node id) to a new dataset or perform further analysis
-head(combined_data)
 nrow(combined_data)# 10169876 rows! Exceeded the 100 MB file size limit for GitHub.:-( whomp whomp)
 
 ## combined_data = the list of all node data without any formatting or removing of records
@@ -95,10 +95,6 @@ nrow(combined_data)# 10169876 rows! Exceeded the 100 MB file size limit for GitH
 ###########################################################################################
 
 ####### Cleaning and formatting the node microSD beep data to match Paxton's format #######
-
-
-# Converted NodeId into a factor
-combined_data$NodeId <- as.factor(combined_data$NodeId)
 
 # Converting rssi into a factor
 combined_data$rssi <- as.integer(combined_data$rssi) # wouldn't convert due to odd character rssis
@@ -112,13 +108,10 @@ values_to_remove <- c("\xf5\003\x99\xfb\xee֕t\xd0o\xaa\030\xb5\xb4\xc6O\x87\xa6
                       "" )
 combined_data1<- combined_data %>% filter(!(rssi %in% values_to_remove))
 
+# Making RSSI an integer value
 unique(combined_data1$rssi) #checking that the non-integers have been removed
 combined_data1$rssi <- as.integer(combined_data1$rssi)
 str(combined_data1) #10169864 obs.
-unique(combined_data1$id) 
-
-combined_data$id <- as.factor(combined_data$id) # making tag id a factor
-unique(combined_data1$id) 
 
 # changing the column names to fit Paxton's convention
 colnames(combined_data1) <- c("Time", "TagId", "TagRSSI", "NodeId")
@@ -132,8 +125,12 @@ str(combined_data1)
 combined_data1$Time.local <- as.POSIXct(combined_data1$Time, tz="America/New_York")
 str(combined_data1)
 
-# Checking that NodeId letters are capitalized
-unique(combined_data1$NodeId) 
+# Capitalizing NodeId
+combined_data1$NodeId <-toupper(combined_data1$NodeId) 
+
+# Converted NodeId and TagId into a factor
+combined_data1$NodeId <- as.factor(combined_data1$NodeId)
+combined_data1$TagId <- as.factor(combined_data1$TagId) # making tag id a factor
 
 # Creating a Date column
 combined_data1$Date <- as.Date(combined_data1$Time.local, tz="America/New_York" )
@@ -148,11 +145,11 @@ combined_data1$SensorId <- 'V30B0154CD2D'
 combined_data1$SensorId <-factor(combined_data1$SensorId) # making sensorid a factor
 str(combined_data1) # checking the structure
 
-# Adding a column for RadioId and converting TagId into a factor
+# Adding a column for RadioId 
 combined_data1$RadioId <- as.integer(3) # adding the radio id as a column
-combined_data1$TagId <- as.factor(combined_data1$TagId) # converting tags into factors
+str(combined_data1)
 
-# Reorganizing the strucutre of columns to match the api beep data's structure
+# Reorganizing the structure of columns to match the api beep data's structure
 beep_sd <- combined_data1[, c("SensorId", "Time","RadioId", "TagId", "TagRSSI", "NodeId", "Time.local", "Date", "Hour", "Min")]
 str(beep_sd) 
 #10169864 obs.
@@ -167,7 +164,6 @@ str(beep_sd)
 ## this file includes columns for TagID, StartDate, Species, Name, and Band
 tags <- read.csv("data-raw/2023_node_files/Tags_trilateration.csv", header = T) 
 str(tags)  # check that data imported properly
-colnames(tags)[1] <- "TagId" # changing the incorrectly typed (Id vs ID) column name to match the beep_sd data structure
 
 ## this file includes columns for NodeId, NodeUTMx, and NodeUTMy
 nodes <- read.csv("data-raw/2023_node_files/Nodes_Example.csv", header = T)
@@ -177,11 +173,11 @@ str(nodes) # check that data imported properly
 # Keeping only rows with TagId values from the Tag lookup table
 beep_sd_filter <- droplevels(beep_sd[beep_sd$TagId %in% tags$TagId, ]) # removing tags not included in our Tags$TagId look-up column
 str(beep_sd_filter) # checking that records were removed and that the unused tag levels were removed
-#5620799 obs
+#5700289 obs
 
 # Keep only rows with NodeId values in lookup table 
 beep_sd_filter <- droplevels(beep_sd_filter[beep_sd_filter$NodeId %in% nodes$NodeId, ]) 
-str(beep_sd_filter) #5620799 obs
+str(beep_sd_filter) #5700289 obs
 
 # Start and end time of nodes deployed
 START <- "2023-05-10"
@@ -195,16 +191,16 @@ end_range <- as.Date(END,  format = "%Y-%m-%d")
 # to include times past 00:00:00 needed to have end date = 1 day past end date specified
 beep_sd_time <- beep_sd_filter%>%
   dplyr::filter(Time.local >= start_range & Time.local <= seq(end_range + 1, end_range + 1, by = "1 day"))
-str(beep_sd_time) #5456587
-nrow(beep_sd_filter) - nrow(beep_sd_time) #164212 records removed due to dates outside range
+str(beep_sd_time) #5531354
+nrow(beep_sd_filter) - nrow(beep_sd_time) #168935 records removed due to dates outside range
 
 
 # Remove rows with NA values
 # example for a list - beep_data <- lapply(beep_data,function(x) x[complete.cases(x),])
-beep_sd_clean <- beep_sd_time[complete.cases(beep_sd_time),]
+beep_sd_clean <- beep_sd_time[complete.cases(beep_sd_time),] #5531354
 nrow(beep_sd_time) - nrow(beep_sd_clean) # 0 records removed
 #beep_sd_clean = clean sd card dataset
-#beep_sd_clean has 5456587 rows
+#beep_sd_clean has 5531354 rows
 
 # Saving beep_sd_clean as an RDS
-saveRDS(beep_sd_clean, file = "data/beep_sd.rds")
+saveRDS(beep_sd_clean, file = "data/beeps/beep_sd.rds")

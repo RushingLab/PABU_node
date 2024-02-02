@@ -13,7 +13,7 @@
 ##        - beep_api : this rds will contain all beep data that was cleaned and downloaded using using "02_import_node.api.beeps.R" and "02_functions_node.api.beeps.R" 
 ##        - beep_sd : this rds will contain all beep data that was cleaned and downloaded using using "03_import_node.sd.beeps.R"
 ##
-##    Woirkflow:
+##    Workflow:
 ##        First step: Data preparation -- clean up node sd and api beeps so that they match the same format
 ##        Second step: Data combination -- combine node sd and api data into one rds file
 ##
@@ -48,7 +48,7 @@ rm(list=ls())
 
 
 # Bring in RDS of node API data as generated from "Import_beep.data.Github.R"
-beep_api <- readRDS("data/beep_api.rds")
+beep_api <- readRDS("data/beeps/beep_api.rds")
 
 # Creating a Date column
 beep_api$Date <- as.Date(beep_api$Time.local, tz="America/New_York" ) # for New York timezone
@@ -56,46 +56,46 @@ beep_api$Date <- as.Date(beep_api$Time.local, tz="America/New_York" ) # for New 
 # Creating a hour and minute column
 beep_api$Hour <- hour(beep_api$Time.local)
 beep_api$Min <- minute(beep_api$Time.local)
-str(beep_api) #3301942 obs.
+str(beep_api) #3312579 obs.
 
 # Removing Validated and V columns from beep_api df
 beep_api_clean <- subset(beep_api, select = -c(Validated, v))
 str(beep_api_clean) 
-nrow(beep_api_clean) # 3301942
+nrow(beep_api_clean) # 3312579
 #beep_api_clean = all clean api beep data that we will use for next steps
 
 #################################################################################
 
 # Bringing in the node microSD card beep data output from "04_import_node.sd.beeps.R"
 
-beep_sd_clean <- readRDS(file = "data/beep_sd.rds")
+beep_sd_clean <- readRDS(file = "data/beeps/beep_sd.rds") #5531354
 
 #################################################################################
 
 # Combining SD card and API databases then cleaning them
 
 ## We want to combine the beep_api_clean and beep_sd_clean into a single database then remove duplicate records.
-#3301942 + 5456587 = 8758529 rows should be in combined database
+print(nrow(beep_api_clean) + nrow(beep_sd_clean)) #8843933 rows should be in combined database
 
 BeepMerge <- rbind(beep_api_clean, beep_sd_clean)
 str(BeepMerge)
-nrow(BeepMerge) #8758529
+nrow(BeepMerge) #8843933
 
 # remove duplicate data (e.g. detected at multiple Sensor Stations)
 BeepMerge1 <- BeepMerge %>%
   dplyr::distinct(Time, TagId, NodeId, TagRSSI, .keep_all = T)
 str(BeepMerge1) # BeepMerge1 = removing duplicates
-nrow(BeepMerge1) #5687368
-nrow(BeepMerge)-nrow(BeepMerge1) #3071161 rows lost
+nrow(BeepMerge1) #5762216
+nrow(BeepMerge)-nrow(BeepMerge1) #3081717 rows lost due to duplication
 
 # comparing this record of removing duplicate data to just removing duplicate rows
 BeepMerge2 <- BeepMerge %>% distinct() #BeepMerge2 = combined data after removing duplicate rows
-nrow(BeepMerge2) #5687368
+nrow(BeepMerge2) #5762216
 # BeepMerge2 = removing duplicates in a different way to see if there was a difference
 
 #seeing if each method produced the same number of rows
 summary(comparedf(BeepMerge1, BeepMerge2)) #summary showed that dataframes are the same!
 
 # Saving BeepMerge1 
-saveRDS(BeepMerge1, file= "data/BeepMerge.rds ")
-write.csv(BeepMerge1, file= "data/BeepMerge.csv")
+saveRDS(BeepMerge1, file= "data/beeps/BeepMerge.rds ")
+

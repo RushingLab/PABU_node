@@ -68,7 +68,7 @@ rm(list=ls())
 
 ### Set by User
 # Working Directory - Provide/path/on/your/computer/where/master/csv/file/of/tags/and/nodes/is/found/and/where/Functions_CTT.Network.R/is/located
-#working.directory <- "add here "
+# working.directory <- "add here "
 # I did not set a working directory due to working in an R project format through Github
 
 # Directory for Output data - Provide/path/where/you/want/output/data/to/be/stored/
@@ -140,5 +140,5 @@ beep_bad <- beep.output[[2]]
 str(beep_bad) #95312
 
 # Saving beep_data as an rds
-saveRDS(beep_data, file = "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data/beep_api.rds")
+saveRDS(beep_data, file = "C:/Users/dklem/Documents/Git_Rstudio/PABU_node/data/beeps/beep_api.rds")
 
