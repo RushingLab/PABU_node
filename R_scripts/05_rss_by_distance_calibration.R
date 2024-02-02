@@ -85,32 +85,28 @@ rm(list=ls())
 
 
 ## Set by User
-# Working Directory - Provide/path/on/your/computer/where/master/csv/file/of/nodes/is/found/and/where/Functions_CTT.Network.R/is/located
-working.directory <- " add here "
-
 # Directory for Output data - Provide/path/where/you/want/output/data/to/be/stored/
-outpath <- " add here - make sure it ends with a /"
+outpath <- "data/localizations/"
 
 
 
 ## Bring in functions 
-setwd(working.directory)
-source("Functions_RSS.Based.Localizations.R")
+source("R_scripts/05_functions_rss.based.localizations.R")
 
 
 
 ## Bring in 3 Needed files - Test Information, RSS values, and Node Information - change file names in " " as needed
-test.info <- read.csv("Test.Info_Example.csv", header = T)
+test.info <- read.csv("data-raw/2023_node_files/Test.Info_Example.csv", header = T)
+str(test.info) # check that data imported properly
+test.info$TagId <- "6166071E" # had to change TagId value column to all one value because for some reason R was importing it as 6166071 instead of 6166071E
+test.info <- subset(test.info, select = -Notes)
 str(test.info) # check that data imported properly
 
-beep.dat <- readRDS("BeepData_Example.rds") 
+beep.dat <- readRDS("data/beeps/BeepMerge.rds") 
 str(beep.dat) # check that data imported properly
 
-nodes <- read.csv("Nodes_Example.csv", header = T)
-str(nodes)
-
-
-
+nodes <- read.csv("data-raw/2023_node_files/Nodes_Example.csv", header = T)
+str(nodes) # check that data imported properly
 
 
 #################################################################
@@ -146,13 +142,13 @@ str(nodes)
 
 ##******* Define Variables - replace values below with user specified values *******## 
 TEST.TYPE <- "Calibration"
-DATE.FORMAT <- "%m/%d/%y"
-TIME.ZONE <- "Pacific/Guam"
+DATE.FORMAT <- "%m/%d/%Y" # changed Paxton code to have year represented as %Y due to putting in year as 2023 rather than 23 (which would require %y)
+TIME.ZONE <- "America/New_York" 
 
 
 # Combine RSS data from a node network with test information into a dataframe
 combined.data <- data.setup(TEST.TYPE, DATE.FORMAT, TIME.ZONE)
-
+str(combined.data)
 
 
 
@@ -171,7 +167,6 @@ ggplot(data = combined.data, aes(x = distance, y = avgRSS, color = NodeId)) +
   geom_point(size = 2)
 
 
-
 ## Preliminary Exponential Decay Model to determine starting values for the final model 
 
 # SSasymp - self start for exponential model to finding the starting values of the data
@@ -185,8 +180,22 @@ exp.mod <- nls(avgRSS ~ SSasymp(distance, Asym, R0, lrc), data = combined.data)
 # Summary of Model
 summary(exp.mod)
 # rate of decay
-exp(coef(exp.mod)[["lrc"]])
+exp(coef(exp.mod)[["lrc"]]) 
+#0.005318208
 
+#Diane's Output
+#Parameters:
+#       Estimate Std. Error t value Pr(>|t|)    
+#Asym -104.34460    0.25045  -416.6   <2e-16 ***
+#R0    -54.38621    0.73690   -73.8   <2e-16 ***
+#lrc    -5.23662    0.02449  -213.9   <2e-16 ***
+#  ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#
+# Residual standard error: 7.073 on 2807 degrees of freedom
+#
+#Number of iterations to convergence: 7 
+#Achieved convergence tolerance: 3.749e-06
 
 
 
@@ -194,15 +203,15 @@ exp(coef(exp.mod)[["lrc"]])
 ## based on visualization of the data and values in the Preliminary Model Output
 
 # exponential model formula: avgRSS ~ a * exp(-S * distance) + K
-# a = intercept
-# S = decay factor
-# K = horizontal asymptote
+# a = intercept #Diane interpreted as the 'R0' above
+# S = decay factor  #Diane interpreted as the 'rate of decay' calculated above
+# K = horizontal asymptote #Diane interpreted as the 'Asym' above
 
 
 ##  ***** Variables to define for final model below - replace values below with values from exp.mod ****  ## 
-a <- -59
-S <- 0.004561831
-K <- -104.63033
+a <- -54.38621
+S <- 0.005318208
+K <- -104.34460
 
 
 # Final Model
@@ -213,6 +222,9 @@ summary(nls.mod)
 # Model Coefficients 
 # **** you will use these coefficient values to estimate distance in Github_TestDataset_LocalizationError.R and Github_Simulations.R scripts *****
 coef(nls.mod)
+#            a             S             K 
+# 4.995845e+01  5.318227e-03 -1.043446e+02 
+
 
 
 ## Check the fit of the model and get predicted values
