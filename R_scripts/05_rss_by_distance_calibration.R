@@ -197,6 +197,20 @@ exp(coef(exp.mod)[["lrc"]])
 #Number of iterations to convergence: 7 
 #Achieved convergence tolerance: 3.749e-06
 
+#Diane's parameters after removing NAs from combined.data
+##Parameters:
+##      Estimate Std. Error t value Pr(>|t|)    
+##Asym -103.89548    0.25470 -407.91   <2e-16 ***
+##R0    -54.09915    0.74795  -72.33   <2e-16 ***
+##lrc    -5.21219    0.02479 -210.21   <2e-16 ***
+##  ---
+##Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+##Residual standard error: 7.088 on 2729 degrees of freedom
+
+##Number of iterations to convergence: 7 
+##Achieved convergence tolerance: 4.498e-06
+
 
 
 ## Final Exponential Decay Model with user provided self-starting values 
@@ -209,9 +223,9 @@ exp(coef(exp.mod)[["lrc"]])
 
 
 ##  ***** Variables to define for final model below - replace values below with values from exp.mod ****  ## 
-a <- -54.38621
-S <- 0.005318208
-K <- -104.34460
+a <- -54.09915 # -54.38621 for the regular run
+S <- 0.00544974 #0.005318208
+K <- -103.89548 #-104.34460
 
 
 # Final Model
@@ -225,6 +239,9 @@ coef(nls.mod)
 #            a             S             K 
 # 4.995845e+01  5.318227e-03 -1.043446e+02 
 
+#For the removal of NA model run
+#a             S             K 
+#4.979639e+01  5.449764e-03 -1.038954e+02 
 
 
 ## Check the fit of the model and get predicted values

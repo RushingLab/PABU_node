@@ -1,4 +1,12 @@
 ###################################################################################
+## Diane Klement
+## February 1 2024
+##
+## Code to examine the relationship between RSS values and distance for a given study area using an exponential decay model
+##
+##
+###################################################################################
+###################################################################################
 ## Kristina L Paxton
 ##
 ## April 26 2021
@@ -88,6 +96,9 @@ data.setup <- function(TEST.TYPE, DATE.FORMAT, TIME.ZONE) {
   summary.dist <- summary.dist %>%
     dplyr::left_join(nodes[, c("NodeId", "NodeUTMx", "NodeUTMy")]) %>%
     dplyr::left_join(test.UTM[, c("TestId", "TestUTMx", "TestUTMy")]) 
+  
+  # Removing rows with NAs for summary.dist$sdRSS from the df
+  summary.dist <- summary.dist[complete.cases(summary.dist$sdRSS), ]
   
     ## save file
   write.csv(summary.dist, paste0(outpath, TEST.TYPE, "_Dataset.csv"),
