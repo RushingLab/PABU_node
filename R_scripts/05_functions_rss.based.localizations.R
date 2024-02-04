@@ -97,9 +97,7 @@ data.setup <- function(TEST.TYPE, DATE.FORMAT, TIME.ZONE) {
     dplyr::left_join(nodes[, c("NodeId", "NodeUTMx", "NodeUTMy")]) %>%
     dplyr::left_join(test.UTM[, c("TestId", "TestUTMx", "TestUTMy")]) 
   
-  # Removing rows with NAs for summary.dist$sdRSS from the df
-  summary.dist <- summary.dist[complete.cases(summary.dist$sdRSS), ]
-  
+ 
     ## save file
   write.csv(summary.dist, paste0(outpath, TEST.TYPE, "_Dataset.csv"),
             row.names = F)

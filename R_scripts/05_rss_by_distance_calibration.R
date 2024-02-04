@@ -97,11 +97,13 @@ source("R_scripts/05_functions_rss.based.localizations.R")
 
 
 ## Bring in 3 Needed files - Test Information, RSS values, and Node Information - change file names in " " as needed
+
 test.info <- read.csv("data-raw/2023_node_files/Test.Info_ExampleAB.csv", header = T)
 str(test.info) # check that data imported properly
 test.info$TagId <- "6166071E" # had to change TagId value column to all one value because for some reason R was importing it as 6166071 instead of 6166071E
 str(test.info) # check that data imported properly
-
+# Subsetting test.info based on whether it is the calibration (A) or test dataset (B)
+test.info <- test.info[test.info$TestAB == 'A', ]
 
 beep.dat <- readRDS("data/beeps/BeepMerge.rds") 
 str(beep.dat) # check that data imported properly
@@ -183,8 +185,9 @@ summary(exp.mod)
 # rate of decay
 exp(coef(exp.mod)[["lrc"]]) 
 #0.005318208
+#0.005617166 : As
 
-#Diane's Output
+#Diane's 1st Output
 #Parameters:
 #       Estimate Std. Error t value Pr(>|t|)    
 #Asym -104.34460    0.25045  -416.6   <2e-16 ***
@@ -198,19 +201,19 @@ exp(coef(exp.mod)[["lrc"]])
 #Number of iterations to convergence: 7 
 #Achieved convergence tolerance: 3.749e-06
 
-#Diane's parameters after removing NAs from combined.data
+#Diane's parameters after using just As from combined.data
 ##Parameters:
-##      Estimate Std. Error t value Pr(>|t|)    
-##Asym -103.89548    0.25470 -407.91   <2e-16 ***
-##R0    -54.09915    0.74795  -72.33   <2e-16 ***
-##lrc    -5.21219    0.02479 -210.21   <2e-16 ***
-##  ---
-##Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#   Estimate Std. Error t value Pr(>|t|)    
+#Asym -103.91927    0.29250 -355.28   <2e-16 ***
+# R0    -52.60159    0.92728  -56.73   <2e-16 ***
+# lrc    -5.18193    0.02884 -179.68   <2e-16 ***
+#  ---
+#  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-##Residual standard error: 7.088 on 2729 degrees of freedom
+#Residual standard error: 7.179 on 1994 degrees of freedom
 
-##Number of iterations to convergence: 7 
-##Achieved convergence tolerance: 4.498e-06
+#Number of iterations to convergence: 8 
+#Achieved convergence tolerance: 3.114e-06
 
 
 
@@ -224,9 +227,9 @@ exp(coef(exp.mod)[["lrc"]])
 
 
 ##  ***** Variables to define for final model below - replace values below with values from exp.mod ****  ## 
-a <- -54.09915 # -54.38621 for the regular run
-S <- 0.00544974 #0.005318208
-K <- -103.89548 #-104.34460
+a <- -52.60159 # -54.38621 for the regular run
+S <- 0.005617166 #0.005318208
+K <- -103.91927 #-104.34460
 
 
 # Final Model
@@ -244,6 +247,9 @@ coef(nls.mod)
 #a             S             K 
 #4.979639e+01  5.449764e-03 -1.038954e+02 
 
+#For the As run
+#a             S             K 
+#5.131773e+01  5.617182e-03 -1.039193e+02
 
 ## Check the fit of the model and get predicted values
 
