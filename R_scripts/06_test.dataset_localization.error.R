@@ -101,11 +101,13 @@ source("R_scripts/Functions_RSS.Based.Localizations.R")
 
 
 ## Bring in 3 Needed files - Test Information, RSS values, and Node Information - change file names in " " as needed
-test.info <- read.csv("data-raw/2023_node_files/Test.Info_Example.csv", header = T)
+
+test.info <- read.csv("data-raw/2023_node_files/Test.Info_ExampleAB.csv", header = T)
 str(test.info) # check that data imported properly
 test.info$TagId <- "6166071E" # had to change TagId value column to all one value because for some reason R was importing it as 6166071 instead of 6166071E
-test.info <- subset(test.info, select = -Notes)
 str(test.info) # check that data imported properly
+# Subsetting test.info based on whether it is the calibration (A) or test dataset (B)
+test.info <- test.info[test.info$TestAB == 'B', ]
 
 beep.dat <- readRDS("data/beeps/BeepMerge.rds") 
 str(beep.dat) # check that data imported properly
