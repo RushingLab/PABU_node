@@ -96,7 +96,7 @@ outpath <- "data/localizations/"
 
 
 ## Bring in functions 
-source("R_scripts/Functions_RSS.Based.Localizations.R")
+source("R_scripts/05_functions_rss.based.localizations.R")
 
 
 
@@ -180,9 +180,9 @@ combined.data <- data.setup(TEST.TYPE, DATE.FORMAT, TIME.ZONE)
 
 
 ##******** Define Variables - replace values below with user specified values ********##  
-a <- -54.09915 # -54.38621 for the regular run
-S <- 0.00544974 #0.005318208
-K <- -103.89548
+a <- 5.131773e+01
+S <- 5.617182e-03
+K <- -1.039193e+02
 
 
 # Function to estimate the distance of each test signal from the node based on the RSS values detected
@@ -258,7 +258,7 @@ no.filters <- trilateration.TestData.NoFilter(combined.data)
 
 
 ##****** Define variables - indicate the RSS values to filter data prior to trilateration ************#
-RSS.FILTER <- c(-80, -85, -90, -95)
+RSS.FILTER <- c(-80, -85, -90, -95, -100)
 
 
 # Calculate error of location estimates of each test location when RSS filters are applied prior to trilateration 
@@ -294,7 +294,7 @@ RSS.filters <- trilateration.TestData.RSS.Filter(combined.data)
 
 
 ##****** Define variables - indicate the Distance values to filter data prior to trilateration ************#
-DIST.FILTER <- c(315,500,750,1000)
+DIST.FILTER <- c(315,300,450,600) #150 m node spacing
 
 
 # Calculate error of location estimates of each test location when Distance filters are applied prior to trilateration 

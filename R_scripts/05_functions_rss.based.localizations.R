@@ -26,6 +26,7 @@
 library(padr)
 library(raster)
 library(slider)
+library(dplyr)
 
 data.setup <- function(TEST.TYPE, DATE.FORMAT, TIME.ZONE) {
   
@@ -121,7 +122,7 @@ data.setup <- function(TEST.TYPE, DATE.FORMAT, TIME.ZONE) {
 
 estimate.distance <- function(x) {
   
-  # supress warnings
+  # suppress warnings
   options(warn = -1)
   
   # Calculate estimated distance based on RSSI~Distance relationship and indicate simulation round
