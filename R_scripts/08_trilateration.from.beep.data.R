@@ -111,6 +111,8 @@ str(beep.data) # check that data imported properly
 
 
 nodes <- read.csv("data-raw/2023_node_files/Nodes_Example.csv", header = T)
+#Changing the names of columns NodeUTMx and NodeUTMy to UTMx and UTMy according to above format
+colnames(nodes) <- c("NodeId", "UTMx", "UTMy")
 str(nodes) 
 
 tags <- read.csv("data-raw/2023_node_files/Tags_trilateration.csv", header = T) %>%
@@ -128,7 +130,7 @@ str(tags)
 
 
 beep.filtered <- filter.dates(beep.data,tags)
-
+str(beep.filtered)
 
 
 
@@ -175,9 +177,9 @@ beep.filtered <- filter.dates(beep.data,tags)
 
 ##******* Define Variables - replace values below with user specified values *******##
 
-a <- 47.23 
-S <- 0.005
-K <- -105.16
+a <- 5.131773e+01 
+S <- 5.617182e-03
+K <- -1.039193e+02
 SLIDE.TIME <- 2
 GROUP.TIME <- "1 min"
 
