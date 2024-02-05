@@ -2,7 +2,9 @@
 ## Diane Klement
 ## January 31 2024
 ##
-## Code to examine the relationship between RSS values and distance for a given study area using an exponential decay model
+##    -- Code to assess the localization error associated with RSS-based localization estimates for a node network based on a test dataset
+##        -- Test dataset should be locations that differ from the dataset used to calibrate the relationship between RSS and distance for the node network
+##        -- localization error = difference in distance (m) between true and estimated location
 ##
 ##
 ###################################################################################

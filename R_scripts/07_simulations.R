@@ -1,3 +1,13 @@
+###################################################################################
+## Diane Klement
+## February 4 2024
+##
+##  -- Code to simulate 3 node configurations within a 12.5 km2 grid - node spacing: 100m (n = 100 nodes), 175m (n = 64 nodes), or 250m (n = 36 nodes)
+##  -- Create simulated dataset of RSS values for a given node configuration incorporating variability in RSS values based on noise in your node network
+##  -- Assess the error associated with RSS-based localization estimates when filters are applied prior to trilateration analysis 
+##        -- localization error = difference in distance (m) between true and estimated location
+##
+###################################################################################
 ###########################################################################################################################################################
 ##
 ##  Kristina L Paxton
