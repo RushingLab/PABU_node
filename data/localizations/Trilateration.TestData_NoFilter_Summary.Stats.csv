@@ -1,0 +1,2 @@
+"n.est.tests","avg.no.nodes","avg.diff","sd.diff","lower.ci","upper.ci","med.diff","min.diff","max.dist","filter"
+35,16.6,126.159139495135,72.7954121083031,102.042428564426,150.275850425844,112.025838220693,16.7871255240316,312.307744250882,"No Filter"
