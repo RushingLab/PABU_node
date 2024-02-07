@@ -98,12 +98,13 @@ source("R_scripts/05_functions_rss.based.localizations.R")
 
 ## Bring in 3 Needed files - Test Information, RSS values, and Node Information - change file names in " " as needed
 
-test.info <- read.csv("data-raw/2023_node_files/Test.Info_ExampleAB.csv", header = T)
+test.info <- read.csv("data-raw/2023_node_files/Test.Info_Example0.9.csv", header = T)
 str(test.info) # check that data imported properly
 test.info$TagId <- "6166071E" # had to change TagId value column to all one value because for some reason R was importing it as 6166071 instead of 6166071E
 str(test.info) # check that data imported properly
 # Subsetting test.info based on whether it is the calibration (A) or test dataset (B)
-test.info <- test.info[test.info$TestAB == 'A', ]
+#test.info <- test.info[test.info$TestAB == 'A', ]
+test.info <- test.info[test.info$PropTest == 'A', ]
 
 beep.dat <- readRDS("data/beeps/BeepMerge.rds") 
 str(beep.dat) # check that data imported properly
@@ -185,7 +186,10 @@ summary(exp.mod)
 # rate of decay
 exp(coef(exp.mod)[["lrc"]]) 
 #0.005318208
-#0.005617166 : As
+#0.005617166 : AB
+#0.005320165 :0.8 As
+#0.00528154: 0.85 As
+#0.005304291: 0.9 As
 
 #Diane's 1st Output
 #Parameters:
@@ -201,7 +205,7 @@ exp(coef(exp.mod)[["lrc"]])
 #Number of iterations to convergence: 7 
 #Achieved convergence tolerance: 3.749e-06
 
-#Diane's parameters after using just As from combined.data
+#Diane's parameters after using just As from combined.data (AB)
 ##Parameters:
 #   Estimate Std. Error t value Pr(>|t|)    
 #Asym -103.91927    0.29250 -355.28   <2e-16 ***
@@ -214,6 +218,41 @@ exp(coef(exp.mod)[["lrc"]])
 
 #Number of iterations to convergence: 8 
 #Achieved convergence tolerance: 3.114e-06
+
+#Diane's parameters for 0.8 As
+#Parameters:
+#      Estimate Std. Error t value Pr(>|t|)    
+# Asym -104.28136    0.27905 -373.71   <2e-16 ***
+#  R0    -54.28493    0.82147  -66.08   <2e-16 ***
+# lrc    -5.23625    0.02724 -192.23   <2e-16
+
+#Diane's parameters for 0.85 As
+#Parameters:
+#  Estimate Std. Error t value Pr(>|t|)    
+#Asym -104.2844     0.2705 -385.57   <2e-16 ***
+#  R0    -54.6306     0.7943  -68.78   <2e-16 ***
+#  lrc    -5.2435     0.0266 -197.09   <2e-16 ***
+#  ---
+#  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+#Residual standard error: 7.001 on 2403 degrees of freedom
+
+#Number of iterations to convergence: 7 
+#Achieved convergence tolerance: 3.206e-06
+
+#Diane's parameters for 0.9 As
+#Parameters:
+#       Estimate Std. Error t value Pr(>|t|)    
+# Asym -104.23413    0.26497 -393.38   <2e-16 ***
+# R0    -54.42834    0.77369  -70.35   <2e-16 ***
+# lrc    -5.23924    0.02591 -202.25   <2e-16 ***
+#  ---
+#  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+#Residual standard error: 7.05 on 2513 degrees of freedom
+
+#Number of iterations to convergence: 7 
+#Achieved convergence tolerance: 3.251e-06
 
 
 
@@ -243,13 +282,21 @@ coef(nls.mod)
 #            a             S             K 
 # 4.995845e+01  5.318227e-03 -1.043446e+02 
 
-#For the removal of NA model run
+#AB run
 #a             S             K 
-#4.979639e+01  5.449764e-03 -1.038954e+02 
+#5.131773e+01  5.617182e-03 -1.039193e+02 
 
-#For the As run
+#80% proportion run
+#            a             S             K 
+#4.999648e+01  5.320181e-03 -1.042813e+02 
+
+#85% proportion run
 #a             S             K 
-#5.131773e+01  5.617182e-03 -1.039193e+02
+#4.965384e+01  5.281557e-03 -1.042844e+02 
+
+#90% proportion run
+#a             S             K 
+#4.980584e+01  5.304308e-03 -1.042341e+02 
 
 ## Check the fit of the model and get predicted values
 
@@ -268,7 +315,7 @@ combined.data$pred <- predict(nls.mod)
 
 
 ## Save Final Dataset with Residuals and Predictions
-write.csv(combined.data, paste0(outpath, "Calibration_Dataset_withResiduals_Predictions.csv"),
+write.csv(combined.data, paste0(outpath, "Calibration_Dataset_withResiduals_PredictionsAB.csv"),
           row.names = F)
 
 

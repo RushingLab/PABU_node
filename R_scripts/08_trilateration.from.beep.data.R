@@ -177,9 +177,9 @@ str(beep.filtered)
 
 ##******* Define Variables - replace values below with user specified values *******##
 
-a <- 5.131773e+01 
-S <- 5.617182e-03
-K <- -1.039193e+02
+a <- 4.999648e+01 
+S <- 5.320181e-03
+K <- -1.042813e+02
 SLIDE.TIME <- 2
 GROUP.TIME <- "1 min"
 
@@ -209,7 +209,7 @@ beep.grouped <- prep.data(beep.filtered,nodes)
 ## largest distance between nodes in your network (e.g., 2000)
 ## RSS.FILTER = RSS value that will be used to filter data prior to trilateration analysis
 # All RSS values less than the specified value will be removed from the beep dataset
-## If you do not want to filter by RSS values then select a value greater than your horizontal asymptope, K (e.g., -106)
+## If you do not want to filter by RSS values then select a value greater than your horizontal asymptote, K (e.g., -106)
 
 ## Output
 ## While the function is running it will indicate which tag it is processing and the number of unique
@@ -235,8 +235,8 @@ beep.grouped <- prep.data(beep.filtered,nodes)
 
 ##******* Define Variables - replace values below with user specified values *******##
 
-DIST.filter <- 350
-RSS.filter <- -90
+DIST.filter <- 3000
+RSS.filter <- -85
 
 
 location.estimates <- trilateration(beep.grouped)

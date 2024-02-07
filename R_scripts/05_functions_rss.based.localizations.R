@@ -100,7 +100,7 @@ data.setup <- function(TEST.TYPE, DATE.FORMAT, TIME.ZONE) {
   
  
     ## save file
-  write.csv(summary.dist, paste0(outpath, TEST.TYPE, "_Dataset.csv"),
+  write.csv(summary.dist, paste0(outpath, TEST.TYPE, "_Dataset90.csv"),
             row.names = F)
   
   
@@ -375,8 +375,7 @@ trilateration.TestData.RSS.Filter <- function(x) {
   
 }
 
-# may have to remove rows from summary.dist$sdRSS that have NAs
-# currently 78 rows have NAs for sdRSS
+
 
 
 ###############################################
@@ -534,12 +533,12 @@ trilateration.TestData.Distance.Filter <- function(x){
 ## Create a grid of nodes, random points, and plot both
 create.node.config <- function(SIZE) { 
   
-  if(SIZE == "n100") {
+  if(SIZE == "n150") {
     
     # Create nodes for a 100m spacing for a Grid 12 x 12
-    node.x <- rep(c(0,100,200,300,400,500,600,700,800,900,1000,1100,1200), each = 13)
-    node.y <- rep(c(0,100,200,300,400,500,600,700,800,900,1000,1100,1200), 13)
-    NodeId <- paste0(rep("N",169), 1:169)
+    node.x <- rep(c(0,150,300,450,600,750,900,1050,1200), each = 9)
+    node.y <- rep(c(0,150,300,450,600,750,900,1050,1200), 9)
+    NodeId <- paste0(rep("N",81), 1:81)
     nodes <- data.frame(x= node.x, y = node.y, NodeId = NodeId)
     
     # Create a set of 100 random points for both x and y within the grid
@@ -550,8 +549,8 @@ create.node.config <- function(SIZE) {
     PointId <- paste0(rep("P",100), 1:100)
     random.points <- data.frame(x = random.x, y = random.y, PointId = PointId)
     
-    # Distance filter for 100m nodes
-    DIST.FILTER <- c(125, 200, 300, 400) 
+    # Distance filter for 150m nodes
+    DIST.FILTER <- c(187.5,300,450,600)
     
     # Create a list of the node configuration and random points and then add it to R environment
     new.list <- list("nodes" = nodes, "random.points" = random.points, "DIST.FILTER" = DIST.FILTER)
@@ -790,7 +789,7 @@ get.RSS.values <- function(NUM.SIM, a, S, K){
   
   
   # save results
-  saveRDS(random.rss_results.all.sim, paste0(outpath, "Simulated.rss.values_", SIZE, ".rds"))
+  saveRDS(random.rss_results.all.sim, paste0(outpath, "Simulated.rss.values80_", SIZE, ".rds"))
   
   return(random.rss_results.all.sim)
   
@@ -1428,7 +1427,7 @@ trilateration <- function(x) {
     
     
     # save estimated locations
-    saveRDS(estimated.location_results, paste0(outpath, "Estimated.Locations_", START, "_", END, ".rds"))
+    saveRDS(estimated.location_results, paste0(outpath, "Estimated.Locations80_", START, "_", END, ".rds"))
     
     
   }
