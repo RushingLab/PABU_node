@@ -789,7 +789,7 @@ get.RSS.values <- function(NUM.SIM, a, S, K){
   
   
   # save results
-  saveRDS(random.rss_results.all.sim, paste0(outpath, "Simulated.rss.values80_", SIZE, ".rds"))
+  saveRDS(random.rss_results.all.sim, paste0(outpath, "Simulated.rss.values90_", SIZE, ".rds"))
   
   return(random.rss_results.all.sim)
   
@@ -894,7 +894,7 @@ trilateration.Sim.NoFilter <- function(x) {
   combined_results_final <- dplyr::bind_cols(combined_results, data.frame(diff.dist = dst))
   
   # save file
-  write.csv(combined_results_final, paste0(outpath, "Trilateration.Simulation_NoFilter_Summary.Results.csv"),  row.names = F)
+  write.csv(combined_results_final, paste0(outpath, "Trilateration.Simulation_NoFilter_Summary.Results90.csv"),  row.names = F)
   
   # summarize statistics for a given filter
   summary.stats <- combined_results_final %>%
@@ -911,7 +911,7 @@ trilateration.Sim.NoFilter <- function(x) {
     dplyr::mutate(filter = paste0("No Filter"))
   
   # save file
-  write.csv(summary.stats, paste0(outpath, "Trilateration.Simulation_NoFilters_Summary.Stats.csv"),  row.names = F)
+  write.csv(summary.stats, paste0(outpath, "Trilateration.Simulation_NoFilters_Summary.Stats90.csv"),  row.names = F)
   
   return(summary.stats)
   
@@ -1035,7 +1035,7 @@ trilateration.Sim.RSS.Filter <- function(x) {
     combined_results_final <- dplyr::bind_cols(combined_results, data.frame(diff.dist = dst))
     
     # save file
-    write.csv(combined_results_final, paste0(outpath, "Trilateration.Simulation_Filter.RSS.", RSS.FILTER[i], "_Summary.Results.csv"),  row.names = F)
+    write.csv(combined_results_final, paste0(outpath, "Trilateration.Simulation_Filter90.RSS.", RSS.FILTER[i], "_Summary.Results.csv"),  row.names = F)
     
     # summarize statitics for a given filter
     summary.stats <- combined_results_final %>%
@@ -1055,7 +1055,7 @@ trilateration.Sim.RSS.Filter <- function(x) {
     summary.stats_results <- rbind(summary.stats_results, summary.stats)
     
     # save file
-    write.csv(summary.stats_results, paste0(outpath, "Trilateration.Simulation_Filters.RSS_Summary.Stats.csv"),  row.names = F)
+    write.csv(summary.stats_results, paste0(outpath, "Trilateration.Simulation_Filters.RSS_Summary.Stats90.csv"),  row.names = F)
     
     print(i)
     
@@ -1201,7 +1201,7 @@ trilateration.Sim.Distance.Filter <- function(x) {
     combined_results_final <- dplyr::bind_cols(combined_results, data.frame(diff.dist = dst))
     
     # save file
-    write.csv(combined_results_final, paste0(outpath, "Trilateration.Simulation_Filter.Distance.", DIST.FILTER[i], "_Summary.Results.csv"),  row.names = F)
+    write.csv(combined_results_final, paste0(outpath, "Trilateration.Simulation_Filter.Distance90.", DIST.FILTER[i], "_Summary.Results.csv"),  row.names = F)
     
     # summarize statitics for a given filter
     summary.stats <- combined_results_final %>%
@@ -1221,7 +1221,7 @@ trilateration.Sim.Distance.Filter <- function(x) {
     summary.stats_results <- rbind(summary.stats_results, summary.stats)
     
     # save file
-    write.csv(summary.stats_results, paste0(outpath, "Trilateration.Simulation_Filters.Distance_Summary.Stats.csv"),  row.names = F)
+    write.csv(summary.stats_results, paste0(outpath, "Trilateration.Simulation_Filters.Distance_Summary.Stats90.csv"),  row.names = F)
     
     
   }
@@ -1427,7 +1427,7 @@ trilateration <- function(x) {
     
     
     # save estimated locations
-    saveRDS(estimated.location_results, paste0(outpath, "Estimated.Locations80_", START, "_", END, ".rds"))
+    saveRDS(estimated.location_results, paste0(outpath, "Estimated.Locations90p-90_", START, "_", END, ".rds"))
     
     
   }

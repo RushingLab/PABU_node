@@ -22,7 +22,7 @@
 # Time - GMT time of the detection
 # RadioId - unique identifier of radio port
 # TagId - unique identifier of the tag detected
-# TagRSSI - signal strenght of the tag detected in dB
+# TagRSSI - signal strength of the tag detected in dB
 # NodeId - unique identifier of the node that detected the signal
 # Validated - CTT field for Hybrid and LifeTags
 # Time.local - time for the local time zone defined by user
@@ -177,9 +177,9 @@ str(beep.filtered)
 
 ##******* Define Variables - replace values below with user specified values *******##
 
-a <- 4.999648e+01 
-S <- 5.320181e-03
-K <- -1.042813e+02
+a <- 4.980584e+01
+S <- 5.304308e-03
+K <- -1.042341e+02
 SLIDE.TIME <- 2
 GROUP.TIME <- "1 min"
 
@@ -236,7 +236,7 @@ beep.grouped <- prep.data(beep.filtered,nodes)
 ##******* Define Variables - replace values below with user specified values *******##
 
 DIST.filter <- 3000
-RSS.filter <- -85
+RSS.filter <- -90
 
 
 location.estimates <- trilateration(beep.grouped)

@@ -60,7 +60,7 @@ source("R_scripts/05_functions_rss.based.localizations.R")
 
 
 ## Bring Needed File - RSS by Distance Calibration Data - - change file name in " " as needed
-combined.data <- read.csv("data/localizations/Calibration_Dataset80.csv", header = T)
+combined.data <- read.csv("data/localizations/Calibration_Dataset90.csv", header = T)
 
 
 
@@ -133,9 +133,9 @@ create.node.config(SIZE)
 
 ##******** Define Variables - replace values below with user specified values ********##  
 NUM.SIM <- 1000
-a <- 4.999648e+01
-S <- 5.320181e-03
-K <- -1.042813e+02
+a <- 4.980584e+01
+S <- 5.304308e-03
+K <- -1.042341e+02 
 
 
 # Create simulated dataset to be used for trilateration analysis
