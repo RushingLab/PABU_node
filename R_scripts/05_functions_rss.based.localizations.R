@@ -1315,7 +1315,7 @@ prep.data <- function(x,y) {
 
 
 trilateration <- function(x) {
-  
+  x <- beep.grouped
   # supress warnings
   options(warn = -1)
   
@@ -1341,11 +1341,11 @@ trilateration <- function(x) {
   
   # Create a dataframe for output estimates
   estimated.location_results <- data.frame(TagId=character(), Time.group = POSIXct(), Hour = numeric(), No.Nodes = numeric(), UTMx_est=numeric(), UTMy_est=numeric(), 
-                                           x.LCI =numeric(), x.UCI =numeric(),  y.LCI = numeric(), y.UCI = numeric())
+                                           x.LCI =numeric(), x.UCI =numeric(),  y.LCI = numeric(), y.UCI = numeric(), 
+                                           x.sd = numeric(), y.sd = numeric(), x.var = numeric(), y.var = numeric(), xy.cov = numeric()) # adding error to the function
   
   # Loop through each bird
   for (k in 1:length(bird)) {
-    
     
     # Filter data for the identified bird
     sub.bird <- beep.grouped %>% dplyr::filter(TagId == bird[k])
@@ -1404,20 +1404,33 @@ trilateration <- function(x) {
                                  data = sub.test.dist.rssi, start=list(UTMx_solution=max.RSSI$UTMx, UTMy_solution=max.RSSI$UTMy),
                                  control=nls.control(warnOnly = T, minFactor=1/30000, maxiter = 100)) # gives a warning, but doesn't stop the test from providing an estimate based on the last itteration before the warning
       
-      
+     
       # Determine an error around the point location estimate
       par.est = cbind(coef(nls.test), confint2(nls.test))
+      std.error = summary(nls.test)$parameters[,1:2]
       UTMx.ci.upper =  par.est[1,3] 
       UTMx.ci.lower =  par.est[1,2]
       UTMy.ci.upper =  par.est[2,3] 
-      UTMy.ci.lower =  par.est[2,2] }
+      UTMy.ci.lower =  par.est[2,2]
+      UTMx.sd = std.error[1,2] # adding the sd of nls for UTMx
+      UTMy.sd = std.error[2,2] # adding the sd of nls for UTMy
+      UTMx.var = UTMx.sd^2 # adding var of the fitted model object nls for UTMx
+      UTMy.var = UTMy.sd^2 # adding var of the fitted model object nls for UTMy
+      cov = vcov(nls.test)
+      UTMxy.covar = cov[1,2] # adding the covar of the fitted model object nls
+      }
       
       ,error = function(e)  {cat("ERROR :",conditionMessage(e), "\n")})
       
       # estimated location of the point and error
-      estimated.loc <- data.frame(TagId = bird[k], Time.group = tests[j], Hour = test.hour, No.Nodes = no.nodes, UTMx_est = par.est[1,1], UTMy_est = par.est[2,1], 
-                                  x.LCI = UTMx.ci.lower, x.UCI = UTMx.ci.upper,  y.LCI = UTMy.ci.lower, y.UCI = UTMy.ci.upper)
+      #estimated.loc <- data.frame(TagId = "072A0766", Time.group = "2023-06-27 14:26:00 EDT", Hour = test.hour, No.Nodes = no.nodes, UTMx_est = par.est[1,1], UTMy_est = par.est[2,1], 
+                                  #x.LCI = UTMx.ci.lower, x.UCI = UTMx.ci.upper,  y.LCI = UTMy.ci.lower, y.UCI = UTMy.ci.upper, x.sd = UTMx.sd , y.sd = UTMy.sd, 
+                                  #x.var = UTMx.var, y.var = UTMy.var, xy.cov = UTMxy.covar)
       
+      
+      estimated.loc <- data.frame(TagId = bird[k], Time.group = tests[j], Hour = test.hour, No.Nodes = no.nodes, UTMx_est = par.est[1,1], UTMy_est = par.est[2,1], 
+                                  x.LCI = UTMx.ci.lower, x.UCI = UTMx.ci.upper,  y.LCI = UTMy.ci.lower, y.UCI = UTMy.ci.upper, x.sd = UTMx.sd , y.sd = UTMy.sd,
+                                  x.var = UTMx.var, y.var = UTMy.var, xy.cov = UTMxy.covar)
       
       # Populate dataframe with results
       estimated.location_results <- rbind(estimated.location_results, estimated.loc)
@@ -1427,7 +1440,7 @@ trilateration <- function(x) {
     
     
     # save estimated locations
-    saveRDS(estimated.location_results, paste0(outpath, "Estimated.Locations90p-90_", START, "_", END, ".rds"))
+    saveRDS(estimated.location_results, paste0(outpath, "Error.sd.cov.Estimated.Locations90p-90_", START, "_", END, ".rds"))
     
     
   }

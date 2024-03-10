@@ -107,9 +107,9 @@ END <- "2023-11-20"
 ## Bring in 3 files needed for functions below and format date columns where needed
 beep.data <- readRDS(paste0("data/beeps/beep_data_", START, "_", END, ".rds")) %>%
   dplyr::mutate(Date = as.Date.POSIXct(Time.local, tz = TIMEZONE))
-str(beep.data) # check that data imported properly
+str(beep.data) # check that data imported properly #5762216
 
-
+# Bring in node data
 nodes <- read.csv("data-raw/2023_node_files/Nodes_Example.csv", header = T)
 #Changing the names of columns NodeUTMx and NodeUTMy to UTMx and UTMy according to above format
 colnames(nodes) <- c("NodeId", "UTMx", "UTMy")
@@ -240,7 +240,5 @@ RSS.filter <- -90
 
 
 location.estimates <- trilateration(beep.grouped)
-
-
 
 

@@ -9,3 +9,9 @@
 data-raw/2023_node_combined_data.csv
 /data-raw/node_api_files/V30B0154CD2D/
 V30B0154CD2D/
+*.gif
+*.mp4
+data/animations
+/data/animations
+data/figures
+/data/figures
