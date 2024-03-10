@@ -136,7 +136,7 @@ NUM.SIM <- 1000
 a <- 4.980584e+01
 S <- 5.304308e-03
 K <- -1.042341e+02 
-
+# using the a, S, K values from the 90% proportion calibration and 10% test data run
 
 # Create simulated dataset to be used for trilateration analysis
 random.rss_results.all.sim <- get.RSS.values(NUM.SIM, a, S, K)

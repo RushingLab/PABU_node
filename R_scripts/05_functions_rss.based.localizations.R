@@ -100,7 +100,7 @@ data.setup <- function(TEST.TYPE, DATE.FORMAT, TIME.ZONE) {
   
  
     ## save file
-  write.csv(summary.dist, paste0(outpath, TEST.TYPE, "_Dataset90.csv"),
+  write.csv(summary.dist, paste0(outpath, TEST.TYPE, "_Dataset90p.csv"),
             row.names = F)
   
   
@@ -138,7 +138,7 @@ estimate.distance <- function(x) {
                                             e.dist >=0 ~ e.dist))
   
   # Save File to outpath
-  write.csv(combined.data, paste0(outpath, "LocError_Dataset.csv"),
+  write.csv(combined.data, paste0(outpath, "LocError_Dataset.90p.csv"),
             row.names = F)
   
   return(combined.data)
@@ -224,7 +224,7 @@ trilateration.TestData.NoFilter <- function(x) {
     dplyr::mutate(filter = "No Filter")
   
   # save file
-  write.csv(combined_results_final, paste0(outpath, "Trilateration.TestData_NoFilter.RSS_Results.csv"),  row.names = F)
+  write.csv(combined_results_final, paste0(outpath, "Trilateration.TestData_NoFilter.RSS_Results90p.csv"),  row.names = F)
   
   # summarize statitics for a given filter
   summary.stats <- combined_results_final %>%
@@ -240,7 +240,7 @@ trilateration.TestData.NoFilter <- function(x) {
     dplyr::mutate(filter = "No Filter")
   
   # save file
-  write.csv(summary.stats, paste0(outpath, "Trilateration.TestData_NoFilter_Summary.Stats.csv"),  row.names = F)
+  write.csv(summary.stats, paste0(outpath, "Trilateration.TestData_NoFilter_Summary.Stats90p.csv"),  row.names = F)
   
   return(summary.stats)
 }
@@ -347,7 +347,7 @@ trilateration.TestData.RSS.Filter <- function(x) {
       dplyr::mutate(filter = paste0("RSS", " ", RSS.FILTER[i]))
     
     # save file
-    write.csv(combined_results_final, paste0(outpath, "Trilateration.Test.Data_Filter.RSS.", RSS.FILTER[i], "_Results.csv"),  row.names = F)
+    write.csv(combined_results_final, paste0(outpath, "Trilateration.Test.Data_Filter.RSS90p.", RSS.FILTER[i], "_Results.csv"),  row.names = F)
     
     # summarize statitics for a given filter
     summary.stats <- combined_results_final %>%
@@ -369,7 +369,7 @@ trilateration.TestData.RSS.Filter <- function(x) {
   }
   
   # save file
-  write.csv(summary.stats_results, paste0(outpath, "Trilateration.Test.Data_Filters.RSSI_Summary.Stats.csv"),  row.names = F)
+  write.csv(summary.stats_results, paste0(outpath, "Trilateration.Test.Data_Filters.RSSI_Summary.Stats90p.csv"),  row.names = F)
   
   return(summary.stats_results)
   
@@ -493,7 +493,7 @@ trilateration.TestData.Distance.Filter <- function(x){
       dplyr::mutate(filter = paste0("Distance", " ", DIST.FILTER[i]))
     
     # save file
-    write.csv(combined_results_final, paste0(outpath, "Trilateration.Test.Data_Filter.Distance.", DIST.FILTER[i], "_Results.csv"),  row.names = F)
+    write.csv(combined_results_final, paste0(outpath, "Trilateration.Test.Data_Filter.Distance.", DIST.FILTER[i], "_Results90p.csv"),  row.names = F)
     
     
     # Summary Stats of data for a given filter
@@ -516,7 +516,7 @@ trilateration.TestData.Distance.Filter <- function(x){
   }
   
   # save file
-  write.csv(summary.stats_results, paste0(outpath, "Trilateration.Simulation_Filters.Distance_Summary.Stats.csv"),  row.names = F)
+  write.csv(summary.stats_results, paste0(outpath, "Trilateration.Simulation_Filters.Distance_Summary.Stats90p.csv"),  row.names = F)
   
   return(summary.stats_results)
   

@@ -176,7 +176,7 @@ str(beep.filtered)
 
 
 ##******* Define Variables - replace values below with user specified values *******##
-
+# using the a, S, K values from the 90% calibration data, 10% test data run
 a <- 4.980584e+01
 S <- 5.304308e-03
 K <- -1.042341e+02
@@ -235,8 +235,8 @@ beep.grouped <- prep.data(beep.filtered,nodes)
 
 ##******* Define Variables - replace values below with user specified values *******##
 
-DIST.filter <- 3000
-RSS.filter <- -90
+DIST.filter <- 3000 # in order to not include a distance filter
+RSS.filter <- -90 # in order to include a -90 RSS filter
 
 
 location.estimates <- trilateration(beep.grouped)
