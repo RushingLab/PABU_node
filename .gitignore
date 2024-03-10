@@ -15,3 +15,9 @@ data/animations
 /data/animations
 data/figures
 /data/figures
+data/localizations/Trilateration.TestData_NoFilter*.csv
+data/localizations/Trilateration.Test.Data_Filter.Distance*.csv
+data/localizations/Trilateration.Test.Data_Filter90.RSS.-85_Results.csv
+data/localizations/Trilateration.Test.Data_Filter90.RSS.-95_Results.csv
+data/localizations/Trilateration.Test.Data_Filter90.RSS.-80_Results.csv
+data/localizations/Trilateration.Test.Data_Filter90.RSS.-100_Results.csv
