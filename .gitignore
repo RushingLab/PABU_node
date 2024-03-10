@@ -22,3 +22,5 @@ data/localizations/Trilateration.Test.Data_Filter90.RSS.-95_Results.csv
 data/localizations/Trilateration.Test.Data_Filter90.RSS.-80_Results.csv
 data/localizations/Trilateration.Test.Data_Filter90.RSS.-100_Results.csv
 data/simulations
+data/trilateration/Estimated.Locations80p-85_2023-05-10_2023-11-20.rds
+data/trilateration/Estimated.Locations90p-85_2023-05-10_2023-11-20.rds
