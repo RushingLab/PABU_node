@@ -173,7 +173,7 @@ get_maptypes()
 
 frames <- frames_spatial(m, 
                          map_service = "mapbox", map_type = "satellite",   
-                         map_token = "pk.eyJ1IjoiZGprbGVtZW50IiwiYSI6ImNsc3dnc2s2NDBkYWEybGxhYjc5ejh4YTkifQ.fkUPiguFDRXzU2PHLh9x4A" ) %>%
+                         map_token = "insert-key-here" ) %>%
   add_labels(x = "Longitude", y = "Latitude",
              title = "Painted Bunting Project (LSSI, GA)") %>% # add some customization, such as axis labels
   add_northarrow() %>%
@@ -228,7 +228,7 @@ locations_longlat <- cbind(locations_subset, locs_longlat) #includes all UTM val
 if(!requireNamespace("devtools")) install.packages("devtools")
 devtools::install_github("dkahle/ggmap", ref = "tidyup", force=TRUE)
 library(ggmap)
-ggmap::register_google(key = "AIzaSyAZGhpbS-sk3PwTLL0h-Gkm0E6SrBi0uKo")
+ggmap::register_google(key = "INSERT-KEY-HERE")
 
 
 # Define the map center and pull from only
