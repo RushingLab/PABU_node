@@ -7,6 +7,11 @@
 #then do home ranges
 #then some extra resource selection stuff that not important
 
+## The following links can be very helpful: 
+##      -https://ecoisilva.github.io/AKDE_minireview/code/AKDE_R-tutorial.html
+##      -https://cran.r-project.org/web/packages/ctmm/vignettes/akde.html
+##
+
 ###################################################################################
 
 # Loading packages
@@ -21,53 +26,94 @@ library(tidyverse)
 
 ###################################################################################
 
-# Loading in simulated movement data for all PABU from the 2023 field season
-sim.locs <- readRDS("D:/Simulated.Locations1000.HomeRange.90p-90.locs.filtered1_2023-05-10_2023-11-20.rds")
-str(sim.locs) # checking format/columns
+# Loading in mean movement locations from CTT Nodes for all PABU from the 2023 field season
+locations <- readRDS("data/trilateration/Error.sd.cov.Estimated.Locations90p-90_2023-05-10_2023-11-20.rds")
+str(locations)
 
 # To use the ctmm package to make aKDEs will have to format data according to MoveBank conventions
-sim.locs1 <- sim.locs %>%
+locs1 <- locations %>%
               rename(ID = TagId) %>% # changing the TagId name to ID
               rename(timestamp = Time.group) %>% # changing the Time.group column name to timestamp
-              rename(utm.easting = UTMx_sim) %>% # changing simulated UTMx column name to utm.easting
-              rename(utm.northing = UTMy_sim) %>% # changing simulated UTMy column name to utm.northing
+              rename(utm.easting = UTMx_est) %>% # changing simulated UTMx column name to utm.easting
+              rename(utm.northing = UTMy_est) %>% # changing simulated UTMy column name to utm.northing
               mutate(UTM.zone = "17 +north") # creating a column for the UTM zone
-rm(sim.locs) # to free up RAM
 
 # Create column 't' (time in seconds from 1970), this is the time interval in seconds/minutes/hours between detection pings
-sim.locs1[['t']] <- time_length(interval(ymd("1970-01-01"), sim.locs1$timestamp), "hour")
+locs1[['t']] <- time_length(interval(ymd("1970-01-01"), locs1$timestamp), "hour")
 
 # Removing the seconds from the POSIXct time format
-sim.locs1[['timestamp']] <- as.POSIXct(sim.locs1[['timestamp']],
+locs1[['timestamp']] <- as.POSIXct(locs1[['timestamp']],
                                        format = "%m/%d/%Y %H:%M")
 
 # Checking the data structure
-str(sim.locs1)
+str(locs1)
 
 # Remove unnecessary columns (any thing that isn't id, timestamp, t, utm coords, utm zone)
-sim.locs.clean <- sim.locs1 %>%
+locs.clean <- locs1 %>%
                     dplyr::select(c(ID, timestamp, t, utm.easting, utm.northing, UTM.zone))
 
-str(sim.locs.clean) # checking the data structure -- ensure the column order is ID, timestamp, t, utm.easting, utm.northing, UTM.zone
+str(locs.clean) # checking the data structure -- ensure the column order is ID, timestamp, t, utm.easting, utm.northing, UTM.zone
 
-rm(sim.locs1) # to free up RAM
+rm(locs1) # to free up RAM
+rm(locations) # to free up RAM
 
 # Coercing movement data.frame into a telemetry object to use in ctmm
-sim.locs.tel <- as.telemetry(sim.locs.clean, timezone = 'UTC') 
+locs.tel <- as.telemetry(locs.clean, timezone = 'UTC') 
+locs.tel <- locs.tel[-16] # removing the test tag from the list
 
-# Separating movement data into each individual
+# Looking for outliers
+OUT <- lapply(locs.tel,outlie)
+
+# Looking for asymptote
+SVF.locs.tel <- lapply(locs.tel, variogram)
+plot(SVF.locs.tel[[1]])
+plot(SVF.locs.tel[[7]])
+
+# Automated guesstimate for calibrated data
+GUESS.locs.tel <- ctmm.guess(locs.tel[[1]], interactive = FALSE)
+GUESS.locs.tel_list <- list()  # Create an empty list to store the results
+
+for (i in 1:length(locs.tel)){
+  GUESS.locs.tel <- ctmm.guess(locs.tel[[i]], interactive = FALSE)
+  GUESS.locs.tel_list[[paste0(i)]] <- GUESS.locs.tel
+  }
 
 
+M.IID <- ctmm.fit(locs.tel[[1]]) # no autocorrelation timescales, KDE
+GUESS <- ctmm.guess(locs.tel[[1]], interactive=FALSE) # automated model guess
+M.OUF <- ctmm.select(locs.tel[[1]], GUESS)
 
-SVF.carlos <- variogram(Tag.carlos.w1) #to look for asymptote
-plot(SVF.carlos)
+KDE <- akde(locs.tel[[1]], M.IID) # KDE
+AKDE <- akde(locs.tel[[1]], M.OUF) #AKDE
+wAKDE <- akde(locs.tel[[1]], M.OUF, weights=TRUE) # weighted AKDE
 
-GUESS.carlos.w1 <- ctmm.guess(Tag.carlos.w1, interactive = FALSE)
+plot(KDE)
+title(expression("IID KDE"["C"]))
+plot(AKDE)
+title(expression("OUF AKDE"["C"]))
+plot(wAKDE)
+title(expression("weighted OUF AKDE"["C"]))
 
-carlosw1_pHREML <- ctmm.select(Tag.carlos.w1, GUESS.carlos.w1, verbose = TRUE, method = 'pHREML') #perturbed hybrid REML
+
+# calculate one extent for all UDs
+EXT <- extent(list(KDE,AKDE,wAKDE),level=0.95)
+
+plot(locs.tel[[7]],UD=KDE)
+title(expression("IID KDE"["C"]))
+plot(locs.tel[[7]],UD=AKDE)
+title(expression("OUF AKDE"["C"]))
+plot(locs.tel[[7]],UD=wAKDE)
+title(expression("weighted OUF AKDE"["C"]))
+
+# comparing the area estimates and effective sample sizes
+summary(KDE)$CI
+summary(AKDE)$CI
+summary(wAKDE)$CI
+
+carlosw1_pHREML <- ctmm.select(locs.tel[[1]], GUESS.locs.tel, verbose = TRUE, method = 'pHREML') #perturbed hybrid REML
 
 summary(carlosw1_pHREML) #get model selection table
-UD1_carlos_w1 <- akde(Tag.carlos.w1, carlosw1_pHREML, weights = TRUE)
+UD1_carlos_w1 <- akde(locs.tel[[1]], carlosw1_pHREML, weights = TRUE)
 
 summary(UD1_carlos_w1) #info about akde area
 plot(UD1_carlos_w1)
@@ -75,7 +121,9 @@ class(UD1_carlos_w1)
 
 #to change percentage use level.UD function (what size akde)
 summary(UD1_carlos_w1, level.UD = 0.50)
-plot(Tag.carlos.w1,UD=UD1_carlos_w1)
+plot(locs.tel[[1]],UD=UD1_carlos_w1)
+
+plot(locs.tel, col=rainbow(length(locs.tel)))
 
 writeShapefile(UD1_carlos_w1,"E:/Final Location Estimates, Shapefiles, MCPs and AKDE",file="PT2A2A6166_LT4C333366_OnlyFLGData_95akde",convex=FALSE,level.UD=0.95,level=0.95)
 
