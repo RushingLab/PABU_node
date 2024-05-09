@@ -1,0 +1,694 @@
+﻿FID,Proofed,TYPE,DATE,POINT,SPECIES,NATIVE_STATUS,STEM_DENSITY,START_TIME,LAT,LONG,LOCATION,BURN_TRACT_ID,PLANT_PHENOLOGY,STEMS_IN_SEED,PLANT_PRESSED,PHOTO_NO,END TIME,SEEDS_COLLECTED,PERCENT_VEG,OBSERVER INITIALS,WIND,PRECIP,CLOUD,TEMP (C),HUMIDITY (%),NOTES
+,y,available,7/22/2023,132,Paspalum notatum,nonnative,45,6:29,31.25531,-81.27834,Bass Crk Rd,11,seed; no seed,7,y,-,6:43,y,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,132,Cyperus polystachyos,native,14,6:29,31.25531,-81.27834,Bass Crk Rd,11,seed,14,y,IMG_3040,6:43,y,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,132,crabgrass,nonnative,16,6:29,31.25531,-81.27834,Bass Crk Rd,11,seed; no seed,1,y,IMG_3041,6:43,y,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,132,Phyla nodiflora,native,1,6:29,31.25531,-81.27834,Bass Crk Rd,11,none,0,n,IMG_3042,6:43,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,132,Eupatorium capillifolium,native,1,6:29,31.25531,-81.27834,Bass Crk Rd,11,none,0,y,IMG_3043,6:43,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,131,Eupatorium capillifolium,native,12,6:56,31.25499,-81.27868,Bass Crk Rd,11,none,0,n,-,7:20,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,131,Cyperus polystachyos,native,6,6:56,31.25499,-81.27868,Bass Crk Rd,11,seed,6,n,-,7:20,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,131,Cyperus retrorsus,native,1,6:56,31.25499,-81.27868,Bass Crk Rd,11,seed,1,y,IMG_3045,7:20,y,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,131,Cynodon dactylon,nonnative,387,6:56,31.25499,-81.27868,Bass Crk Rd,11,seed; flowering,23,y,-,7:20,y,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,131,Ampelopsis arborea,native,1,6:56,31.25499,-81.27868,Bass Crk Rd,11,none,0,n,-,7:20,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,131,Hydrocotyle bonariensis,native,9,6:56,31.25499,-81.27868,Bass Crk Rd,11,none,0,n,IMG_3048;IMG_3049,7:20,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,131,Polypremum procumbens,native,5,6:56,31.25499,-81.27868,Bass Crk Rd,11,flowering,0,n,IMG_3050,7:20,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,127,Cyperus polystachyos,native,8,7:20,31.25398,-81.27949,Bass Crk Rd,11,seed,6,n,-,7:30,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,127,Eupatorium capillifolium,native,12,7:20,31.25398,-81.27949,Bass Crk Rd,11,none,0,n,-,7:30,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,127,Polypremum procumbens,native,42,7:20,31.25398,-81.27949,Bass Crk Rd,11,flowering,0,n,-,7:30,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,127,Cynodon dactylon,nonnative,5,7:20,31.25398,-81.27949,Bass Crk Rd,11,none,0,n,-,7:30,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,127,crabgrass,nonnative,1,7:20,31.25398,-81.27949,Bass Crk Rd,11,none,0,n,-,7:30,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,130,Heterotheca subaxillaris,native,2,7:40,31.25372,-81.27969,Bass Crk Rd,11,none,0,n,IMG_3051,7:50,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,130,Eupatorium capillifolium,native,16,7:40,31.25372,-81.27969,Bass Crk Rd,11,none,0,n,-,7:50,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,130,Diodia teres,native,9,7:40,31.25372,-81.27969,Bass Crk Rd,11,none,0,n,IMG_3052,7:50,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,130,Cyperus polystachyos,native,1,7:40,31.25372,-81.27969,Bass Crk Rd,11,seed,1,n,-,7:50,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,130,Cynodon dactylon,nonnative ,32,7:40,31.25372,-81.27969,Bass Crk Rd,11,seed; no seed,7,n,-,7:50,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,130,Polypremum procumbens,native,13,7:40,31.25372,-81.27969,Bass Crk Rd,11,flowering,0,n,-,7:50,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,133,Cyperus brevifolius,nonnative ,13,7:50,31.25294,-81.28038,Bass Crk Rd,11,seed,13,y,IMG_3053,8:00,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,133,Arenaria serpyllifolia,nonnative ,5,7:50,31.25294,-81.28038,Bass Crk Rd,11,none,0,y,IMG_3054,8:00,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,133,crabgrass,nonnative ,4,7:50,31.25294,-81.28038,Bass Crk Rd,11,none,0,n,-,8:00,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,133,Ludwigia alternifolia,native,2,7:50,31.25294,-81.28038,Bass Crk Rd,11,none,0,n,-,8:00,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,133,Cynodon dactylon,nonnative ,168,7:50,31.25294,-81.28038,Bass Crk Rd,11,seed,17,n,-,8:00,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,135,Paspalum notatum,nonnative ,172,8:00,31.2486,-81.28419,Mos Crk Rd,13,seed,5,n,-,8:10,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,135,Cynodon dactylon,nonnative ,48,8:00,31.2486,-81.28419,Mos Crk Rd,13,seed; flowering,16,n,-,8:10,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,134,Paspalum notatum,nonnative ,243,8:11,31.24691,-81.28499,Mos Crk Rd,13,seed,8,n,-,8:19,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,137,Paspalum notatum,nonnative ,72,8:20,31.24565,-81.28421,Mos Crk Rd,13,seed,1,n,-,8:24,n,55,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,137,Cynodon dactylon,nonnative ,13,8:20,31.24565,-81.28421,Mos Crk Rd,13,seed,4,n,IMG_3055; IMG_3056,8:24,n,55,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,138,Paspalum notatum,nonnative ,189,8:25,31.24553,-81.28418,Mos Crk Rd,13,seed,5,n,-,8:30,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,138,Cynodon dactylon,nonnative ,90,8:25,31.24553,-81.28418,Mos Crk Rd,13,seed,17,n,-,8:30,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,138,Cyperus polystachyos,native,1,8:25,31.24553,-81.28418,Mos Crk Rd,13,seed,1,n,-,8:30,n,100,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,121,Muhlenbergia sericea,native,1,8:33,31.24524,-81.28419,Mos Crk Rd,13,none,0,n,-,8:38,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,121,Eupatorium capillifolium,native,5,8:33,31.24524,-81.28419,Mos Crk Rd,13,none,0,n,-,8:38,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,121,Paspalum notatum,nonnative ,8,8:33,31.24524,-81.28419,Mos Crk Rd,13,seed,2,n,-,8:38,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,121,crabgrass,nonnative ,12,8:33,31.24524,-81.28419,Mos Crk Rd,13,none,0,n,IMG_3059,8:38,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,136,Phyla nodiflora,native,18,8:40,31.24447,-81.28437,Mos Crk Rd,13,flowering,0,n,IMG_3061;IMG_3062,8:46,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,136,crabgrass,nonnative ,35,8:40,31.24447,-81.28437,Mos Crk Rd,13,seed,2,n,-,8:46,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,136,Cynodon dactylon,nonnative ,39,8:40,31.24447,-81.28437,Mos Crk Rd,13,none,0,n,-,8:46,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,179,Phyla nodiflora,native,6,8:53,31.24406,-81.28437,Mos Crk Rd,13,none,0,n,-,9:20,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,179,Eupatorium capillifolium,native,11,8:53,31.24406,-81.28437,Mos Crk Rd,13,none,0,n,-,9:20,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,179,Paspalum notatum,nonnative ,18,8:53,31.24406,-81.28437,Mos Crk Rd,13,seed,1,n,-,9:20,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,179,Ampelopsis arborea,native,1,8:53,31.24406,-81.28437,Mos Crk Rd,13,none,0,n,-,9:20,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,179,Cynodon dactylon,nonnative ,2,8:53,31.24406,-81.28437,Mos Crk Rd,13,none,0,n,-,9:20,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,95,Euthamia caroliniana,native,6,9:42,31.25525,-81.27904,Bass Crk N,9,none,0,n,-,9:48,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,95,Eupatorium capillifolium,native,9,9:42,31.25525,-81.27904,Bass Crk N,9,none,0,n,-,9:48,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,95,Muhlenbergia sericea,native,1,9:42,31.25525,-81.27904,Bass Crk N,9,none,0,n,-,9:48,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,96,Euthamia caroliniana,native,4,9:48,31.25536,-81.27896,Bass Crk N,9,none,0,n,-,9:54,n,50,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,96,Eupatorium capillifolium,native,9,9:48,31.25536,-81.27896,Bass Crk N,9,none,0,n,-,9:54,n,50,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,96,Ampelopsis arborea,native,2,9:48,31.25536,-81.27896,Bass Crk N,9,seed,2,n,-,9:54,n,50,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,96,Hypericum hypericoides,native,1,9:48,31.25536,-81.27896,Bass Crk N,9,none,0,y,IMG_3064,9:54,n,50,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,108,Eupatorium capillifolium,native,39,10:00,31.25549,-81.27895,Bass Crk N,9,none,0,n,-,10:07,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,108,Solidago sempervirens,native,11,10:00,31.25549,-81.27895,Bass Crk N,9,none,0,y,IMG_3065,10:07,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,71,Euthamia caroliniana,native,14,10:08,31.25552,-81.27883,Bass Crk N,9,none,0,n,-,10:13,n,65,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,71,Ampelopsis arborea,native,2,10:08,31.25552,-81.27883,Bass Crk N,9,seed,2,n,-,10:13,n,65,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,71,Solidago sempervirens,native,2,10:08,31.25552,-81.27883,Bass Crk N,9,none,0,n,-,10:13,n,65,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,97,Muhlenbergia sericea,native,2,10:14,31.25572,-81.27878,Bass Crk N,9,none,0,n,-,10:17,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,97,Eupatorium capillifolium,native,2,10:14,31.25572,-81.27878,Bass Crk N,9,none,0,n,-,10:17,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,97,Ampelopsis arborea,native,1,10:14,31.25572,-81.27878,Bass Crk N,9,seed,1,n,-,10:17,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,97,Rubus trivialis,native,1,10:14,31.25572,-81.27878,Bass Crk N,9,none,0,n,-,10:17,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,56,Setaria parviflora,native,7,10:29,31.25558,-81.27989,Bass Crk N,9,seed,6,n,-,10:31,y,70,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,56,Ampelopsis arborea,native,1,10:29,31.25558,-81.27989,Bass Crk N,9,seed,1,n,-,10:31,n,70,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,56,Rubus trivialis,native,1,10:29,31.25558,-81.27989,Bass Crk N,9,none,0,n,-,10:31,n,70,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,81,Eupatorium capillifolium,native,3,10:41,31.25551,-81.28002,Bass Crk N,9,none,0,n,-,10:43,n,70,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,81,Parthenocissus quinquefolia,native,1,10:41,31.25551,-81.28002,Bass Crk N,9,none,0,n,-,10:43,n,70,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,81,Ampelopsis arborea,native,2,10:41,31.25551,-81.28002,Bass Crk N,9,seed,2,n,-,10:43,n,70,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,81,Setaria parviflora,native,2,10:41,31.25551,-81.28002,Bass Crk N,9,seed,2,n,-,10:43,n,70,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,47,Muhlenbergia sericea,native,2,10:47,31.25522,-81.28017,Bass Crk N,9,none,0,n,-,10:49,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,47,Solidago sempervirens,native,4,10:47,31.25522,-81.28017,Bass Crk N,9,none,0,n,-,10:49,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,47,Ampelopsis arborea,native,6,10:47,31.25522,-81.28017,Bass Crk N,9,seed,3,n,-,10:49,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,47,Eupatorium capillifolium,native,9,10:47,31.25522,-81.28017,Bass Crk N,9,none,0,n,-,10:49,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,94,Muhlenbergia sericea,native,2,10:54,31.25525,-81.2803,Bass Crk N,9,none,0,n,-,10:57,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,94,Euthamia caroliniana,native,4,10:54,31.25525,-81.2803,Bass Crk N,9,none,0,n,-,10:57,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,94,Ampelopsis arborea,native,1,10:54,31.25525,-81.2803,Bass Crk N,9,seed,1,n,-,10:57,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,86,Muhlenbergia sericea,native,1,10:58,31.25512,-81.28036,Bass Crk N,9,none,0,n,-,11:11,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,86,Euthamia caroliniana,native,2,10:58,31.25512,-81.28036,Bass Crk N,9,none,0,n,-,11:11,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,86,Ampelopsis arborea,native,1,10:58,31.25512,-81.28036,Bass Crk N,9,seed,1,n,-,11:11,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,86,Solidago sempervirens,native,5,10:58,31.25512,-81.28036,Bass Crk N,9,none,0,n,-,11:11,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,91,Muhlenbergia sericea,native,1,11:13,31.25484,-81.28041,Bass Crk N,9,none,0,n,-,11:25,n,45,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,91,red-stemmed plant,,2,11:13,31.25484,-81.28041,Bass Crk N,9,none,0,y,-,11:25,n,45,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,91,Houstonia procumbens,native,2,11:13,31.25484,-81.28041,Bass Crk N,9,none,0,n,-,11:25,n,45,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,75,Muhlenbergia sericea,native,3,11:28,31.25479,-81.2805,Bass Crk N,9,none,0,n,-,11:42,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,75,Hypericum hypericoides,native,1,11:28,31.25479,-81.2805,Bass Crk N,9,none,0,n,-,11:42,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,75,Eupatorium capillifolium,native,2,11:28,31.25479,-81.2805,Bass Crk N,9,none,0,n,-,11:42,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,75,Euthamia caroliniana,native,1,11:28,31.25479,-81.2805,Bass Crk N,9,none,0,n,-,11:42,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,75,rose plant family,,1,11:28,31.25479,-81.2805,Bass Crk N,9,none,0,y,IMG_3077; IMG_3078; IMG_3079; IMG_3080,11:42,n,60,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,55,Euthamia caroliniana,native,4,11:46,31.25465,-81.2808,Bass Crk N,9,none,0,n,-,11:49,n,80,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,55,Eupatorium capillifolium,native,7,11:46,31.25465,-81.2808,Bass Crk N,9,none,0,n,-,11:49,n,80,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,55,Rubus trivialis,native,2,11:46,31.25465,-81.2808,Bass Crk N,9,none,0,n,-,11:49,n,80,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,55,Ampelopsis arborea,native,2,11:46,31.25465,-81.2808,Bass Crk N,9,seed,2,n,-,11:49,n,80,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,83,Eupatorium capillifolium,native,5,11:50,31.25441,-81.28095,Bass Crk N,9,none,0,n,-,11:57,n,50,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,83,Ampelopsis arborea,native,2,11:50,31.25441,-81.28095,Bass Crk N,9,seed,1,n,-,11:57,n,50,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,83,Euthamia caroliniana,native,2,11:50,31.25441,-81.28095,Bass Crk N,9,none,0,n,-,11:57,n,50,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,83,Hydrocotyle bonariensis,native,2,11:50,31.25441,-81.28095,Bass Crk N,9,none,0,n,-,11:57,n,50,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,104,Muhlenbergia sericea,native,2,11:58,31.25447,-81.28085,Bass Crk N,9,none,0,n,-,12:01,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,104,Eupatorium capillifolium,native,5,11:58,31.25447,-81.28085,Bass Crk N,9,none,0,n,-,12:01,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,104,Cirsium nuttallii,native,1,11:58,31.25447,-81.28085,Bass Crk N,9,flowering,0,n,-,12:01,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,104,Ampelopsis arborea,native,3,11:58,31.25447,-81.28085,Bass Crk N,9,seed,3,n,-,12:01,n,85,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,58,Muhlenbergia sericea,native,1,12:03,31.25438,-81.28087,Bass Crk N,9,none,0,n,-,12:08,n,95,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,58,Eupatorium capillifolium,native,7,12:03,31.25438,-81.28087,Bass Crk N,9,none,0,n,-,12:08,n,95,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,58,Ampelopsis arborea,native,1,12:03,31.25438,-81.28087,Bass Crk N,9,none,0,n,-,12:08,n,95,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,111,Muhlenbergia sericea,native,2,12:11,31.25409,-81.28111,Bass Crk N,9,none,0,n,-,12:18,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,111,Eupatorium capillifolium,native,4,12:11,31.25409,-81.28111,Bass Crk N,9,none,0,n,-,12:18,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,111,Houstonia procumbens,native,5,12:11,31.25409,-81.28111,Bass Crk N,9,none,0,n,-,12:18,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,111,Ampelopsis arborea,native,1,12:11,31.25409,-81.28111,Bass Crk N,9,seed,1,n,-,12:18,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,111,Cyperus polystachyos,native,5,12:11,31.25409,-81.28111,Bass Crk N,9,seed,5,n,-,12:18,n,75,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,106,Cirsium nuttallii,native,2,12:20,31.25402,-81.28098,Bass Crk N,9,flowering,0,n,-,12:30,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,106,Eupatorium capillifolium,native,7,12:20,31.25402,-81.28098,Bass Crk N,9,none,0,n,-,12:30,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,106,Cyperus polystachyos,native,14,12:20,31.25402,-81.28098,Bass Crk N,9,seed,7,n,-,12:30,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,106,Houstonia procumbens,native,5,12:20,31.25402,-81.28098,Bass Crk N,9,none,0,n,-,12:30,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/22/2023,106,Ampelopsis arborea,native,1,12:20,31.25402,-81.28098,Bass Crk N,9,seed,1,n,-,12:30,n,30,DJK,1,0,4,24.2,96.4,-
+,y,available,7/23/2023,99,Rhynchospora latifolia,native,3,6:28,31.26097,-81.30225,Bass Crk N,9,seed,3,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Cyperus polystachyos,native,4,6:28,31.26097,-81.30225,Bass Crk N,9,seed,3,y,IMG_3095,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Cyperus retrorsus,native,3,6:28,31.26097,-81.30225,Bass Crk N,9,seed,3,y,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Cyperus strigosus,native,2,6:28,31.26097,-81.30225,Bass Crk N,9,seed,2,y,IMG_3097,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Mikania scandens,native,1,6:28,31.26097,-81.30225,Bass Crk N,9,none,0,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Hydrocotyle bonariensis,native,22,6:28,31.26097,-81.30225,Bass Crk N,9,none,0,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Eupatorium capillifolium,native,12,6:28,31.26097,-81.30225,Bass Crk N,9,none,0,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Cirsium nuttallii,native,1,6:28,31.26097,-81.30225,Bass Crk N,9,none,0,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Boehmeria cylindrica,native,6,6:28,31.26097,-81.30225,Bass Crk N,9,none,0,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Ampelopsis arborea,native,1,6:28,31.26097,-81.30225,Bass Crk N,9,seed,1,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Setaria parviflora,native,2,6:28,31.26097,-81.30225,Bass Crk N,9,seed,2,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,99,Muhlenbergia sericea,native,1,6:28,31.26097,-81.30225,Bass Crk N,9,none,0,n,-,6:45,n,100,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,53,Eupatorium capillifolium,native,15,6:50,31.25451,-81.2795,Bass Crk N,9,none,0,n,-,6:53,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,53,Ampelopsis arborea,native,2,6:50,31.25451,-81.2795,Bass Crk N,9,none,0,n,-,6:53,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,53,Euthamia caroliniana,native,4,6:50,31.25451,-81.2795,Bass Crk N,9,none,0,y,IMG_3100,6:53,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,70,Muhlenbergia sericea,native,1,6:59,31.25465,-81.27959,Bass Crk N,9,none,0,n,-,7:08,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,70,Eupatorium capillifolium,native,19,6:59,31.25465,-81.27959,Bass Crk N,9,none,0,n,-,7:08,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,70,Rubus trivialis,native,1,6:59,31.25465,-81.27959,Bass Crk N,9,none,0,n,-,7:08,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,70,Houstonia procumbens,native,3,6:59,31.25465,-81.27959,Bass Crk N,9,none,0,n,-,7:08,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,70,Cyperus polystachyos,native,1,6:59,31.25465,-81.27959,Bass Crk N,9,seed,1,n,-,7:08,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,70,Cyperus retrorsus,native,1,6:59,31.25465,-81.27959,Bass Crk N,9,seed,1,n,-,7:08,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,70,Polypremum procumbens,native,7,6:59,31.25465,-81.27959,Bass Crk N,9,flowering,2,n,-,7:08,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,70,Fimbristylis castanea,native,4,6:59,31.25465,-81.27959,Bass Crk N,9,seed,3,n,-,7:08,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,72,Hypericum hypericoides,native,4,7:10,31.25433,-81.27999,Bass Crk N,9,flowering,0,n,-,7:15,n,20,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,72,Eupatorium capillifolium,native,5,7:10,31.25433,-81.27999,Bass Crk N,9,none,0,n,-,7:15,n,20,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,72,Cyperus retrorsus,native,1,7:10,31.25433,-81.27999,Bass Crk N,9,none,0,n,-,7:15,n,20,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,72,Solidago sempervirens,native,1,7:10,31.25433,-81.27999,Bass Crk N,9,none,0,n,-,7:15,n,20,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,78,Rubus trivialis,native,2,7:16,,,Bass Crk N,9,none,0,n,-,7:24,n,10,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,78,Ampelopsis arborea,native,1,7:16,,,Bass Crk N,9,none,0,n,-,7:24,n,10,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,78,Euthamia caroliniana,native,1,7:16,,,Bass Crk N,9,none,0,y,IMG_3105,7:24,n,10,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,107,Rubus trivialis,native,5,7:26,31.254,-81.28024,Bass Crk N,9,none,0,n,-,7:27,n,90,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,107,Parthenocissus quinquefolia,native,1,7:26,31.254,-81.28024,Bass Crk N,9,none,0,n,-,7:27,n,90,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,107,Ampelopsis arborea,native,2,7:26,31.254,-81.28024,Bass Crk N,9,none,0,n,-,7:27,n,90,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,74,Muhlenbergia sericea,native,2,7:27,31.25353,-81.28047,Bass Crk N,9,none,0,n,-,7:31,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,74,Houstonia procumbens,native,1,7:27,31.25353,-81.28047,Bass Crk N,9,none,0,n,-,7:31,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,74,Polypremum procumbens,native,2,7:27,31.25353,-81.28047,Bass Crk N,9,none,0,n,-,7:31,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,74,Ampelopsis arborea,native,1,7:27,31.25353,-81.28047,Bass Crk N,9,none,0,n,-,7:31,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,63,Parthenocissus quinquefolia,native,6,7:33,31.25336,-81.28069,Bass Crk N,9,none,0,n,-,7:36,n,30,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,63,Eupatorium capillifolium,native,2,7:33,31.25336,-81.28069,Bass Crk N,9,none,0,n,-,7:36,n,30,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,63,Ampelopsis arborea,native,4,7:33,31.25336,-81.28069,Bass Crk N,9,none,0,n,-,7:36,n,30,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,63,Mikania scandens,native,1,7:33,31.25336,-81.28069,Bass Crk N,9,none,0,n,-,7:36,n,30,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,63,Hydrocotyle bonariensis,native,5,7:33,31.25336,-81.28069,Bass Crk N,9,none,0,n,-,7:36,n,30,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,63,Euthamia caroliniana,native,1,7:33,31.25336,-81.28069,Bass Crk N,9,none,0,n,-,7:36,n,30,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,93,Muhlenbergia sericea,native,1,7:37,31.25321,-81.28078,Bass Crk N,9,none,0,n,-,7:41,n,85,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,93,Eupatorium capillifolium,native,2,7:37,31.25321,-81.28078,Bass Crk N,9,none,0,n,-,7:41,n,85,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,93,Ampelopsis arborea,native,2,7:37,31.25321,-81.28078,Bass Crk N,9,seed,1,n,-,7:41,n,85,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,100,marsh-like grass,native,3,7:42,31.2532,-81.28081,Bass Crk N,9,none,0,n,IMG_3106; IMG_3107;IMG_3108,7:46,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,100,Eupatorium capillifolium,native,35,7:42,31.2532,-81.28081,Bass Crk N,9,none,0,n,-,7:46,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,100,Houstonia procumbens,native,1,7:42,31.2532,-81.28081,Bass Crk N,9,none,0,n,-,7:46,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,100,Rubus trivialis,native,1,7:42,31.2532,-81.28081,Bass Crk N,9,none,0,n,-,7:46,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,62,Eupatorium capillifolium,native,2,7:47,31.253,-81.28055,Bass Crk N,9,none,0,n,-,7:54,n,30,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,62,Muhlenbergia sericea,native,1,7:47,31.253,-81.28055,Bass Crk N,9,none,0,n,-,7:54,n,30,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,67,Muhlenbergia sericea,native,2,7:56,31.25287,-81.28156,Bass Crk N,9,none,0,n,-,7:58,n,35,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,67,Parthenocissus quinquefolia,native,1,7:56,31.25287,-81.28156,Bass Crk N,9,none,0,n,-,7:58,n,35,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,67,Setaria parviflora,native,2,7:56,31.25287,-81.28156,Bass Crk N,9,seed,1,n,-,7:58,n,35,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,48,Muhlenbergia sericea,native,1,7:59,31.25331,-81.28123,Bass Crk N,9,none,0,n,-,8:00,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,48,Eupatorium capillifolium,native,5,7:59,31.25331,-81.28123,Bass Crk N,9,none,0,n,-,8:00,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,48,Polypremum procumbens,native,1,7:59,31.25331,-81.28123,Bass Crk N,9,none,0,n,-,8:00,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,73,Muhlenbergia sericea,native,2,8:00,31.25342,-81.28111,Bass Crk N,9,none,0,n,-,8:09,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,73,Polypremum procumbens,native,2,8:00,31.25342,-81.28111,Bass Crk N,9,none ,0,n,-,8:09,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,73,Cyperus polystachyos,native,8,8:00,31.25342,-81.28111,Bass Crk N,9,seed,1,n,-,8:09,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,73,Heterotheca subaxillaris,native,3,8:00,31.25342,-81.28111,Bass Crk N,9,none,0,n,IMG_3109,8:09,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,73,Juncus marginatus,native,8,8:00,31.25342,-81.28111,Bass Crk N,9,seed,6,n,IMG_3110,8:09,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,59,Cirsium nuttallii,native,1,8:10,31.25351,-81.28099,Bass Crk N,9,flowering,0,n,-,8:15,n,80,DJK,1,0,1,23.9,84.8,firecut edge shrub
+,y,available,7/23/2023,59,Eupatorium capillifolium,native,6,8:10,31.25351,-81.28099,Bass Crk N,9,none,0,n,-,8:15,n,80,DJK,1,0,1,23.9,84.8,firecut edge shrub
+,y,available,7/23/2023,59,Ampelopsis arborea,native,2,8:10,31.25351,-81.28099,Bass Crk N,9,none,0,n,-,8:15,n,80,DJK,1,0,1,23.9,84.8,firecut edge shrub
+,y,available,7/23/2023,59,Houstonia procumbens,native,1,8:10,31.25351,-81.28099,Bass Crk N,9,none,0,n,-,8:15,n,80,DJK,1,0,1,23.9,84.8,firecut edge shrub
+,y,available,7/23/2023,59,Euthamia caroliniana,native,1,8:10,31.25351,-81.28099,Bass Crk N,9,none,0,n,IMG_3111,8:15,n,80,DJK,1,0,1,23.9,84.8,firecut edge shrub
+,y,available,7/23/2023,65,Cyperus polystachyos,native,6,8:16,31.2538,-81.28126,Bass Crk N,9,seed,4,n,-,8:23,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,65,Eupatorium capillifolium,native,12,8:16,31.2538,-81.28126,Bass Crk N,9,none,0,n,-,8:23,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,65,Polypremum procumbens,native,3,8:16,31.2538,-81.28126,Bass Crk N,9,flowering,0,n,-,8:23,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,65,Houstonia procumbens,native,1,8:16,31.2538,-81.28126,Bass Crk N,9,none,0,n,-,8:23,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,65,Muhlenbergia sericea,native,1,8:16,31.2538,-81.28126,Bass Crk N,9,none,0,n,-,8:23,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,65,Ampelopsis arborea,native,1,8:16,31.2538,-81.28126,Bass Crk N,9,none,0,n,-,8:23,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,65,Oxalis stricta,native,3,8:16,31.2538,-81.28126,Bass Crk N,9,none,0,y,IMG_3112,8:23,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,60,Cirsium nuttallii,native,1,8:25,31.25361,-81.28146,Bass Crk N,9,flowering,0,n,-,8:27,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,60,Eupatorium capillifolium,native,1,8:25,31.25361,-81.28146,Bass Crk N,9,none,0,n,-,8:27,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,60,Rubus trivialis,native,1,8:25,31.25361,-81.28146,Bass Crk N,9,none,0,n,-,8:27,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,60,Ampelopsis arborea,native,1,8:25,31.25361,-81.28146,Bass Crk N,9,none,0,n,-,8:27,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,101,Eupatorium capillifolium,native,2,8:27,31.25342,-81.28136,Bass Crk N,9,none,0,n,-,8:32,n,35,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,101,Polypremum procumbens,native,4,8:27,31.25342,-81.28136,Bass Crk N,9,flowering,0,n,-,8:32,n,35,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,101,Trichostema dichotomum,native,1,8:27,31.25342,-81.28136,Bass Crk N,9,none,0,y,-,8:32,n,35,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,102,Eupatorium capillifolium,native,11,8:33,31.25323,-81.2815,Bass Crk N,9,none,0,n,-,8:36,n,70,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,102,Rubus trivialis,native,2,8:33,31.25323,-81.2815,Bass Crk N,9,none,0,n,-,8:36,n,70,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,102,Ampelopsis arborea,native,1,8:33,31.25323,-81.2815,Bass Crk N,9,none,0,n,-,8:36,n,70,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,82,Euthamia caroliniana,native,10,8:37,31.25312,-81.28159,Bass Crk N,9,none,0,n,-,8:41,n,60,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,82,Houstonia procumbens,native,1,8:37,31.25312,-81.28159,Bass Crk N,9,none,0,n,-,8:41,n,60,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,82,Rubus trivialis,native,1,8:37,31.25312,-81.28159,Bass Crk N,9,none,0,n,-,8:41,n,60,DJK,1,0,1,23.9,84.8,fire cut edge
+,y,available,7/23/2023,77,Muhlenbergia sericea,native,1,8:42,31.253,-81.28159,Bass Crk N,9,none,0,n,-,8:45,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,77,Eupatorium capillifolium,native,3,8:42,31.253,-81.28159,Bass Crk N,9,none,0,n,-,8:45,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,77,Euthamia caroliniana,native,3,8:42,31.253,-81.28159,Bass Crk N,9,none,0,n,-,8:45,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2,Muhlenbergia sericea,native,1,8:46,31.25246,-81.28183,Bass Crk N,10,none,0,n,-,8:50,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2,Euthamia caroliniana,native,3,8:46,31.25246,-81.28183,Bass Crk N,10,none,0,n,-,8:50,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2,Solanum americanum,native,1,8:46,31.25246,-81.28183,Bass Crk N,10,none,0,n,IMG_3120;IMG_3121,8:50,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2,Polypremum procumbens,native,5,8:46,31.25246,-81.28183,Bass Crk N,10,none,0,n,-,8:50,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2.1,Eupatorium capillifolium,native,12,8:51,31.25235,-81.28194,Bass Crk N,10,none,0,n,-,8:55,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2.1,Cyperus polystachyos,native,16,8:51,31.25235,-81.28194,Bass Crk N,10,seed,12,n,-,8:55,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2.1,Cyperus retrorsus,native,3,8:51,31.25235,-81.28194,Bass Crk N,10,seed,3,n,-,8:55,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2.1,Hypericum gentianoides,native,2,8:51,31.25235,-81.28194,Bass Crk N,10,flowering,0,n,-,8:55,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2.1,Muhlenbergia sericea,native,1,8:51,31.25235,-81.28194,Bass Crk N,10,none,0,n,-,8:55,n,80,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2.2,Muhlenbergia sericea,native,2,8:56,31.25233,-81.28169,Bass Crk N,10,none,0,n,-,9:00,n,75,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2.2,Eupatorium capillifolium,native,4,8:56,31.25233,-81.28169,Bass Crk N,10,none,0,n,-,9:00,n,75,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,2.2,Polypremum procumbens,native,2,8:56,31.25233,-81.28169,Bass Crk N,10,none,0,n,-,9:00,n,75,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,4,Muhlenbergia sericea,native,1,9:01,31.25233,-81.28139,Bass Crk N,10,none,0,n,-,9:04,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,4,Eupatorium capillifolium,native,3,9:01,31.25233,-81.28139,Bass Crk N,10,none,0,n,-,9:04,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,4,Polypremum procumbens,native,1,9:01,31.25233,-81.28139,Bass Crk N,10,none,0,n,-,9:04,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,4,Houstonia procumbens,native,1,9:01,31.25233,-81.28139,Bass Crk N,10,none,0,n,-,9:04,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,3,Juncus marginatus,native,1,9:05,31.2517,-81.28123,Bass Crk N,10,none,0,n,IMG_3123,9:35,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,3,Hydrocotyle bonariensis,native,3,9:05,31.2517,-81.28123,Bass Crk N,10,none,0,n,-,9:35,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,3,Cyperus polystachyos,native,36,9:05,31.2517,-81.28123,Bass Crk N,10,none,0,y,IMG_3125,9:35,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,3,Euthamia caroliniana,native,3,9:05,31.2517,-81.28123,Bass Crk N,10,none,0,n,-,9:35,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,3,Phyla nodiflora,native,2,9:05,31.2517,-81.28123,Bass Crk N,10,none,0,n,-,9:35,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,6,Muhlenbergia sericea,native,1,9:54,31.25417,-81.27914,Bass Crk E,11,none,0,n,-,9:59,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,6,Ludwigia alternifolia,native,2,9:54,31.25417,-81.27914,Bass Crk E,11,seed,2,n,-,9:59,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,6,Polypremum procumbens,native,1,9:54,31.25417,-81.27914,Bass Crk E,11,none,0,n,-,9:59,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,6,Euthamia caroliniana,native,7,9:54,31.25417,-81.27914,Bass Crk E,11,none,0,n,-,9:59,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,31,Houstonia procumbens,native,1,10:00,31.25368,-81.27961,Bass Crk E,11,none,0,n,-,10:04,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,31,Eupatorium capillifolium,native,5,10:00,31.25368,-81.27961,Bass Crk E,11,none,0,n,-,10:04,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,31,Euthamia caroliniana,native,5,10:00,31.25368,-81.27961,Bass Crk E,11,none,0,n,-,10:04,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,31,Muhlenbergia sericea,native,1,10:00,31.25368,-81.27961,Bass Crk E,11,none,0,n,-,10:04,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,31,Ludwigia alternifolia,native,6,10:00,31.25368,-81.27961,Bass Crk E,11,none,0,n,-,10:04,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,41,Eupatorium capillifolium,native,8,10:05,31.25368,-81.27945,Bass Crk E,11,none,0,n,-,10:11,n,85,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,41,Muhlenbergia sericea,native,1,10:05,31.25368,-81.27945,Bass Crk E,11,none,0,n,-,10:11,n,85,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,41,Juncus marginatus,native,1,10:05,31.25368,-81.27945,Bass Crk E,11,seed,1,n,-,10:11,n,85,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,41,Houstonia procumbens,native,1,10:05,31.25368,-81.27945,Bass Crk E,11,none,0,n,-,10:11,n,85,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,41,Ampelopsis arborea,native,1,10:05,31.25368,-81.27945,Bass Crk E,11,seed,1,n,-,10:11,n,85,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,39,Rhynchospora latifolia,native,9,10:12,31.25368,-81.27926,Bass Crk E,11,seed,9,n,-,10:13,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,39,Ampelopsis arborea,native,1,10:12,31.25368,-81.27926,Bass Crk E,11,seed,1,n,-,10:13,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,14,Polygonum setaceum,native,22,10:14,31.25359,-81.27931,Bass Crk E,11,flowering,0,n,IMG_3133;IMG_3134,10:22,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,14,Ampelopsis arborea,native,1,10:14,31.25359,-81.27931,Bass Crk E,11,none,0,n,-,10:22,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,14,Cyperus retrorsus,native,1,10:14,31.25359,-81.27931,Bass Crk E,11,seed,1,n,-,10:22,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,14,Mikania scandens,native,1,10:14,31.25359,-81.27931,Bass Crk E,11,none,0,n,-,10:22,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,40,Eupatorium capillifolium,native,1,10:23,31.25394,-81.27866,Bass Crk E,11,none,0,n,-,10:29,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,40,Rubus trivialis,native,2,10:23,31.25394,-81.27866,Bass Crk E,11,none,0,n,-,10:29,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,40,Houstonia procumbens,native,3,10:23,31.25394,-81.27866,Bass Crk E,11,none,0,n,-,10:29,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,28,Polypremum procumbens,native,2,10:30,31.25377,-81.27888,Bass Crk E,11,none,0,n,-,10:35,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,28,Muhlenbergia sericea,native,1,10:30,31.25377,-81.27888,Bass Crk E,11,none,0,n,-,10:35,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,28,Eupatorium capillifolium,native,3,10:30,31.25377,-81.27888,Bass Crk E,11,none,0,n,-,10:35,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,9,Eupatorium capillifolium,native,1,10:36,31.25316,-81.27925,Bass Crk E,11,none,0,n,-,10:42,n,20,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,9,Ampelopsis arborea,native,2,10:36,31.25316,-81.27925,Bass Crk E,11,none,0,n,-,10:42,n,20,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,9,Myrica cerifera,native,5,10:36,31.25316,-81.27925,Bass Crk E,11,none,0,n,-,10:42,n,20,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,9,Solanum americanum,native,1,10:36,31.25316,-81.27925,Bass Crk E,11,none,0,n,-,10:42,n,20,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,27,Heterotheca subaxillaris,native,1,10:43,31.25275,-81.2796,Bass Crk E,11,flowering,1,n,-,10:47,n,15,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,27,Muhlenbergia sericea,native,1,10:43,31.25275,-81.2796,Bass Crk E,11,none,0,n,-,10:47,n,15,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,27,Houstonia procumbens,native,1,10:43,31.25275,-81.2796,Bass Crk E,11,none,0,n,-,10:47,n,15,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,27,Cenchrus tribuloides,native,12,10:43,31.25275,-81.2796,Bass Crk E,11,none,0,y,IMG_3138,10:47,n,15,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,23,Cyperus polystachyos,native,14,10:48,31.25242,-81.27991,Bass Crk E,11,seed,1,n,-,10:54,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,23,Muhlenbergia sericea,native,1,10:48,31.25242,-81.27991,Bass Crk E,11,none,0,n,-,10:54,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,23,Eupatorium capillifolium,native,26,10:48,31.25242,-81.27991,Bass Crk E,11,none,0,n,-,10:54,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,23,Euthamia caroliniana,native,21,10:48,31.25242,-81.27991,Bass Crk E,11,none,0,n,-,10:54,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,23,Houstonia procumbens,native,1,10:48,31.25242,-81.27991,Bass Crk E,11,none,0,n,-,10:54,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,11,Heterotheca subaxillaris,native,12,10:55,31.25234,-81.27999,Bass Crk E,11,none,0,n,-,10:58,n,25,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,11,Muhlenbergia sericea,native,1,10:55,31.25234,-81.27999,Bass Crk E,11,none,0,n,-,10:58,n,25,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,19,Muhlenbergia sericea,native,2,10:59,31.2521,-81.28016,Bass Crk E,11,none,0,n,-,11:02,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,19,Heterotheca subaxillaris,native,1,10:59,31.2521,-81.28016,Bass Crk E,11,none,0,n,-,11:02,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,16,Muhlenbergia sericea,native,1,11:03,31.25194,-81.28013,Bass Crk E,11,none,0,n,-,11:09,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,16,Euthamia caroliniana,native,10,11:03,31.25194,-81.28013,Bass Crk E,11,none,0,n,-,11:09,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,16,Juncus marginatus,native,2,11:03,31.25194,-81.28013,Bass Crk E,11,seed,2,n,-,11:09,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,16,Fimbristylis castanea,native,3,11:03,31.25194,-81.28013,Bass Crk E,11,flowering,0,y,IMG_3139,11:09,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,22,Muhlenbergia sericea,native,2,11:10,31.25179,-81.28017,Bass Crk E,11,none,0,n,-,11:12,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,22,Eupatorium capillifolium,native,3,11:10,31.25179,-81.28017,Bass Crk E,11,none,0,n,-,11:12,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,22,Euthamia caroliniana,native,29,11:10,31.25179,-81.28017,Bass Crk E,11,none,0,n,-,11:12,n,50,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,15,Muhlenbergia sericea,native,1,11:13,31.25179,-81.28036,Bass Crk E,11,none,0,n,-,11:16,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,15,Heterotheca subaxillaris,native,3,11:13,31.25179,-81.28036,Bass Crk E,11,none,0,n,-,11:16,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,15,Phyla nodiflora,native,1,11:13,31.25179,-81.28036,Bass Crk E,11,none,0,n,-,11:16,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,15,Cenchrus tribuloides,native,4,11:13,31.25179,-81.28036,Bass Crk E,11,none,0,n,-,11:16,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,34,Eupatorium capillifolium,native,13,11:17,31.25166,-81.28018,Bass Crk E,11,none,0,n,-,11:19,n,15,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,34,Euthamia caroliniana,native,1,11:17,31.25166,-81.28018,Bass Crk E,11,none,0,n,-,11:19,n,15,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,34,Cenchrus tribuloides,native,3,11:17,31.25166,-81.28018,Bass Crk E,11,none,0,n,-,11:19,n,15,DJK,1,0,1,23.9,84.8,fire cut
+,y,available,7/23/2023,35,Muhlenbergia sericea,native,2,11:20,31.25172,-81.28031,Bass Crk E,11,none,0,n,-,11:23,n,25,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,35,Ampelopsis arborea,native,1,11:20,31.25172,-81.28031,Bass Crk E,11,none,0,n,-,11:23,n,25,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,35,Houstonia procumbens,native,2,11:20,31.25172,-81.28031,Bass Crk E,11,none,0,n,-,11:23,n,25,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,35,Eupatorium capillifolium,native,10,11:20,31.25172,-81.28031,Bass Crk E,11,none,0,n,-,11:23,n,25,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,35,Euthamia caroliniana,native,2,11:20,31.25172,-81.28031,Bass Crk E,11,none,0,n,-,11:23,n,25,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,10,Cenchrus tribuloides,native,4,11:24,31.25167,-81.28037,Bass Crk E,11,none,0,n,-,11:26,n,30,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,10,Phyla nodiflora,native,4,11:24,31.25167,-81.28037,Bass Crk E,11,none,0,n,-,11:26,n,30,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,10,Heterotheca subaxillaris,native,1,11:24,31.25167,-81.28037,Bass Crk E,11,flowering,0,n,-,11:26,n,30,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,10,Muhlenbergia sericea,native,1,11:24,31.25167,-81.28037,Bass Crk E,11,none,0,n,-,11:26,n,30,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,10,Houstonia procumbens,native,1,11:24,31.25167,-81.28037,Bass Crk E,11,none,0,n,-,11:26,n,30,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,38,Muhlenbergia sericea,native,2,11:27,31.25158,-81.28043,Bass Crk E,11,none,0,n,-,11:31,n,85,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,38,Houstonia procumbens,native,3,11:27,31.25158,-81.28043,Bass Crk E,11,none,0,n,-,11:31,n,85,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,38,Heterotheca subaxillaris,native,1,11:27,31.25158,-81.28043,Bass Crk E,11,none,0,n,-,11:31,n,85,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,21,Muhlenbergia sericea,native,2,11:32,31.25127,-81.28066,Bass Crk E,11,none,0,n,-,11:40,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,21,Juncus marginatus,native,4,11:32,31.25127,-81.28066,Bass Crk E,11,seed,4,n,-,11:40,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,21,Heterotheca subaxillaris,native,3,11:32,31.25127,-81.28066,Bass Crk E,11,none,0,n,-,11:40,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,21,Houstonia procumbens,native,2,11:32,31.25127,-81.28066,Bass Crk E,11,none,0,n,-,11:40,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,21,Cenchrus tribuloides,native,3,11:32,31.25127,-81.28066,Bass Crk E,11,none,0,n,-,11:40,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,13,Muhlenbergia sericea,native,1,11:41,31.25141,-81.2813,Bass Crk E,11,none,0,n,-,11:45,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,13,Ampelopsis arborea,native,1,11:41,31.25141,-81.2813,Bass Crk E,11,none,0,n,-,11:45,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,13,Baccharis halimifolia,native,1,11:41,31.25141,-81.2813,Bass Crk E,11,none,0,n,-,11:45,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,13,Eupatorium capillifolium,native,2,11:41,31.25141,-81.2813,Bass Crk E,11,none,0,n,-,11:45,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,13,Euthamia caroliniana,native,6,11:41,31.25141,-81.2813,Bass Crk E,11,none,0,n,-,11:45,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,32,Ampelopsis arborea,native,1,11:46,31.25151,-81.2812,Bass Crk E,11,none,0,n,-,11:51,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,32,Muhlenbergia sericea,native,1,11:46,31.25151,-81.2812,Bass Crk E,11,none,0,n,-,11:51,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,32,Cyperus retrorsus,native,2,11:46,31.25151,-81.2812,Bass Crk E,11,seed,2,n,-,11:51,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,32,Cyperus polystachyos,native,1,11:46,31.25151,-81.2812,Bass Crk E,11,seed,1,n,-,11:51,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,32,Houstonia procumbens,native,3,11:46,31.25151,-81.2812,Bass Crk E,11,none,0,n,-,11:51,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,32,Euthamia caroliniana,native,17,11:46,31.25151,-81.2812,Bass Crk E,11,none,0,n,-,11:51,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,32,Juncus marginatus,native,1,11:46,31.25151,-81.2812,Bass Crk E,11,seed,1,n,-,11:51,n,65,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,7,Ludwigia alternifolia,native,2,11:52,31.2517,-81.28081,Bass Crk E,11,seed,2,n,-,11:56,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,7,Ampelopsis arborea,native,2,11:52,31.2517,-81.28081,Bass Crk E,11,none,0,n,-,11:56,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,7,Eupatorium capillifolium,native,21,11:52,31.2517,-81.28081,Bass Crk E,11,none,0,n,-,11:56,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,7,Cyperus polystachyos,native,12,11:52,31.2517,-81.28081,Bass Crk E,11,seed,5,n,-,11:56,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,7,Houstonia procumbens,native,3,11:52,31.2517,-81.28081,Bass Crk E,11,none,0,n,-,11:56,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,7,Juncus marginatus,native,1,11:52,31.2517,-81.28081,Bass Crk E,11,seed,1,n,-,11:56,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,33,Euthamia caroliniana,native,20,11:57,31.25163,-81.28062,Bass Crk E,11,none,0,n,-,11:59,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,33,Houstonia procumbens,native,3,11:57,31.25163,-81.28062,Bass Crk E,11,none,0,n,-,11:59,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,33,Rubus trivialis,native,1,11:57,31.25163,-81.28062,Bass Crk E,11,none,0,n,-,11:59,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,33,Baccharis halimifolia,native,3,11:57,31.25163,-81.28062,Bass Crk E,11,none,0,n,-,11:59,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,33,Andropogon longiberbis,native,3,11:57,31.25163,-81.28062,Bass Crk E,11,none,0,n,IMG_3142;IMG_3143,11:59,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,33,Ampelopsis arborea,native,1,11:57,31.25163,-81.28062,Bass Crk E,11,seed,1,n,-,11:59,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,30,Lythrum alatum,native,20,12:00,31.2517,-81.28064,Bass Crk E,11,flowering,0,n,IMG_3144,12:10,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,30,Eupatorium capillifolium,native,17,12:00,31.2517,-81.28064,Bass Crk E,11,none,0,n,-,12:10,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,30,Muhlenbergia sericea,native,1,12:00,31.2517,-81.28064,Bass Crk E,11,none,0,n,-,12:10,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,30,Cyperus polystachyos,native,4,12:00,31.2517,-81.28064,Bass Crk E,11,seed,4,n,-,12:10,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,30,Cyperus strigosus,native,5,12:00,31.2517,-81.28064,Bass Crk E,11,seed,5,n,-,12:10,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,26,Euthamia caroliniana,native,34,12:14,31.25194,-81.2805,Bass Crk E,11,none,0,n,-,12:16,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,26,Ampelopsis arborea,native,1,12:14,31.25194,-81.2805,Bass Crk E,11,none,0,n,-,12:16,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,26,Juncus marginatus,native,1,12:14,31.25194,-81.2805,Bass Crk E,11,seed,1,n,-,12:16,n,60,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,29,Muhlenbergia sericea,native,1,12:17,31.25213,-81.28045,Bass Crk E,11,none,0,n,-,12:21,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,29,Euthamia caroliniana,native,20,12:17,31.25213,-81.28045,Bass Crk E,11,none,0,n,-,12:21,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,29,Eupatorium capillifolium,native,7,12:17,31.25213,-81.28045,Bass Crk E,11,none,0,n,-,12:21,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,29,Stellaria media,nonnative,3,12:17,31.25213,-81.28045,Bass Crk E,11,none,0,n,-,12:21,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,29,Cyperus retrorsus,native,1,12:17,31.25213,-81.28045,Bass Crk E,11,seed,1,n,-,12:21,n,70,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,24,Ludwigia alternifolia,native,2,12:22,31.25254,-81.28027,Bass Crk E,11,seed,2,n,-,12:24,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,24,Myrica cerifera,native,1,12:22,31.25254,-81.28027,Bass Crk E,11,none,0,n,-,12:24,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,24,Muhlenbergia sericea,native,1,12:22,31.25254,-81.28027,Bass Crk E,11,none,0,n,-,12:24,n,90,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,20,Euthamia caroliniana,native,8,12:25,31.25272,-81.28023,Bass Crk E,11,none,0,n,-,12:27,n,15,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,25,Muhlenbergia sericea,native,2,12:28,31.25296,-81.28029,Bass Crk E,11,none,0,n,-,12:35,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,25,Euthamia caroliniana,native,14,12:28,31.25296,-81.28029,Bass Crk E,11,none,0,n,-,12:35,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/23/2023,25,Houstonia procumbens,native,1,12:28,31.25296,-81.28029,Bass Crk E,11,none,0,n,-,12:35,n,40,DJK,1,0,1,23.9,84.8,-
+,y,available,7/24/2023,124.1,Muhlenbergia sericea,native,1,6:33,31.24447,-81.28457,Mos Crk S,16,none,0,n,-,6:36,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124.1,Polypremum procumbens,native,6,6:33,31.24447,-81.28457,Mos Crk S,16,none,0,n,-,6:36,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124.1,Phyla nodiflora,native,4,6:33,31.24447,-81.28457,Mos Crk S,16,flowering,0,n,-,6:36,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124.1,Hypericum gentianoides,native,1,6:33,31.24447,-81.28457,Mos Crk S,16,none,0,n,-,6:36,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124,Hypericum gentianoides,native,2,6:38,31.24421,-81.28474,Mos Crk S,16,none,0,n,-,6:42,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124,Eupatorium capillifolium,native,2,6:38,31.24421,-81.28474,Mos Crk S,16,none,0,n,-,6:42,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124,Muhlenbergia sericea,native,2,6:38,31.24421,-81.28474,Mos Crk S,16,none,0,n,-,6:42,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124,Euthamia caroliniana,native,1,6:38,31.24421,-81.28474,Mos Crk S,16,none,0,n,-,6:42,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124,Houstonia procumbens,native,3,6:38,31.24421,-81.28474,Mos Crk S,16,none,0,n,-,6:42,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124,Cenchrus tribuloides,native,4,6:38,31.24421,-81.28474,Mos Crk S,16,none,0,n,-,6:42,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,124,Juncus marginatus,native,1,6:38,31.24421,-81.28474,Mos Crk S,16,seed,1,n,-,6:42,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,123,Muhlenbergia sericea,native,1,6:45,31.24486,-81.28458,Mos Crk S,16,none,0,n,-,6:46,n,20,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,122,Muhlenbergia sericea,native,1,6:48,31.24509,-81.28437,Mos Crk S,16,none,0,n,-,6:53,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,122,Euthamia caroliniana,native,6,6:48,31.24509,-81.28437,Mos Crk S,16,none,0,n,-,6:53,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,122,Polypremum procumbens,native,1,6:48,31.24509,-81.28437,Mos Crk S,16,none,0,n,-,6:53,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,122,Phyla nodiflora,native,1,6:48,31.24509,-81.28437,Mos Crk S,16,none,0,n,-,6:53,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,121,Andropogon longiberbis,native,1,6:54,31.2453,-81.28429,Mos Crk S,16,none,0,n,IMG_3153,7:04,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,121,Muhlenbergia sericea,native,1,6:54,31.2453,-81.28429,Mos Crk S,16,none,0,n,-,7:04,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,121,Euthamia caroliniana,native,5,6:54,31.2453,-81.28429,Mos Crk S,16,none,0,n,-,7:04,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,156,Oenothera humifusa,native,3,7:05,31.24436,-81.28404,Mos Crk N,14,none,0,n,-,7:10,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,156,Heterotheca subaxillaris,native,1,7:05,31.24436,-81.28404,Mos Crk N,14,none,0,n,-,7:10,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,156,Muhlenbergia sericea,native,1,7:05,31.24436,-81.28404,Mos Crk N,14,none,0,n,-,7:10,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,156,Sabatia stellaris,native,4,7:05,31.24436,-81.28404,Mos Crk N,14,none,0,n,-,7:10,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,156,Phyla nodiflora,native,2,7:05,31.24436,-81.28404,Mos Crk N,14,none,0,n,-,7:10,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,150,Muhlenbergia sericea,native,1,7:12,31.24452,-81.28378,Mos Crk N,14,none,0,n,-,7:15,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,170,Rubus trivialis,native,1,7:19,31.24455,-81.28373,Mos Crk N,14,none,0,n,-,7:22,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,170,Eupatorium capillifolium,native,3,7:19,31.24455,-81.28373,Mos Crk N,14,none,0,n,-,7:22,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,152,Muhlenbergia sericea,native,1,7:24,31.24472,-81.28367,Mos Crk N,14,none,0,n,-,7:29,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,152,Baccharis halimifolia,native,1,7:24,31.24472,-81.28367,Mos Crk N,14,none,0,n,-,7:29,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,152,Hypericum hypericoides,native,1,7:24,31.24472,-81.28367,Mos Crk N,14,none,0,n,-,7:29,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,152,Phyla nodiflora,native,1,7:24,31.24472,-81.28367,Mos Crk N,14,none,0,n,-,7:29,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,163,Muhlenbergia sericea,native,1,7:31,31.24473,-81.28324,Mos Crk N,14,none,0,n,-,7:33,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,163,Phyla nodiflora,native,10,7:31,31.24473,-81.28324,Mos Crk N,14,flowering,0,n,-,7:33,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,180,Baccharis halimifolia,native,4,7:34,31.24493,-81.28327,Mos Crk N,14,none,0,n,-,7:36,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,180,Houstonia procumbens,native,3,7:34,31.24493,-81.28327,Mos Crk N,14,none,0,n,-,7:36,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,180,Euthamia caroliniana,native,4,7:34,31.24493,-81.28327,Mos Crk N,14,none,0,n,-,7:36,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,180,Muhlenbergia sericea,native,1,7:34,31.24493,-81.28327,Mos Crk N,14,none,0,n,-,7:36,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,180,Andropogon longiberbis,native,1,7:34,31.24493,-81.28327,Mos Crk N,14,none,0,n,-,7:36,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,192,Muhlenbergia sericea,native,1,7:37,31.24509,-81.28311,Mos Crk N,14,none,0,n,-,7:39,n,60,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,192,Euthamia caroliniana,native,3,7:37,31.24509,-81.28311,Mos Crk N,14,none,0,n,-,7:39,n,60,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,192,Baccharis halimifolia,native,1,7:37,31.24509,-81.28311,Mos Crk N,14,none,0,n,-,7:39,n,60,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,161,Muhlenbergia sericea,native,1,7:40,31.24516,-81.28342,Mos Crk N,14,none,0,n,-,7:44,n,20,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,161,Houstonia procumbens,native,1,7:40,31.24516,-81.28342,Mos Crk N,14,none,0,n,-,7:44,n,20,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,161,Baccharis halimifolia,native,2,7:40,31.24516,-81.28342,Mos Crk N,14,none,0,n,-,7:44,n,20,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,182,Muhlenbergia sericea,native,2,7:45,31.2457,-81.28354,Mos Crk N,14,none,0,n,-,7:50,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,182,Baccharis halimifolia,native,1,7:45,31.2457,-81.28354,Mos Crk N,14,none,0,n,-,7:50,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,175,Polypremum procumbens,native,3,7:55,31.24565,-81.28333,Mos Crk N,14,flowering,0,n,-,7:56,n,20,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Sabatia stellaris,native,1,7:58,31.2455,-81.28317,Mos Crk N,14,flowering,0,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Ampelopsis arborea,native,2,7:58,31.2455,-81.28317,Mos Crk N,14,none,0,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Muhlenbergia sericea,native,1,7:58,31.2455,-81.28317,Mos Crk N,14,none,0,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Eupatorium capillifolium,native,27,7:58,31.2455,-81.28317,Mos Crk N,14,none,0,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Ludwigia alternifolia,native,1,7:58,31.2455,-81.28317,Mos Crk N,14,none,0,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Cyperus polystachyos,native,32,7:58,31.2455,-81.28317,Mos Crk N,14,seed,7,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Baccharis halimifolia,native,2,7:58,31.2455,-81.28317,Mos Crk N,14,none,0,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Euthamia caroliniana,native,2,7:58,31.2455,-81.28317,Mos Crk N,14,none,0,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,195,Houstonia procumbens,native,6,7:58,31.2455,-81.28317,Mos Crk N,14,none,0,n,-,8:13,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,177,Euthamia caroliniana,native,1,8:15,31.24577,-81.28294,Mos Crk N,14,none,0,n,-,8:18,n,60,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,177,Muhlenbergia sericea,native,1,8:15,31.24577,-81.28294,Mos Crk N,14,none,0,n,-,8:18,n,60,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,177,Houstonia procumbens,native,1,8:15,31.24577,-81.28294,Mos Crk N,14,none,0,n,-,8:18,n,60,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,193,Muhlenbergia sericea,native,1,8:20,31.24645,-81.28264,Mos Crk N,14,none,0,n,-,8:25,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,193,Polypremum procumbens,native,11,8:20,31.24645,-81.28264,Mos Crk N,14,flowering,0,n,-,8:25,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,193,Hypericum gentianoides,native,3,8:20,31.24645,-81.28264,Mos Crk N,14,none,0,n,-,8:25,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,193,Cenchrus tribuloides,native,4,8:20,31.24645,-81.28264,Mos Crk N,14,none,0,n,-,8:25,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,159,Muhlenbergia sericea,native,1,8:30,31.24636,-81.28297,Mos Crk N,14,none,0,n,-,8:33,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,159,Baccharis halimifolia,native,1,8:30,31.24636,-81.28297,Mos Crk N,14,none,0,n,-,8:33,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,159,Sabatia stellaris,native,1,8:30,31.24636,-81.28297,Mos Crk N,14,none,0,n,-,8:33,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,159,Houstonia procumbens,native,2,8:30,31.24636,-81.28297,Mos Crk N,14,none,0,n,-,8:33,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,159,Eupatorium capillifolium,native,4,8:30,31.24636,-81.28297,Mos Crk N,14,none,0,n,-,8:33,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,172,Muhlenbergia sericea,native,3,8:33,31.24635,-81.28307,Mos Crk N,14,none,0,n,-,8:34,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,172,Eupatorium capillifolium,native,2,8:33,31.24635,-81.28307,Mos Crk N,14,none,0,n,-,8:34,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,184,Oenothera humifusa,native,2,8:35,31.2464,-81.28323,Mos Crk N,14,flowering,0,n,-,8:38,n,15,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,184,Phyla nodiflora,native,7,8:35,31.2464,-81.28323,Mos Crk N,14,none,0,n,-,8:38,n,15,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,184,Polypremum procumbens,native,1,8:35,31.2464,-81.28323,Mos Crk N,14,flowering,0,n,-,8:38,n,15,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,184,Cenchrus tribuloides,native,2,8:35,31.2464,-81.28323,Mos Crk N,14,none,0,n,-,8:38,n,15,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,174,Muhlenbergia sericea,native,2,8:40,31.24665,-81.28307,Mos Crk N ,14,none,0,n,-,8:44,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,174,Euthamia caroliniana,native,7,8:40,31.24665,-81.28307,Mos Crk N ,14,none,0,n,-,8:44,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,174,Ampelopsis arborea,native,1,8:40,31.24665,-81.28307,Mos Crk N ,14,none,0,n,-,8:44,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,174,Houstonia procumbens,native,1,8:40,31.24665,-81.28307,Mos Crk N ,14,none,0,n,-,8:44,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,169,Muhlenbergia sericea,native,1,8:45,31.24666,-81.28326,Mos Crk N,14,none,0,n,-,8:53,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,169,Mikania scandens,native,3,8:45,31.24666,-81.28326,Mos Crk N,14,none,0,n,-,8:53,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,169,Ampelopsis arborea,native,2,8:45,31.24666,-81.28326,Mos Crk N,14,none,0,n,-,8:53,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,169,Eupatorium capillifolium,native,3,8:45,31.24666,-81.28326,Mos Crk N,14,none,0,n,-,8:53,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,176,Muhlenbergia sericea,native,1,8:54,31.24701,-81.28295,Mos Crk N,14,none,0,n,-,8:58,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,176,Ampelopsis arborea,native,1,8:54,31.24701,-81.28295,Mos Crk N,14,none,0,n,-,8:58,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,176,Euthamia caroliniana,native,11,8:54,31.24701,-81.28295,Mos Crk N,14,none,0,n,-,8:58,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,178,Muhlenbergia sericea,native,3,9:00,31.24721,-81.28307,Mos Crk N,14,none,0,n,-,9:03,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,178,Phyla nodiflora,native,4,9:00,31.24721,-81.28307,Mos Crk N,14,none,0,n,-,9:03,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,178,Houstonia procumbens,native,1,9:00,31.24721,-81.28307,Mos Crk N,14,none,0,n,-,9:03,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,178,Juncus marginatus,native,5,9:00,31.24721,-81.28307,Mos Crk N,14,none,0,n,-,9:03,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,196,Phyla nodiflora,native,6,9:05,31.24729,-81.28315,Mos Crk N,14,flowering,0,n,-,9:10,n,15,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,196,Oenothera humifusa,native,4,9:05,31.24729,-81.28315,Mos Crk N,14,flowering,0,n,-,9:10,n,15,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,196,Cenchrus tribuloides,native,1,9:05,31.24729,-81.28315,Mos Crk N,14,none,0,n,-,9:10,n,15,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,148,Eupatorium capillifolium,native,1,9:12,31.24755,-81.28337,Mos Crk N,14,none,0,n,-,9:14,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,148,Rubus trivialis,native,2,9:12,31.24755,-81.28337,Mos Crk N,14,none,0,n,-,9:14,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,148,Ampelopsis arborea,native,1,9:12,31.24755,-81.28337,Mos Crk N,14,none,0,n,-,9:14,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,155,Eupatorium capillifolium,native,11,9:15,31.24771,-81.28339,Mos Crk N ,14,none,0,n,-,9:21,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,155,Houstonia procumbens,native,5,9:15,31.24771,-81.28339,Mos Crk N ,14,none,0,n,-,9:21,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,155,Muhlenbergia sericea,native,1,9:15,31.24771,-81.28339,Mos Crk N ,14,none,0,n,-,9:21,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,155,Euthamia caroliniana,native,11,9:15,31.24771,-81.28339,Mos Crk N ,14,none,0,n,-,9:21,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,155,Phyla nodiflora,native,7,9:15,31.24771,-81.28339,Mos Crk N ,14,none,0,n,-,9:21,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,155,Fimbristylis caroliniana,native,19,9:15,31.24771,-81.28339,Mos Crk N ,14,seed,1,n,IMG_3167,9:21,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,155,Ampelopsis arborea,native,1,9:15,31.24771,-81.28339,Mos Crk N ,14,none,0,n,-,9:21,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,151,Ampelopsis arborea,native,4,9:22,31.24767,-81.28314,Mos Crk N,14,seed,4,n,-,9:24,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,151,Mikania scandens,native,1,9:22,31.24767,-81.28314,Mos Crk N,14,none,0,n,-,9:24,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,151,Andropogon longiberbis,native,3,9:22,31.24767,-81.28314,Mos Crk N,14,none,0,n,IMG_3168;IMG_3170,9:24,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,190,Ampelopsis arborea,native,3,9:25,31.24792,-81.28295,Mos Crk N,14,seed,3,n,-,9:27,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,164,Ampelopsis arborea,native,6,9:30,31.24807,-81.28291,Mos Crk N,14,seed,6,n,-,9:35,n,80,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,187,Polypremum procumbens,native,9,9:37,31.24855,-81.2828,Mos Crk N,14,flowering,0,n,-,9:45,n,35,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,187,Muhlenbergia sericea,native,1,9:37,31.24855,-81.2828,Mos Crk N,14,none,0,n,-,9:45,n,35,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,183,Muhlenbergia sericea,native,1,10:20,31.24449,-81.28403,Mos Crk N,14,none,0,n,-,10:21,n,90,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,191,Muhlenbergia sericea,native,1,10:21,31.24484,-81.284,Mos Crk N,14,none,0,n,-,10:26,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,191,Phyla nodiflora,native,4,10:21,31.24484,-81.284,Mos Crk N,14,flowering,0,n,-,10:26,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,160,Euphorbia maculata ,native,3,10:29,31.24492,-81.28378,Mos Crk N,14,none,0,n,-,10:32,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,160,Oenothera humifusa,native,1,10:29,31.24492,-81.28378,Mos Crk N,14,flowering,0,n,-,10:32,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,160,Muhlenbergia sericea,native,1,10:29,31.24492,-81.28378,Mos Crk N,14,none,0,n,-,10:32,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,162,Muhlenbergia sericea,native,2,10:33,31.24526,-81.28371,Mos Crk N,14,none,0,n,-,10:33,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,189,Cenchrus tribuloides,native,1,10:33,31.24545,-81.28369,Mos Crk N,14,none,0,n,IMG_3172,10:36,n,10,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,189,Oenothera humifusa,native,1,10:33,31.24545,-81.28369,Mos Crk N,14,flowering,0,n,-,10:36,n,10,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,189,Euphorbia maculata ,native,1,10:33,31.24545,-81.28369,Mos Crk N,14,none,0,n,-,10:36,n,10,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,154,Croton punctatus,native,1,10:38,31.24562,-81.28373,Mos Crk N,14,none,0,n,-,10:42,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,154,Muhlenbergia sericea,native,1,10:38,31.24562,-81.28373,Mos Crk N,14,none,0,n,-,10:42,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,186,Muhlenbergia sericea,native,1,10:46,31.24605,-81.28371,Mos Crk N,14,none,0,n,-,10:48,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,186,Euthamia caroliniana,native,19,10:46,31.24605,-81.28371,Mos Crk N,14,none,0,n,-,10:48,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,186,Houstonia procumbens,native,1,10:46,31.24605,-81.28371,Mos Crk N,14,none,0,n,-,10:48,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,186,Ampelopsis arborea,native,1,10:46,31.24605,-81.28371,Mos Crk N,14,none,0,n,-,10:48,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,186,Baccharis halimifolia,native,1,10:46,31.24605,-81.28371,Mos Crk N,14,none,0,n,-,10:48,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,185,Muhlenbergia sericea,native,1,10:49,31.24599,-81.28379,Mos Crk N,14,none,0,n,-,10:53,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,185,Euthamia caroliniana,native,13,10:49,31.24599,-81.28379,Mos Crk N,14,none,0,n,-,10:53,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,165,Muhlenbergia sericea,native,2,10:55,31.24631,-81.28365,Mos Crk N,14,none,0,n,-,10:57,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,194,Cenchrus tribuloides,native,4,10:58,31.24638,-81.28385,Mos Crk N,14,seed,1,n,IMG_3173;IMG_3174,11:02,y,10,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,194,Oenothera humifusa,native,1,10:58,31.24638,-81.28385,Mos Crk N,14,none,0,n,-,11:02,n,10,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,194,Muhlenbergia sericea,native,1,10:58,31.24638,-81.28385,Mos Crk N,14,none,0,n,-,11:02,n,10,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,173,Oenothera humifusa,native,1,11:06,31.24648,-81.28403,Mos Crk N,14,flowering,0,n,-,11:08,n,5,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,173,Heterotheca subaxillaris,native,1,11:06,31.24648,-81.28403,Mos Crk N,14,flowering,0,n,-,11:08,n,5,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,168,Muhlenbergia sericea,native,1,11:10,31.24683,-81.28391,Mos Crk N,14,none,0,n,-,11:13,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,168,Phyla nodiflora,native,12,11:10,31.24683,-81.28391,Mos Crk N,14,flowering,0,n,-,11:13,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,153,Baccharis halimifolia,native,3,11:15,31.24709,-81.28355,Mos Crk N,14,none,0,n,-,11:17,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,153,Ampelopsis arborea,native,1,11:15,31.24709,-81.28355,Mos Crk N,14,none,0,n,-,11:17,n,25,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,157,Muhlenbergia sericea,native,1,11:18,31.24703,-81.28342,Mos Crk N,14,none,0,n,-,11:25,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,157,Polypremum procumbens,native,1,11:18,31.24703,-81.28342,Mos Crk N,14,flowering,0,n,-,11:25,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,157,Phyla nodiflora,native,4,11:18,31.24703,-81.28342,Mos Crk N,14,flowering,0,n,-,11:25,n,40,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,120,Eupatorium capillifolium,native,13,11:36,31.24588,-81.28477,Mos Crk S,15,none,0,n,-,11:40,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,120,Rubus trivialis,native,1,11:36,31.24588,-81.28477,Mos Crk S,15,none,0,n,-,11:40,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,120,Ampelopsis arborea,native,1,11:36,31.24588,-81.28477,Mos Crk S,15,none,0,n,-,11:40,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,120,Euthamia caroliniana,native,13,11:36,31.24588,-81.28477,Mos Crk S,15,none,0,n,-,11:40,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,118,Ludwigia alternifolia,native,3,11:41,31.24572,-81.28488,Mos Crk S,15,none,0,n,-,11:43,n,10,DJK,0,0,4,23.8,81.3,firecut
+,y,available,7/24/2023,118,Euthamia caroliniana,native,4,11:41,31.24572,-81.28488,Mos Crk S,15,none,0,n,-,11:43,n,10,DJK,0,0,4,23.8,81.3,firecut
+,y,available,7/24/2023,118,Eupatorium capillifolium,native,3,11:41,31.24572,-81.28488,Mos Crk S,15,none,0,n,-,11:43,n,10,DJK,0,0,4,23.8,81.3,firecut
+,y,available,7/24/2023,118,Ampelopsis arborea,native,2,11:41,31.24572,-81.28488,Mos Crk S,15,none,0,n,-,11:43,n,10,DJK,0,0,4,23.8,81.3,firecut
+,y,available,7/24/2023,118,Cyperus polystachyos,native,2,11:41,31.24572,-81.28488,Mos Crk S,15,none,0,n,-,11:43,n,10,DJK,0,0,4,23.8,81.3,firecut
+,y,available,7/24/2023,112,Euthamia caroliniana,native,12,11:44,31.2458,-81.28505,Mos Crk S,15,none,0,n,-,11:46,n,10,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,119,Muhlenbergia sericea,native,2,11:48,31.24571,-81.28551,Mos Crk S,15,none,0,n,-,11:49,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,119,Euthamia caroliniana,native,1,11:48,31.24571,-81.28551,Mos Crk S,15,none,0,n,-,11:49,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,119,Heterotheca subaxillaris,native,1,11:48,31.24571,-81.28551,Mos Crk S,15,none,0,n,-,11:49,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,116,Euthamia caroliniana,native,11,11:50,31.24582,-81.28532,Mos Crk S,15,none,0,n,-,11:54,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,116,Muhlenbergia sericea,native,1,11:50,31.24582,-81.28532,Mos Crk S,15,none,0,n,-,11:54,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,116,Houstonia procumbens,native,1,11:50,31.24582,-81.28532,Mos Crk S,15,none,0,n,-,11:54,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,116,Cyperus polystachyos,native,2,11:50,31.24582,-81.28532,Mos Crk S,15,none,0,n,-,11:54,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,115,Diodia teres,native,3,11:55,31.24604,-81.28544,Mos Crk S,15,none,0,n,-,11:59,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,115,Cenchrus tribuloides,native,1,11:55,31.24604,-81.28544,Mos Crk S,15,none,0,n,-,11:59,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,115,Phyla nodiflora,native,4,11:55,31.24604,-81.28544,Mos Crk S,15,flowering,0,n,-,11:59,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,115,Eupatorium capillifolium,native,1,11:55,31.24604,-81.28544,Mos Crk S,15,none,0,n,-,11:59,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,115,Polypremum procumbens,native,2,11:55,31.24604,-81.28544,Mos Crk S,15,flowering,0,n,-,11:59,n,50,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,114,Muhlenbergia sericea,native,1,12:00,31.24648,-81.28506,Mos Crk S,15,none,0,n,-,12:04,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,114,Euthamia caroliniana,native,4,12:00,31.24648,-81.28506,Mos Crk S,15,none,0,n,-,12:04,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,114,Eupatorium capillifolium,native,1,12:00,31.24648,-81.28506,Mos Crk S,15,none,0,n,-,12:04,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,114,Ampelopsis arborea,native,1,12:00,31.24648,-81.28506,Mos Crk S,15,none,0,n,-,12:04,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,114,Andropogon longiberbis,native,1,12:00,31.24648,-81.28506,Mos Crk S,15,none,0,n,-,12:04,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,113,Ampelopsis arborea,native,2,12:06,31.24676,-81.28513,Mos Crk S,15,none,0,n,-,12:08,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,113,Euthamia caroliniana,native,6,12:06,31.24676,-81.28513,Mos Crk S,15,none,0,n,-,12:08,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,117,Cyperus polystachyos,native,3,12:10,31.24607,-81.28472,Mos Crk S,15,seed,2,n,-,12:18,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,117,Hypericum gentianoides,native,1,12:10,31.24607,-81.28472,Mos Crk S,15,flowering,0,n,-,12:18,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,117,Houstonia procumbens,native,3,12:10,31.24607,-81.28472,Mos Crk S,15,none,0,n,-,12:18,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,117,Euthamia caroliniana,native,53,12:10,31.24607,-81.28472,Mos Crk S,15,none,0,n,-,12:18,n,30,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,141,Euthamia caroliniana,native,25,12:19,31.24667,-81.28463,Mos Crk N,13,none,0,n,-,12:23,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,141,Muhlenbergia sericea,native,1,12:19,31.24667,-81.28463,Mos Crk N,13,none,0,n,-,12:23,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,141,Juncus marginatus,native,2,12:19,31.24667,-81.28463,Mos Crk N,13,seed,2,n,-,12:23,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,141,Heterotheca gentianoides,native,2,12:19,31.24667,-81.28463,Mos Crk N,13,flowering,0,n,-,12:23,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,141,Polypremum procumbens,native,7,12:19,31.24667,-81.28463,Mos Crk N,13,none,0,n,-,12:23,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,141,Cyperus polystachyos,native,7,12:19,31.24667,-81.28463,Mos Crk N,13,none,0,n,-,12:23,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,141,Houstonia procumbens,native,2,12:19,31.24667,-81.28463,Mos Crk N,13,none,0,n,-,12:23,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,140,Ludwigia alternifolia,native,4,12:25,31.24679,-81.28486,Mos Crk N,13,flowering,0,n,-,12:32,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,140,Hypericum hypericoides,native,1,12:25,31.24679,-81.28486,Mos Crk N,13,none,0,n,-,12:32,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,140,Rubus trivialis,native,1,12:25,31.24679,-81.28486,Mos Crk N,13,none,0,n,-,12:32,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,140,Ampelopsis arborea,native,1,12:25,31.24679,-81.28486,Mos Crk N,13,none,0,n,-,12:32,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,140,Baccharis halimifolia,native,2,12:25,31.24679,-81.28486,Mos Crk N,13,none,0,n,-,12:32,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,140,Eupatorium capillifolium,native,4,12:25,31.24679,-81.28486,Mos Crk N,13,none,0,n,-,12:32,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,140,Muhlenbergia sericea,native,1,12:25,31.24679,-81.28486,Mos Crk N,13,none,0,n,-,12:32,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,140,Andropogon longiberbis,native,1,12:25,31.24679,-81.28486,Mos Crk N,13,none,0,n,-,12:32,n,70,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,145,Muhlenbergia sericea,native,1,12:33,31.24698,-81.28476,Mos Crk N,13,none,0,n,-,12:37,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,145,Eupatorium capillifolium,native,10,12:33,31.24698,-81.28476,Mos Crk N,13,none,0,n,-,12:37,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/24/2023,145,Ampelopsis arborea,native,1,12:33,31.24698,-81.28476,Mos Crk N,13,none,0,n,-,12:37,n,45,DJK,0,0,4,23.8,81.3,-
+,y,available,7/25/2023,142,Ludwigia alternifolia,native,3,6:24,31.24843,-81.28428,Mos Crk N,13,none,0,n,-,6:28,n,90,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,142,Rubus trivialis,native,1,6:24,31.24843,-81.28428,Mos Crk N,13,none,0,n,-,6:28,n,90,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,142,Setaria parviflora,native,1,6:24,31.24843,-81.28428,Mos Crk N,13,none,0,n,-,6:28,n,90,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,142,Ampelopsis arborea,native,2,6:24,31.24843,-81.28428,Mos Crk N,13,none,0,n,-,6:28,n,90,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,142,Eupatorium capillifolium,native,1,6:24,31.24843,-81.28428,Mos Crk N,13,none,0,n,-,6:28,n,90,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,139,Euthamia caroliniana,native,2,6:29,31.24873,-81.2839,Mos Crk N,13,none,0,n,-,6:34,n,85,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,139,Baccharis halimifolia,native,1,6:29,31.24873,-81.2839,Mos Crk N,13,none,0,n,-,6:34,n,85,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,139,Eupatorium capillifolium,native,2,6:29,31.24873,-81.2839,Mos Crk N,13,none,0,n,-,6:34,n,85,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,139,Muhlenbergia sericea,native,2,6:29,31.24873,-81.2839,Mos Crk N,13,none,0,n,-,6:34,n,85,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,144,Muhlenbergia sericea,native,1,6:35,31.2485,-81.28389,Mos Crk N,13,none,0,n,-,6:39,n,65,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,144,Cyperus polystachyos,native,1,6:35,31.2485,-81.28389,Mos Crk N,13,seed,1,n,-,6:39,n,65,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,144,Houstonia procumbens,native,3,6:35,31.2485,-81.28389,Mos Crk N,13,none,0,n,-,6:39,n,65,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,144,Euthamia caroliniana,native,6,6:35,31.2485,-81.28389,Mos Crk N,13,none,0,n,-,6:39,n,65,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,144,Rubus trivialis,native,1,6:35,31.2485,-81.28389,Mos Crk N,13,none,0,n,-,6:39,n,65,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,143,Ludwigia alternifolia,native,1,6:39,31.24916,-81.28371,Mos Crk N,13,flowering,0,n,-,7:05,n,80,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,143,Eupatorium capillifolium,native,2,6:39,31.24916,-81.28371,Mos Crk N,13,none,0,n,-,7:05,n,80,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,143,Euthamia caroliniana,native,1,6:39,31.24916,-81.28371,Mos Crk N,13,none,0,n,-,7:05,n,80,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,143,Oxalis stricta,native,1,6:39,31.24916,-81.28371,Mos Crk N,13,none,0,n,-,7:05,n,80,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,143,Setaria parviflora,native,1,6:39,31.24916,-81.28371,Mos Crk N,13,none,0,n,-,7:05,n,80,DJK,0,0,1,24.2,85.3,-
+,y,available,7/25/2023,143,Muhlenbergia sericea,native,1,6:39,31.24916,-81.28371,Mos Crk N,13,none,0,n,-,7:05,n,80,DJK,0,0,1,24.2,85.3,-
+,y,used,8/9/2023,16,Setaria parviflora,native,1,6:48,31.25501,-81.27922,Bass Crk N,9,none,0,n,-,6:52,n,90,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,16,Euthamia caroliniana,native,19,6:48,31.25501,-81.27922,Bass Crk N,9,none,0,n,-,6:52,n,90,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,16,Rubus trivialis,native,1,6:48,31.25501,-81.27922,Bass Crk N,9,none,0,n,-,6:52,n,90,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,37,Muhlenbergia sericea,native,1,6:54,31.25513,-81.2791,Bass Crk N,9,none,0,n,-,6:58,n,80,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,37,Ampelopsis arborea,native,2,6:54,31.25513,-81.2791,Bass Crk N,9,seed,1,n,-,6:58,n,80,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,37,Euthamia caroliniana,native,5,6:54,31.25513,-81.2791,Bass Crk N,9,none,0,n,-,6:58,n,80,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,13,Eupatorium capillifolium,native,1,7:00,31.25518,-81.27921,Bass Crk N,9,none,0,n,-,7:05,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,13,Muhlenbergia sericea,native,2,7:00,31.25518,-81.27921,Bass Crk N,9,none,0,n,-,7:05,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,13,Ampelopsis arborea,native,1,7:00,31.25518,-81.27921,Bass Crk N,9,none,0,n,-,7:05,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,13,Polypremum procumbens,native,1,7:00,31.25518,-81.27921,Bass Crk N,9,none,0,n,-,7:05,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,13,Euthamia caroliniana,native,1,7:00,31.25518,-81.27921,Bass Crk N,9,none,0,n,-,7:05,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,13,Cenchrus tribuloides,native,1,7:00,31.25518,-81.27921,Bass Crk N,9,none,0,n,-,7:05,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,7,Myrica cerifera,native,1,7:06,31.25594,-81.2785,Bass Crk N,9,none,0,n,-,7:09,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,7,Ampelopsis arborea,native,2,7:06,31.25594,-81.2785,Bass Crk N,9,seed,1,n,-,7:09,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,32,Solidago sempervirens,native,1,7:10,31.256,-81.27862,Bass Crk N,9,none,0,n,-,7:18,n,25,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,32,Euthamia caroliniana,native,3,7:10,31.256,-81.27862,Bass Crk N,9,none,0,n,-,7:18,n,25,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,32,Ampelopsis arborea,native,2,7:10,31.256,-81.27862,Bass Crk N,9,seed,1,n,-,7:18,n,25,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Setaria parviflora,native,1,7:19,31.25601,-81.27863,Bass Crk N,9,none,0,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Solidago sempervirens,native,3,7:19,31.25601,-81.27863,Bass Crk N,9,none,0,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Juncus marginatus,native,10,7:19,31.25601,-81.27863,Bass Crk N,9,seed,7,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Eupatorium capillifolium,native,1,7:19,31.25601,-81.27863,Bass Crk N,9,none,0,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Cyperus retrorsus,native,1,7:19,31.25601,-81.27863,Bass Crk N,9,seed,1,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Euthamia caroliniana,native,15,7:19,31.25601,-81.27863,Bass Crk N,9,none,0,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Ampelopsis arborea,native,1,7:19,31.25601,-81.27863,Bass Crk N,9,none,0,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Muhlenbergia sericea,native,1,7:19,31.25601,-81.27863,Bass Crk N,9,none,0,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,31,Rubus trivialis,native,1,7:19,31.25601,-81.27863,Bass Crk N,9,none,0,n,-,7:30,n,75,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,40,Solidago sempervirens,native,4,7:32,31.25601,-81.27885,Bass Crk N,9,none,0,n,-,7:38,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,40,Euthamia caroliniana,native,24,7:32,31.25601,-81.27885,Bass Crk N,9,flowering,0,n,-,7:38,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,40,Muhlenbergia sericea,native,1,7:32,31.25601,-81.27885,Bass Crk N,9,none,0,n,-,7:38,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,40,Dichanthelium oligosanthes,native,12,7:32,31.25601,-81.27885,Bass Crk N,9,seed,5,n,-,7:38,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,34,Muhlenbergia sericea,native,1,7:39,31.25605,-81.27885,Bass Crk N,9,none,0,n,-,7:43,n,60,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,34,Euthamia caroliniana,native,6,7:39,31.25605,-81.27885,Bass Crk N,9,none,0,n,-,7:43,n,60,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,34,Solidago sempervirens,native,11,7:39,31.25605,-81.27885,Bass Crk N,9,none,0,n,-,7:43,n,60,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,34,Juncus marginatus,native,10,7:39,31.25605,-81.27885,Bass Crk N,9,none,0,n,-,7:43,n,60,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,34,Cyperus polystachyos,native,5,7:39,31.25605,-81.27885,Bass Crk N,9,seed,2,n,-,7:43,n,60,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,33,Solidago sempervirens,native,9,7:49,31.25619,-81.27887,Bass Crk N,9,none,0,n,-,7:55,n,70,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,33,Euthamia caroliniana,native,13,7:49,31.25619,-81.27887,Bass Crk N,9,none,0,n,-,7:55,n,70,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,25,Solidago sempervirens,native,8,7:57,31.25633,-81.27842,Bass Crk N,9,none,0,n,-,8:11,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,25,Euthamia caroliniana,native,11,7:57,31.25633,-81.27842,Bass Crk N,9,none,0,n,-,8:11,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,25,Muhlenbergia sericea,native,1,7:57,31.25633,-81.27842,Bass Crk N,9,none,0,n,-,8:11,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,25,Eupatorium capillifolium,native,1,7:57,31.25633,-81.27842,Bass Crk N,9,none,0,n,-,8:11,n,40,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,8,Solidago sempervirens,native,12,8:18,31.25674,-81.27825,Bass Crk N,9,none,0,n,-,8:24,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,8,Myrica cerifera,native,1,8:18,31.25674,-81.27825,Bass Crk N,9,none,0,n,-,8:24,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,8,Euthamia caroliniana,native,3,8:18,31.25674,-81.27825,Bass Crk N,9,none,0,n,-,8:24,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,8,Justicia ovata,native,1,8:18,31.25674,-81.27825,Bass Crk N,9,none,0,n,IMG_3484,8:24,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,22,Solidago sempervirens,native,8,8:26,31.25714,-81.27776,Bass Crk N,9,none,0,n,-,8:35,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,22,Rubus trivialis,native,1,8:26,31.25714,-81.27776,Bass Crk N,9,none,0,n,-,8:35,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,22,Myrica cerifera,native,2,8:26,31.25714,-81.27776,Bass Crk N,9,none,0,n,-,8:35,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,22,Euthamia caroliniana,native,5,8:26,31.25714,-81.27776,Bass Crk N,9,none,0,n,-,8:35,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,22,Solidago sempervirens,native,4,8:26,31.25714,-81.27776,Bass Crk N,9,none,0,n,-,8:35,n,30,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,39,Ampelopsis arborea,native,1,8:48,31.25462,-81.27908,Bass Crk N,9,seed,1,n,-,8:51,n,100,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,39,Myrica cerifera,native,1,8:48,31.25462,-81.27908,Bass Crk N,9,seed,1,n,-,8:51,n,100,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,10,Myrica cerifera,native,1,8:52,31.25441,-81.27925,Bass Crk N,9,seed,1,n,-,8:53,n,100,DJK,0,0,4,25.56,91,-
+,y,used,8/9/2023,10,Eupatorium capillifolium,native,1,8:52,31.25441,-81.27925,Bass Crk N,9,none,0,n,-,8:53,n,100,DJK,0,0,4,25.56,91,-
+,y,used,8/10/2023,29,Polypremum procumbens,native,1,6:40,31.25425,-81.27932,Bass Crk Rd,11,flowering,0,n,-,6:47,n,25,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,29,Eupatorium capillifolium,native,1,6:40,31.25425,-81.27932,Bass Crk Rd,11,none,0,n,-,6:47,n,25,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,29,Paspalum notatum,nonnative,2,6:40,31.25425,-81.27932,Bass Crk Rd,11,seed,1,n,-,6:47,n,25,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,29,Cynodon dactylon,nonnative,1,6:40,31.25425,-81.27932,Bass Crk Rd,11,none,0,n,-,6:47,n,25,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,24,Paspalum notatum,nonnative,3,6:46,31.25422,-81.27934,Bass Crk Rd,11,seed,2,n,-,6:49,n,20,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,24,Polypremum procumbens,native,2,6:46,31.25422,-81.27934,Bass Crk Rd,11,flowering,0,n,-,6:49,n,20,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,36,Eleusine indica,nonnative,3,6:50,31.25412,-81.27937,Bass Crk Rd,11,seed,3,n,IMG_3491;IMG_3492;IMG_3493,6:59,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,36,Eupatorium capillifolium,native,9,6:50,31.25412,-81.27937,Bass Crk Rd,11,none,0,n,-,6:59,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,36,Paspalum notatum,nonnative,2,6:50,31.25412,-81.27937,Bass Crk Rd,11,seed,2,n,-,6:59,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,36,Polypremum procumbens,native,3,6:50,31.25412,-81.27937,Bass Crk Rd,11,flowering,0,n,-,6:59,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,36,Cynodon dactylon,nonnative,1,6:50,31.25412,-81.27937,Bass Crk Rd,11,none,0,n,-,6:59,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,20,Polypremum procumbens,native,1,7:04,31.25372,-81.27972,Bass Crk Rd,11,flowering,1,n,-,7:10,n,40,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,20,Muhlenbergia sericea,native,2,7:04,31.25372,-81.27972,Bass Crk Rd,11,none,0,n,-,7:10,n,40,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,20,Oenothera humifusa,native,3,7:04,31.25372,-81.27972,Bass Crk Rd,11,flowering,0,n,-,7:10,n,40,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,42,Ampelopsis arborea,native,2,7:18,31.25278,-81.28004,Bass Crk E,11,seed,2,n,-,7:30,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,42,Setaria parviflora,native,3,7:18,31.25278,-81.28004,Bass Crk E,11,none,0,n,-,7:30,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,42,Ludwigia alternifolia,native,3,7:18,31.25278,-81.28004,Bass Crk E,11,seed,1,n,-,7:30,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,42,Euthamia caroliniana,native,30,7:18,31.25278,-81.28004,Bass Crk E,11,none,0,n,-,7:30,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,42,Dichanthelium oligosanthes,native,4,7:18,31.25278,-81.28004,Bass Crk E,11,none,0,n,-,7:30,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,42,Cyperus polystachyos,native,3,7:18,31.25278,-81.28004,Bass Crk E,11,none,0,n,-,7:30,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,21,Cenchrus tribuloides,native,10,7:33,31.25264,-81.28033,Bass Crk E,11,none,0,n,IMG_3495;IMG_3496,7:36,n,70,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,21,Muhlenbergia sericea,native,1,7:33,31.25264,-81.28033,Bass Crk E,11,none,0,n,-,7:36,n,70,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,21,Phyla nodiflora,native,20,7:33,31.25264,-81.28033,Bass Crk E,11,flowering,0,n,-,7:36,n,70,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,21.5,Dichanthelium oligosanthes,native,1,7:37,31.25279,-81.28029,Bass Crk E,11,none,0,n,-,7:45,n,20,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,21.5,Euthamia caroliniana,native,2,7:37,31.25279,-81.28029,Bass Crk E,11,none,0,n,-,7:45,n,20,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,21.5,Eupatorium capillifolium,native,1,7:37,31.25279,-81.28029,Bass Crk E,11,none,0,n,-,7:45,n,20,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,21.5,Muhlenbergia sericea,native,1,7:37,31.25279,-81.28029,Bass Crk E,11,none,0,n,-,7:45,n,20,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,1,Cyperus pseudovegetus,native,11,7:50,31.25225,-81.28069,Bass Crk Rd,11,seed,5,n,IMG_3498,7:58,n,100,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,1,Polypremum procumbens,native,1,7:50,31.25225,-81.28069,Bass Crk Rd,11,flowering,0,n,-,7:58,n,100,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,1,Hydrocotyle bonariensis,native,24,7:50,31.25225,-81.28069,Bass Crk Rd,11,none,0,n,-,7:58,n,100,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,1,Cynodon dactylon,nonnative,192,7:50,31.25225,-81.28069,Bass Crk Rd,11,none,0,n,-,7:58,n,100,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,1,Paspalum notatum,nonnative,6,7:50,31.25225,-81.28069,Bass Crk Rd,11,seed,4,n,-,7:58,n,100,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,1,Eleusine indica,nonnative,1,7:50,31.25225,-81.28069,Bass Crk Rd,11,seed,1,n,-,7:58,n,100,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Ampelopsis arborea,native,2,7:59,31.25255,-81.28066,Bass Crk N,10,seed,1,n,-,8:05,n,90,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Euthamia caroliniana,native,4,7:59,31.25255,-81.28066,Bass Crk N,10,none,0,n,-,8:05,n,90,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Hydrocotyle bonariensis,native,28,7:59,31.25255,-81.28066,Bass Crk N,10,none,0,n,-,8:05,n,90,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Cyperus retrorsus,native,20,7:59,31.25255,-81.28066,Bass Crk N,10,seed,1,n,-,8:05,n,90,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Setaria parviflora,native,1,7:59,31.25255,-81.28066,Bass Crk N,10,none,0,n,-,8:05,n,90,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,15,Cynodon dactylon,nonnative,3,8:06,31.25218,-81.28075,Bass Crk Rd,11,seed,3,n,-,8:20,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,15,Phyla nodiflora,native,49,8:06,31.25218,-81.28075,Bass Crk Rd,11,flowering,0,n,-,8:20,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,15,Cyperus polystachyos,native,7,8:06,31.25218,-81.28075,Bass Crk Rd,11,none,0,n,-,8:20,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,15,Diodia teres,native,1,8:06,31.25218,-81.28075,Bass Crk Rd,11,none,0,n,-,8:20,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,15,Hydrocotyle bonariensis,native,3,8:06,31.25218,-81.28075,Bass Crk Rd,11,none,0,n,-,8:20,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,15,Paspalum notatum,nonnative,3,8:06,31.25218,-81.28075,Bass Crk Rd,11,seed,3,n,-,8:20,n,80,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28,Dichanthelium oligosanthes,native,30,8:30,31.25224,-81.28125,Bass Crk N,10,seed,14,n,IMG_3500;IMG_3501;IMG_3502,8:36,n,35,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28,Phyla nodiflora,native,1,8:30,31.25224,-81.28125,Bass Crk N,10,none,0,n,-,8:36,n,35,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28,Euthamia caroliniana,native,6,8:30,31.25224,-81.28125,Bass Crk N,10,none,0,n,-,8:36,n,35,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28,Ampelopsis arborea,native,3,8:30,31.25224,-81.28125,Bass Crk N,10,none,0,n,-,8:36,n,35,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28,Setaria parviflora,native,1,8:30,31.25224,-81.28125,Bass Crk N,10,none,0,n,-,8:36,n,35,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28,Cyperus polystachyos,native,1,8:30,31.25224,-81.28125,Bass Crk N,10,seed,1,n,-,8:36,n,35,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28,Cyperus retrorsus,native,2,8:30,31.25224,-81.28125,Bass Crk N,10,seed,1,n,-,8:36,n,35,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Muhlenbergia sericea,native,2,8:41,31.25237,-81.28145,Bass Crk N,10,none,0,n,-,8:50,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Eupatorium capillifolium,native,2,8:41,31.25237,-81.28145,Bass Crk N,10,none,0,n,-,8:50,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Dichanthelium oligosanthes,native,2,8:41,31.25237,-81.28145,Bass Crk N,10,seed,2,n,-,8:50,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Polypremum procumbens,native,2,8:41,31.25237,-81.28145,Bass Crk N,10,flowering,0,n,-,8:50,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Physalis walteri,native,6,8:41,31.25237,-81.28145,Bass Crk N,10,none,0,n,IMG_3503,8:50,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,28.1,Houstonia procumbens,native,1,8:41,31.25237,-81.28145,Bass Crk N,10,none,0,n,-,8:50,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,38,Myrica cerifera,native,1,9:07,31.24904,-81.28388,Mos Crk Rd,13,none,0,n,-,9:20,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,38,Setaria parviflora,native,3,9:07,31.24904,-81.28388,Mos Crk Rd,13,seed,1,n,-,9:20,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,38,Rubus trivialis,native,1,9:07,31.24904,-81.28388,Mos Crk Rd,13,none,0,n,-,9:20,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,38,Cynodon dactylon,nonnative,10,9:07,31.24904,-81.28388,Mos Crk Rd,13,seed,1,n,-,9:20,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,38,Paspalum notatum,nonnative,7,9:07,31.24904,-81.28388,Mos Crk Rd,13,seed,3,n,-,9:20,n,30,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,3,Euthamia caroliniana,native,28,9:24,31.24731,-81.28461,Mos Crk N,13,none,0,n,-,9:36,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,3,Rubus trivialis,native,1,9:24,31.24731,-81.28461,Mos Crk N,13,none,0,n,-,9:36,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,3,Ludwigia alternifolia,native,2,9:24,31.24731,-81.28461,Mos Crk N,13,none,0,n,-,9:36,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,3,Eupatorium capillifolium,native,36,9:24,31.24731,-81.28461,Mos Crk N,13,none,0,n,-,9:36,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,3,Ampelopsis arborea,native,1,9:24,31.24731,-81.28461,Mos Crk N,13,none,0,n,-,9:36,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,3,Cyperus retrorsus,native,1,9:24,31.24731,-81.28461,Mos Crk N,13,seed,1,n,-,9:36,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,3,Cyperus polystachyos,native,20,9:24,31.24731,-81.28461,Mos Crk N,13,seed,2,n,-,9:36,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,41,Setaria parviflora,native,1,9:40,31.24728,-81.28465,Mos Crk N,13,none,0,n,-,9:50,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,41,Muhlenbergia sericea,native,1,9:40,31.24728,-81.28465,Mos Crk N,13,none,0,n,-,9:50,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,41,Ludwigia alternifolia,native,7,9:40,31.24728,-81.28465,Mos Crk N,13,none,0,n,-,9:50,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,41,Eupatorium capillifolium,native,18,9:40,31.24728,-81.28465,Mos Crk N,13,none,0,n,-,9:50,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,41,Euthamia caroliniana,native,6,9:40,31.24728,-81.28465,Mos Crk N,13,none,0,n,-,9:50,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,41,Cyperus polystachyos,native,10,9:40,31.24728,-81.28465,Mos Crk N,13,seed,1,n,-,9:50,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,41,Phyla nodiflora,native,8,9:40,31.24728,-81.28465,Mos Crk N,13,none,0,n,-,9:50,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,41,Ampelopsis arborea,native,3,9:40,31.24728,-81.28465,Mos Crk N,13,none,0,n,-,9:50,n,60,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,12,Myrica cerifera,native,1,9:51,31.24578,-81.28534,Mos Crk S,15,seed,1,n,-,9:58,n,100,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,17,Parietaria floridana,native,6,10:02,31.24477,-81.28462,Mos Crk S,16,none,0,n,-,10:04,n,15,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,17,Ampelopsis arborea,native,1,10:02,31.24477,-81.28462,Mos Crk S,16,none,0,n,-,10:04,n,15,DJK,2,0,3,30,83,-
+,y,used,8/10/2023,18,Myrica cerifera,native,1,10:05,31.24472,-81.28465,Mos Crk S,16,none,0,n,-,10:06,n,100,DJK,2,0,3,30,83,-
