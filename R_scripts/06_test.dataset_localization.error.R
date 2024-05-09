@@ -111,7 +111,9 @@ str(test.info) # check that data imported properly
 # Subsetting test.info based on whether it is the calibration (A) or test dataset (B)
 #test.info <- test.info[test.info$TestAB == 'B', ] #for the TestAB run
 test.info <- test.info[test.info$PropTest == 'B', ]
-
+test.info1 <- test.info[test.info$PropTest == 'A', ]
+sum(test.info$PropTest =='B')
+sum(test.info1$PropTest =='A')
 
 beep.dat <- readRDS("data/beeps/BeepMerge.rds") 
 str(beep.dat) # check that data imported properly
