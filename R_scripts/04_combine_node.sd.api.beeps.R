@@ -110,15 +110,6 @@ test.info <- subset(test.info, select = -Notes)
 str(test.info) # check that data imported properly
 
 
-# Preparing Test.Info_Example.csv for use in the next few examples
-
-# Setting seed for reproducibility
-set.seed(123)
-
-# Get the number of unique values for TestId in the dataframe
-#num.tests <- n_distinct(test.info$TestId)
-#num <- unique(test.info$TestId)
-
 # Subsetting dataset to just use nodes in BassCrk Node grid
 BassNode <- test.info[test.info$BassNode == "Y", ]
 MosNode <- test.info[test.info$BassNode == "N", ] # in Mosquito Creek grid
@@ -131,48 +122,7 @@ locs.Mos <- unique(MosNode$TestId) # in Mosquito Creek grid
 num_Bass <- n_distinct(BassNode$TestId)
 num_Mos <- n_distinct(MosNode$TestId)
 
-# Proportion of values to assign as A(calibration) or B(test) data
-proportion_cali_A <- 0.8
-prop_cali_A <- c(0.8, 0.85, 0.9)
-
-
-
-# Number of unique locations at Bass Creek that will be A (triangulation test data)
-num_bass_A <- round(num_Bass * proportion_cali_A)
-num_mos_A <- round(num_Mos* proportion_cali_A)
-
-#Bass Crk Node Grid Data
-# Selecting the proportion of TestId values within Bass Crk Node to be either A or B
-random_values_A_bass <- sample(locs.Bass, size= num_bass_A, replace = FALSE)
-random_values_B_bass <- locs.Bass[!locs.Bass %in% random_values_A_bass] #test
-
-# Creating a new dataframe with the column Test_80 which assigns an A or B for Bass Crk locs based on 80% being calibration data
-BassNode$Test_80 <- ifelse(BassNode$TestId %in% random_values_A_bass, 'A', 'B') 
-
-
-#Mosquito Crk  Node Grid data
-# Selecting the proportion of TestId values within Bass Crk Node to be either A or B
-random_values_A_mos <- sample(locs.Mos, size= num_mos_A, replace = FALSE)
-random_values_B_mos <- locs.Mos[!locs.Mos %in% random_values_A_mos] #test
-
-# Creating a new dataframe with the column Test_80 which assigns an A or B for Bass Crk locs based on 80% being calibration data
-MosNode$Test_80 <- ifelse(MosNode$TestId %in% random_values_A_mos, 'A', 'B') 
-
-# Combine MosNode and BassNode dataframes
- test.info <- rbind(BassNode, MosNode)
- write.csv(test.info, file= 'data-raw/2023_node_files/Test.Info_Example80.csv')
- 
-# Randomly select 87 unique values for TestId
-#random_values_A <- sample(1:num.tests, 87) #triangulation
-#random_values_B <- num[!num %in% random_values_A] #test
-
-# Create a new dataframe with a column that assigns an A or B depending on which number is in the TestId column
-#test.info$TestAB <- ifelse(test.info$TestId %in% random_values_A, 'A', 'B')
-
-#write.csv(test.info, file= 'data-raw/2023_node_files/Test.Info_ExampleAB.csv')
-
- 
- #Playing with writing a for loop to loop through proportions
+#Playing with writing a for loop to loop through proportions
  
  prop_cali_A <- c(0.8, 0.85, 0.9) # proportions using
  outpath <- "data-raw/2023_node_files/"

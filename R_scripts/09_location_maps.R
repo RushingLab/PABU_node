@@ -2,8 +2,27 @@
 ## Diane Klement
 ## February 20 2024
 ##
-## Code to map locations of birds from data filtered through 
+## Code to map locations of birds from data filtered from CTT Node estimated locations.
+## To ensure that the locations of the birds look accurate before moving forward with analysis.
 ##
+##    Input:
+##      - Estimated.Locations-feb20-90p-90_2023-05-10_2023-11-20.rds
+##            - Rds file that contains the estimated locations along with the sd and error estimates associated with locations.
+##            - Generated from the 'trilateration' function in "05_functions_rss.based.locations.R" script
+##            - Columns:
+##                - TagId: CTT tag ID of the bird detected at the location point, factor
+##                - Time.group: yyyy-mm-dd hh:mm:ss, POSIXct, time when the location point was detected
+##                - Hour: hour when the location point was detected
+##                - No.Nodes: number of nodes that provided RSSI values for a location point
+##                - UTMx_est: estimated location (mean) for UTMx for a location point
+##                - UTMy_est: estimated location (mean) for UTMy for a location point
+##                - x.LCI: lower confidence interval value for UTMx for a location point
+##                - x.UCI: upper confidence interval value for UTMx for a location point
+##                - y.LCI: lower confidence interval value for UTMy for a location point
+##                - y.UCI: upper confidence interval value for UTMy for a location point
+##
+##    Outputs:
+##      - 
 ###################################################################################
 
 ## Loading packages
@@ -22,6 +41,7 @@ library(moveVis)
 locations <- readRDS("data/trilateration/Estimated.Locations-feb20-90p-90_2023-05-10_2023-11-20.rds") #53565 obs. of  10 variables
 str(locations) # checking the data structure
 
+###################################################################################
 
 # Visualizing the data
 
@@ -173,7 +193,7 @@ get_maptypes()
 
 frames <- frames_spatial(m, 
                          map_service = "mapbox", map_type = "satellite",   
-                         map_token = "pk.eyJ1IjoiZGprbGVtZW50IiwiYSI6ImNsc3dnc2s2NDBkYWEybGxhYjc5ejh4YTkifQ.fkUPiguFDRXzU2PHLh9x4A" ) %>%
+                         map_token = "insert-key-here" ) %>%
   add_labels(x = "Longitude", y = "Latitude",
              title = "Painted Bunting Project (LSSI, GA)") %>% # add some customization, such as axis labels
   add_northarrow() %>%
@@ -228,7 +248,7 @@ locations_longlat <- cbind(locations_subset, locs_longlat) #includes all UTM val
 if(!requireNamespace("devtools")) install.packages("devtools")
 devtools::install_github("dkahle/ggmap", ref = "tidyup", force=TRUE)
 library(ggmap)
-ggmap::register_google(key = "AIzaSyAZGhpbS-sk3PwTLL0h-Gkm0E6SrBi0uKo")
+ggmap::register_google(key = "INSERT-KEY-HERE")
 
 
 # Define the map center and pull from only

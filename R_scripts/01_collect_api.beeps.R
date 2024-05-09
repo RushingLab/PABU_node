@@ -62,10 +62,10 @@ start <- Sys.time()
 
 
 ####SETTINGS#####
-my_token <- "734b29e9fe8fc7ac9c6b3083f548c1df66c38508c1dec8a4424b7a6bb48f7d11" #this is your API through CTT
+my_token <- "YOUR-API-HERE" #this is your API through CTT
 db_name <- "node_api" #this is the name of your database name on Postgres
 myproject <- "Little St. Simons Motus" #this is your project name on your CTT account
-conn <- dbConnect(RPostgres::Postgres(), dbname=db_name, password= "clover08") #be sure to include the password to your Postgres account using the same user as your system user
+conn <- dbConnect(RPostgres::Postgres(), dbname=db_name, password= "YOUR-PASS-HERE") #be sure to include the password to your Postgres account using the same user as your system user
 ################
 
 # Setting where your downloaded files will go

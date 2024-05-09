@@ -266,9 +266,9 @@ exp(coef(exp.mod)[["lrc"]])
 
 
 ##  ***** Variables to define for final model below - replace values below with values from exp.mod ****  ## 
-a <- -52.60159 # -54.38621 for the regular run
-S <- 0.005617166 #0.005318208
-K <- -103.91927 #-104.34460
+a <- -54.42834 # -54.38621 for the regular run
+S <- 0.005304291 #0.005318208
+K <- -104.23413 #-104.34460
 
 
 # Final Model
@@ -315,13 +315,13 @@ combined.data$pred <- predict(nls.mod)
 
 
 ## Save Final Dataset with Residuals and Predictions
-write.csv(combined.data, paste0(outpath, "Calibration_Dataset_withResiduals_PredictionsAB.csv"),
+write.csv(combined.data, paste0(outpath, "Calibration_Dataset_withResiduals_Predictions90p.csv"),
           row.names = F)
 
 
 ## Plot with predicted line
 
-pdf(paste0(outpath, "Relationship_Distance~RSSI.pdf"), width = 8, height = 6)
+pdf(paste0(outpath, "Relationship_Distance~RSSI.90p.pdf"), width = 8, height = 6)
 
 ggplot(combined.data, aes(x = distance, y = avgRSS)) + 
   geom_point() +

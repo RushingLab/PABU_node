@@ -15,12 +15,28 @@ data/animations
 /data/animations
 data/figures
 /data/figures
+
+# preventing the upload of alot of localization datasets not needed on github
 data/localizations/Trilateration.TestData_NoFilter*.csv
 data/localizations/Trilateration.Test.Data_Filter.Distance*.csv
 data/localizations/Trilateration.Test.Data_Filter90.RSS.-85_Results.csv
 data/localizations/Trilateration.Test.Data_Filter90.RSS.-95_Results.csv
 data/localizations/Trilateration.Test.Data_Filter90.RSS.-80_Results.csv
 data/localizations/Trilateration.Test.Data_Filter90.RSS.-100_Results.csv
+data/localizations/Trilateration.Simulation*.csv
+data/localizations/Trilateration.TestData*.csv
+data/localizations/Trilateration.Test.Data_Filters.RSSI*.csv
+data/localizations/LocError*.csv
+data/localizations/Calibration*.csv
+data/localizations/comparing_loc_filters.xlsx
+
 data/simulations
 data/trilateration/Estimated.Locations80p-85_2023-05-10_2023-11-20.rds
 data/trilateration/Estimated.Locations90p-85_2023-05-10_2023-11-20.rds
+data/trilateration/Estimated.Locations90p-90_2023-05-10_2023-11-20.rds
+
+# preventing the upload of huge trilateration files
+data/homeranges/Simulated.Locations500.HomeRange.90p-90.locs.filtered_2023-05-10_2023-11-20.rds
+data/homeranges/Simulated.Locations500.HomeRange.90p-90.locs.filtered1_2023-05-10_2023-11-20.rds
+
+data/homeranges/

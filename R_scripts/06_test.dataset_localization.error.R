@@ -104,14 +104,16 @@ source("R_scripts/05_functions_rss.based.localizations.R")
 
 ## Bring in 3 Needed files - Test Information, RSS values, and Node Information - change file names in " " as needed
 
-test.info <- read.csv("data-raw/2023_node_files/Test.Info_ExampleAB.csv", header = T)
+test.info <- read.csv("data-raw/2023_node_files/Test.Info_Example0.9.csv", header = T)
 str(test.info) # check that data imported properly
 test.info$TagId <- "6166071E" # had to change TagId value column to all one value because for some reason R was importing it as 6166071 instead of 6166071E
 str(test.info) # check that data imported properly
 # Subsetting test.info based on whether it is the calibration (A) or test dataset (B)
-test.info <- test.info[test.info$TestAB == 'B', ] #for the TestAB run
-#test.info <- test.info[test.info$PropTest == 'B', ]
-
+#test.info <- test.info[test.info$TestAB == 'B', ] #for the TestAB run
+test.info <- test.info[test.info$PropTest == 'B', ]
+test.info1 <- test.info[test.info$PropTest == 'A', ]
+sum(test.info$PropTest =='B')
+sum(test.info1$PropTest =='A')
 
 beep.dat <- readRDS("data/beeps/BeepMerge.rds") 
 str(beep.dat) # check that data imported properly
@@ -184,9 +186,9 @@ combined.data <- data.setup(TEST.TYPE, DATE.FORMAT, TIME.ZONE)
 
 
 ##******** Define Variables - replace values below with user specified values ********##  
-a <- 5.131773e+01
-S <- 5.617182e-03 
-K <- -1.039193e+02
+a <- 4.980584e+01
+S <- 5.304308e-03
+K <- -1.042341e+02
 
 
 # Function to estimate the distance of each test signal from the node based on the RSS values detected
