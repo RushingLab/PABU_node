@@ -1,0 +1,22 @@
+﻿Tract_ID,Group,Location,Management,Acreage_Managed,Total_Acreage,Date,Comments,Current,Diff.Days,Diff.Years
+1,A1,Sancho North,Burned,43,43,1-Feb,1 year late,5/1/2023,1550,4.305555556
+2,A2,Sancho South,Burned,27,27,1-Feb,,5/1/2023,819,2.275
+3,B1,Windmill N,Burned,21,21,1-Feb,,5/1/2023,1185,3.291666667
+4,B2,Windmill South,Burned,0,16,1-Jan,,5/1/2023,120,0.333333333
+5,B1,September Meadows North,Burned,15,42,1-Feb,,5/1/2023,1185,3.291666667
+6,B2,September Meadows South,Burned,16,16,1-Jan,,5/1/2023,485,1.347222222
+7,A2,Bass Crk NE,Unburned,0,1,NA,3 cold seasons late,5/1/2023,NA,NA
+8,A2,Bass Crk N ,Burned,7,37,1-Dec,,5/1/2023,516,1.433333333
+9,A2,Bass Crk N ,Mowed ,28,37,1-Nov,,5/1/2023,546,1.516666667
+10,A2,Bass Crk N ,Burned,2,37,1-Jan,,5/1/2023,850,2.361111111
+11,A1,Bass Crk E,Burned,20,20,1-Jan,,5/1/2023,120,0.333333333
+12,B2,Mosq Crk N,Burned/Mowed,20,20,1-Jan,,5/1/2023,485,1.347222222
+13,B2,Mosq Crk N,Unburned,0,5,NA,"2 cold seasons late, supposed to be fall 21 ",5/1/2023,NA,NA
+14,B2,Mosq Crk N,Burned,15,22,1-Jan,2 cold seasons late,5/1/2023,850,2.361111111
+15,B1,Mosq Crk S,Burned,0,2,NA,overdue 2 years,5/1/2023,NA,NA
+16,B1,Mosq Crk S,Burned,19,19,1-Jan,overdue 2 years,5/1/2023,485,1.347222222
+17,A2,Goose Pond,Mowed ,9,9,1-Jul,,5/1/2023,669,1.858333333
+18,B2,Windmill South,Burned,15,15,1-Feb,"2 cold seasons late, supposed to be fall 21",5/1/2023,89,0.247222222
+,,,,,,,,,,
+,,"February 20, 2019: burning plan initiated",,,,,,,,
+,,2019: A1 burned,,,,,,,,
