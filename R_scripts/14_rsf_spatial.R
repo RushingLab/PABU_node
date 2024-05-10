@@ -39,18 +39,6 @@ df <- readRDS("data/rsf/used_avail.rds")
 # BRINGING IN RASTER LAYERS
 
 # For spatial layers, .tif or .grid files are best
-elev2 <- projectRaster(elev, crs = "+proj=longlat +datum=WGS84") ##raster with correct CRS
-
-# Assign a CRS object
-proj4string(elev2) <- CRS('+proj=longlat +datum=WGS84')
-
-#Importing LSSI Boundary
-bound <- readOGR('C:/Users/dklem/Documents/ArcGIS/Projects', 'LittleSSI')
-bound@proj4string
-class(bound)
-windows()
-plot(bound)
-
 
 ## LSSI VEG DATA FROM arcGIS
 veg.data <- raster("data/spatial_layers/lssi-veg2.tif")
@@ -77,21 +65,15 @@ names(veg_rclass) <- 'veg_reclass'
 as.factor(veg_rclass)
 
 windows()
-plot(veg.data)
-levels(veg.data)
+plot(veg_rclass)
+levels(veg_rclass)
 
-## LSSI burn DATA FROM arcGIS
+## LSSI burn DATA FROM arcGIS (as Tracts)
 burn.data <- raster("data/spatial_layers/lssi_burn1.tif")
 #check classes and number of cells per class
 freq(burn.data)
 # plot
 plot(burn.data)
-
-# Extending the size of the raster to match that of the veg
-burn.extend <- extend(burn.data, veg.data)
-windows()
-plot(burn.extend)
-  
 
 ##trying to rename burn classes
 # Reclass structure for burn
@@ -113,23 +95,28 @@ burn_rclass_df <- data.frame(value = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
                                         'Tract15', 
                                         'Tract16', 
                                         'Tract17'))
-burn_rclass <- subs(burn.extend, burn_rclass_df[,1:2], subsWithNA = T)
+burn_rclass <- subs(burn.data, burn_rclass_df[,1:2], subsWithNA = T)
 names(burn_rclass) <- 'burn_reclass'
 as.factor(burn_rclass)
 
+burn <- readRDS("data/veg_data.rds")
 
-##creating a raster stack with reclassified veg data
-rastStack2 <- stack(list(burn_rclass, veg_rclass))
-#but didn't work so...
+## LSSI burn DATA FROM arcGIS (as time since management)
+burn.data.time <- raster("data/spatial_layers/lssibtime_1.tif")
+#check classes and number of cells per class
+freq(burn.data.time)
+# plot
+plot(burn.data.time)
+
 
 
 # Ensuring that rasters are the same extent
-rsts <- list(burn_rclass, veg_rclass)
+rsts <- list(burn.data.time, veg_rclass)
 for (i in 2:length(rsts)) {
-  rsts[[i]] <- resample(rsts[[i]], burn_rclass)
+  rsts[[i]] <- resample(rsts[[i]], burn.data.time)
 } 
 # Stacking the rasters
-rastStack4 <- stack(rsts)
+rastStack <- stack(rsts)
 
 
 # Recall our used/avail combined data.frames
@@ -146,150 +133,40 @@ str(outDF)
 names(outDF)
 
 
-##WEEK 7 pt 2
-head(outDF.1)
-str(outDF.1)
+# Identify columns with continuous variables to standardize continuous variables
+names(outDF) #lssibtime_1
 
-# 'veg_reclass' is stored as a numeric but should
-# be a factor.  Less reclass as a factor first.
-outDF.1$veg_reclass <- as.factor(outDF.1$veg_reclass)
-class(outDF.1$veg_reclass)
-levels(outDF.1$veg_reclass)
-d <- outDF.1
+str(outDF)
+outDF$lssibtime_1_std <- outDF$lssibtime_1
 
-# Build dummy codes, 
+# Standardizes all continuous predictors
+mean(outDF$lssibtime_1, na.rm=T) #1.4835
+sd(outDF$lssibtime_1, na.rm=T) #0.8786342
+
+outDF$lssibtime_1_std <- scale(outDF$lssibtime_1)
+
+# 'veg_reclass' is stored as numeric but should be factors
+outDF$veg_reclass <- as.factor(outDF$veg_reclass)
+class(outDF$veg_reclass)
+levels(outDF$veg_reclass)
+
+d <- outDF
+
+# Build dummy codes for veg
 # 1 if of that type
 # 0 if not of that type
 levels(d$veg_reclass)
-d$Non_veg <- ifelse(d$veg_reclass=='1', 1, 0)
-d$Closed_Tree_Canopy <- ifelse(d$veg_reclass=='3', 1, 0)
-d$Herb_Grass <- ifelse(d$veg_reclass=='4', 1, 0)
-d$Open_Tree_Canopy <- ifelse(d$veg_reclass=='5', 1, 0)
+d$Dune_Mar_Grassland <- ifelse(grepl('^1', d$veg_reclass), 1, 0)
+d$Fresh_Tidal_Marsh <- ifelse(grepl('^2', d$veg_reclass), 1, 0)
+d$Salt_Tidal_Marsh <- ifelse(grepl('^3', d$veg_reclass), 1, 0)
+d$Tidal_Wooded_Swamp <- ifelse(grepl('^4', d$veg_reclass), 1, 0)
+d$Mar_Forest <- ifelse(grepl('^5', d$veg_reclass), 1, 0)
+d$Ponds_Lakes <- ifelse(grepl('^6', d$veg_reclass), 1, 0)
+d$Interdune_Wetland <- ifelse(grepl('^7', d$veg_reclass), 1, 0)
+d$Beach <- ifelse(grepl('^8', d$veg_reclass), 1, 0)
 head(d)
 tail(d)
 summary(d)
 
-
-# Summary...output not shown
-
-##WEEK 10 pt 1
-## creating a GLMM
-##A. data import
-
-d <- read.csv('C:/Users/dklem/Documents/Classes/WILD 8321/RSFdata_std_3rdOrder_Kernel_rand10x.csv')
-# Change veg_reclass to a factor!!
-d$veg_reclass <- as.factor(d$veg_reclass)
-# Data inspection...
-head(d)
-# Variable names
-names(d)
-# Data import
-d1 <- d[,c('ID', 'Used', 'veg_reclass', 'EucDist_feed5')]
-unique(d1$veg_reclass)
-
-# Load the necessary packages
-library(lme4)
-
-# run a null model
-mNull <- glmer(Used ~ 1 + (1|ID), data = d, family = 'binomial')
-# call model output
-summary(mNull)
-mNull
-
-##running univariate models
-#model with veg type
-mVeg <- glmer(Used ~ veg_reclass + (1|ID), data = d, family = 'binomial')
-#model with distance to feeder
-mFeeder <- glmer(Used ~ EucDist_feed5 + (1|ID), data = d, family = 'binomial')
-summary(mVeg)
-summary(mFeeder)
-# model with distance polynomial
-mFeeder2 <- glmer(Used ~ EucDist_feed5 + I(EucDist_feed5^2) + (1|ID), data = d, family = 'binomial')
-summary(mFeeder2)
-summary(mNull)
-
-#running the categorical model
-mVEG <- glmer(Used ~ veg_reclass + (1|ID), data = d, family = 'binomial')
-summary(mVEG)
-
-
-##running a global model
-library(lme4)
-mGlobal <- glmer(Used ~ veg_reclass + EucDist_feed5 + (1|ID) , data = d, family = 'binomial')
-mGlobal1 <- glmer(Used ~ veg_reclass + EucDist_feed5 + 
-                    I(EucDist_feed5^2) + (1|ID), data = d, family = 'binomial')
-summary(mGlobal1)
-summary(d)
-
-#including all dummy codes except for most common one - herb_grass
-m1 <- glmer(Used ~  Non_veg + Closed_Tree_Canopy + 
-              Open_Tree_Canopy + (1|ID), data = d, family = 'binomial')
-summary(m1)
-
-
-library(AICcmodavg)
-aictab(list(mNull, mFeeder, mVeg, mFeeder2,
-            mGlobal, mGlobal1),
-       modnames = c('mNull', 'mFeeder', 'mVeg', 'mFeeder2',
-                    'mGlobal', 'mGlobal1'),
-       sort = T, nobs = 7)
-
-##likelihood ratio test
-mTop <- mNull
-mNull_glm <- glm(Used~ 1, data = d, family = 'binomial')
-# LRT using anova()
-anova(mNull, mNull_glm, test = 'Chisq')
-
-mTop <- mFeeder
-library(lme4)
-
-# Random effects and CI estimates
-(fixed <- fixef(mTop))
-(fixed.1 <- fixef(mTop1))
-
-parms <- names(fixed) 
-(fixedCI <- confint(mTop, level = 0.95, parm=parms, 
-                    method='profile'))  # Change method to 'Wald' for speed
-# Pull the coefficient estimates from the summary table
-loTable <- as.data.frame(coef(summary(mTop)))[,1:2]
-# Add the CIs
-(loTable <- cbind(loTable, fixedCI))
-(oTable <- exp(loTable))
-#export table
-write.csv(oTable, 'C:/Users/dklem/Documents/Classes/WILD 8321/TopModel_OddsRatio_PABURSF1.csv')
-
-#coefficient plots
-# Load ggplot2
-library(ggplot2)
-
-# Plot function
-pTable <- loTable
-pTable$params <- factor(rownames(loTable), levels = rownames(loTable))
-names(pTable)[3:4] <- c('ll', 'ul')
-
-# W/o intercept
-windows()
-qplot(params, Estimate, ymin=ll, ymax=ul, data=pTable[-1,],
-      geom='pointrange') + 
-  geom_hline(aes(yintercept = 0)) +
-  coord_flip() +
-  theme_bw()
-
-# For random effects modes and CI estimates
-(cV <- ranef(mTop, condVar=T))
-
-d2 <- read.csv('C:/Users/dklem/Documents/Classes/WILD 8321/RSFdata_std_3rdOrder_Kernel_rand10x.csv')
-knitr::kable(table(d2[d2$Used==1, 'ID'], d2[d2$Used==1, 'Year']), caption = "Table 3: Data counts by ID by Year")
-# Load the lattice (plotting) library
-library(lattice)
-
-# Random effects modes and CI estimates
-windows()
-dotplot(cV)
-
-1- exp(-0.539223)
-1- exp(-0.277)
-mFeeder
-1- exp(-0.003731)
-mFeeder
-
+# Saving RSF data as an RDS
+saveRDS(d, "data/rsf/rsf_data.rds")
