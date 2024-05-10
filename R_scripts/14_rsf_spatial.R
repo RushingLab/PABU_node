@@ -62,7 +62,6 @@ veg_rclass_df <- data.frame(value = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
                                      'Early_Successional_Vegetation'))
 veg_rclass <- subs(veg.data, veg_rclass_df[,1:2], subsWithNA = T)
 names(veg_rclass) <- 'veg_reclass'
-as.factor(veg_rclass)
 
 windows()
 plot(veg_rclass)
@@ -145,10 +144,6 @@ sd(outDF$lssibtime_1, na.rm=T) #0.8786342
 
 outDF$lssibtime_1_std <- scale(outDF$lssibtime_1)
 
-# 'veg_reclass' is stored as numeric but should be factors
-outDF$veg_reclass <- as.factor(outDF$veg_reclass)
-class(outDF$veg_reclass)
-levels(outDF$veg_reclass)
 
 d <- outDF
 

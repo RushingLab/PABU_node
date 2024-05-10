@@ -9,6 +9,7 @@
 # Loading necessary packages
 library(tidyverse)
 library(lme4)
+library(AICcmodavg)
 
 # Reset R's brain - removes all previous objects
 rm(list=ls())
@@ -17,65 +18,70 @@ rm(list=ls())
 # Reading in data
 d <- readRDS("data/rsf/rsf_data.rds")
 
-##WEEK 10 pt 1
-## creating a GLMM
-##A. data import
-# Change veg_reclass to a factor!!
-d$veg_reclass <- as.factor(d$veg_reclass)
-# Data inspection...
-head(d)
-# Variable names
-names(d)
-# Data import
-d1 <- d[,c('ID', 'Used', 'veg_reclass', 'EucDist_feed5')]
-unique(d1$veg_reclass)
+################################################################################
 
-# Load the necessary packages
-library(lme4)
+# Re-editing data
+d$veg_reclass_int <- d$veg_reclass
+d$veg_reclass_int1 <- floor(d$veg_reclass_int)
+str(d)
 
-# run a null model
-mNull <- glmer(Used ~ 1 + (1|ID), data = d, family = 'binomial')
-# call model output
+# 'veg_reclass' is stored as numeric but should be factors
+d$veg_reclass_int1 <- as.factor(d$veg_reclass_int1)
+class(d$veg_reclass_int)
+levels(d$veg_reclass_int)
+str(d)
+
+################################################################################
+
+# Creating a GLMM
+
+# Run a null model
+mNull <- glmer(Used ~ 1 + (1|TagId), data = d, family = 'binomial')
+# Call model output
 summary(mNull)
 mNull
 
-##running univariate models
+################################################################################
+
+# Running univariate models
+
+# Model for veg type
+# Getting rid of any veg columns with NA
+d1 <- d[!is.na(d$veg_reclass_int1), ]
 #model with veg type
-mVeg <- glmer(Used ~ veg_reclass + (1|ID), data = d, family = 'binomial')
-#model with distance to feeder
-mFeeder <- glmer(Used ~ EucDist_feed5 + (1|ID), data = d, family = 'binomial')
+mVeg <- glmer(Used ~ veg_reclass_int1 + (1|TagId), data = d1, family = 'binomial')
 summary(mVeg)
-summary(mFeeder)
-# model with distance polynomial
-mFeeder2 <- glmer(Used ~ EucDist_feed5 + I(EucDist_feed5^2) + (1|ID), data = d, family = 'binomial')
-summary(mFeeder2)
-summary(mNull)
 
-#running the categorical model
-mVEG <- glmer(Used ~ veg_reclass + (1|ID), data = d, family = 'binomial')
-summary(mVEG)
+# Model for veg type
+#including all dummy codes except for most common one - Maritime Grassland
+mVegc<- glmer(Used ~  Fresh_Tidal_Marsh + Salt_Tidal_Marsh + Tidal_Wooded_Swamp + Mar_Forest + Ponds_Lakes + Interdune_Wetland + Beach
+         + (1|TagId), data = d1, family = 'binomial')
+summary(mVegc)
 
+# Model for years since burn
+# Getting rid of any burn columns with NA
+d2 <- d1[!is.na(d1$lssibtime_1), ]
+# doing the same except for the standardized column
+d3 <- d1[!is.na(d1$lssibtime_1_std), ]
 
-##running a global model
-library(lme4)
-mGlobal <- glmer(Used ~ veg_reclass + EucDist_feed5 + (1|ID) , data = d, family = 'binomial')
-mGlobal1 <- glmer(Used ~ veg_reclass + EucDist_feed5 + 
-                    I(EucDist_feed5^2) + (1|ID), data = d, family = 'binomial')
-summary(mGlobal1)
-summary(d)
-
-#including all dummy codes except for most common one - herb_grass
-m1 <- glmer(Used ~  Non_veg + Closed_Tree_Canopy + 
-              Open_Tree_Canopy + (1|ID), data = d, family = 'binomial')
-summary(m1)
+#model with years from burn without standardization
+mBurn <- glmer(Used ~ lssibtime_1 + (1|TagId), data = d2, family = 'binomial')
+summary(mBurn)
 
 
-library(AICcmodavg)
-aictab(list(mNull, mFeeder, mVeg, mFeeder2,
-            mGlobal, mGlobal1),
-       modnames = c('mNull', 'mFeeder', 'mVeg', 'mFeeder2',
-                    'mGlobal', 'mGlobal1'),
-       sort = T, nobs = 7)
+#model with years from burn with standardization
+mBurnSd <- glmer(Used ~ lssibtime_1_std + (1|TagId), data = d3, family = 'binomial')
+summary(mBurnSd)
+
+################################################################################
+
+# Model Selection
+
+aictab(list(mNull, mVeg, mVegc, mBurn, mBurnSd),
+       modnames = c('mNull', 'mVeg', 'mVegc', 'mBurn', 'mBurnSd'),
+       sort = T)
+
+################################################################################
 
 ##likelihood ratio test
 mTop <- mNull

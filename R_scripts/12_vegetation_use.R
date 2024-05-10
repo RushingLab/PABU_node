@@ -1,3 +1,15 @@
+###################################################################################
+## Diane Klement
+## May 10 2024
+##
+## Code to clean veg data for later use in a RSF
+##
+## Output:
+##    - data/rsf/used_avail.rds
+##        - Combined and cleaned used and available locations of PABU for further use
+##
+###################################################################################
+
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
@@ -41,30 +53,4 @@ veg_burn_clean$Date.diff <- veg_burn_clean$Current.date - veg_burn_clean$Date.fo
 veg_burn_clean$Date.year <- veg_burn_clean$Date.diff / 360 # Years since management
 str(veg_burn_clean)
 
-saveRDS(veg_burn_clean, "data/veg_data.rds")
-########################################################################################
-
-# ANALYSIS OF VEG AS RSF
-
-veg_burn_clean <- readRDS("data/vegetation/veg_data.rds")
-
-fm1 <- glm(used ~ Date.year + BURN_TRACT_ID, family = binomial(link = "logit"), data = veg_burn_clean)
-summary(fm1)
-
-
-# Raw data
-ggplot(veg_burn_clean, aes(x = Date.year, y = used)) +
-  geom_point() +
-  scale_y_continuous("Foraging Occurrence") + scale_x_continuous("Years Since Burn")
-
-
-veg_burn_clean %>% group_by(SPECIES) %>% summarise(group.prob = mean(used)) %>%
-  ggplot(., aes(x = SPECIES, y = group.prob)) +
-  geom_col(fill = "grey70", color = "black") +
-  scale_y_continuous("Proportion of sites with orchids") + scale_x_discrete("Habitat")
-
-fm1 <- glm(used ~ habitat + elevation, 
-           family=binomial(link="logit"), 
-           data = veg_burn_clean)
-broom::tidy(fm1)
-
+saveRDS(veg_burn_clean, "data/vegetation/veg_data.rds")
