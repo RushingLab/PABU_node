@@ -15,6 +15,8 @@ data/animations
 /data/animations
 data/figures
 /data/figures
+/data/spatial_layers/
+data/spatial_layers
 
 # preventing the upload of alot of localization datasets not needed on github
 data/localizations/Trilateration.TestData_NoFilter*.csv
