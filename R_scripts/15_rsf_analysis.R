@@ -41,6 +41,11 @@ d$year_two_three <- d$Year2_3
 d$year_zero_one <- d$Year0_1
 d$year_three_four <- d$Year3_4
 d$year_one_two <- d$Year1_2
+
+str(d)
+
+d1 <- d %>%
+        select(TagId, Used, burn_reclass)
 ################################################################################
 
 # Creating a GLMM
@@ -57,8 +62,17 @@ mNull
 
 # New models for burn
 #model with burn type
-mBurn <- glmer(Used ~ burn_reclass + (1|TagId), data = d, family = 'binomial')
+mBurn <- glmer(Used ~ burn_reclass + (1|TagId), data = d1, family = 'binomial')
 summary(mBurn)
+
+#Estimate Std. Error z value Pr(>|z|)  
+#(Intercept)   -0.07563    0.12359  -0.612   0.5406  
+#burn_reclass3  0.09058    0.15473   0.585   0.5583  
+#burn_reclass6 -0.32529    0.15648  -2.079   0.0376 *
+#burn_reclass2  0.08061    0.11868   0.679   0.4970  
+#burn_reclass4  0.59560    0.74498   0.799   0.4240
+
+model.matrix(mBurn)
 
 # Model for burn type
 #including all dummy codes except for the unburned (to use as the comparison factor)
@@ -71,27 +85,50 @@ mBurn3<- glm(Used ~  Year0_1 + Year1_2 + Year2_3 + Year3_4
                , data = d, family = binomial(link="logit"))
 summary(mBurn3)
 broom::tidy(mBurn3)
+#term        estimate std.error statistic p.value
+#<chr>          <dbl>     <dbl>     <dbl>   <dbl>
+#  1 (Intercept)  -0.0413    0.0798    -0.518  0.604 
+#2 Year0_1       0.122     0.104      1.17   0.240 
+#3 Year1_2      -0.259     0.112     -2.31   0.0208
+#4 Year2_3       0.0537    0.0994     0.540  0.589 
+#5 Year3_4       0.552     0.735      0.752  0.452 
+
+mBurn4<- glm(Used ~  year_zero_one + year_one_two + year_two_three + year_three_four
+             , data = d, family = binomial(link="logit"))
+summary(mBurn4)
+broom::tidy(mBurn4)
 
 # Model for veg type
 # Getting rid of any veg columns with NA
-d1 <- d[!is.na(d$veg_reclass_int1), ]
+#d1 <- d[!is.na(d$veg_reclass_int1), ]
 #model with veg type
-mVeg <- glmer(Used ~ veg_reclass_int1 + (1|TagId), data = d1, family = 'binomial')
-summary(mVeg)
+#mVeg <- glmer(Used ~ veg_reclass_int1 + (1|TagId), data = d1, family = 'binomial')
+#summary(mVeg)
 
 # Model for veg type
 #including all dummy codes except for most common one - Maritime Grassland
-mVegc<- glmer(Used ~  Fresh_Tidal_Marsh + Salt_Tidal_Marsh + Tidal_Wooded_Swamp + Mar_Forest + Ponds_Lakes + Interdune_Wetland + Beach
-         + (1|TagId), data = d1, family = 'binomial')
-summary(mVegc)
+#mVegc<- glmer(Used ~  Fresh_Tidal_Marsh + Salt_Tidal_Marsh + Tidal_Wooded_Swamp + Mar_Forest + Ponds_Lakes + Interdune_Wetland + Beach + (1|TagId), data = d1, family = 'binomial')
+
+#summary(mVegc)
 
 
 ################################################################################
+# Attempt with glmer() with fixed effect for TagId
+#Occurrence probability of time since burn
+predData.burn <- data.frame(burn_reclass = factor(c('burn_reclass7', 'burn_reclass3', 'burn_reclass6', 'burn_reclass2', 'burn_reclass4'),
+                              levels = levels(d1$burn_reclass)),
+                            TagId = factor(c('072A0766', '072D4B55', '2A524C07', '2A55784C', '2D2D2D33', '2D4B662D', '2D55194C', '344C2A55', '4B612D4B', '4C332A19', 
+                                             '521E1934', '521E3334', '52787819', '554C5507', '78076678'), levels = levels(d1$TagId)))
+pred.burn <- predict(mBurn, newdata = predData.burn, re.form = ~1 , type = "response", se.fit = TRUE)
+#Error in X %*% fixef(object) : non-conformable arguments :-(
+predData.burn$p <- plogis(pred.burn$fit) # back transform to probability scale
+predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
+predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
 
 #Occurrence probability of time since burn
-predData.burn <- data.frame(Burn = c('Unburned', 'Year0_1', 'Year1_2', 'Year2_3', 'Year3_4'))
-pred.burn <- predict(mBurn2, newdata = predData.burn, se.fit = TRUE)
-predData.burn$p <- plogis(pred.burn$fit) # back transform to probability scale
+predData.burn <- data.frame(burn = c('Unburned', 'year_zero_one', 'year_one_two', 'year_two_three', 'year_three_four'))
+pred.burn <- stats::predict(mBurn4, newdata = predData.burn, se.fit = TRUE)
+predData.burn$p <- plogis(pred.burn$fit) # back transform to the probability scale
 predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
 predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
 
