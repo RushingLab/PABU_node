@@ -50,14 +50,6 @@ d1 <- d %>%
 
 # Creating a GLMM
 
-# Run a null model
-mNull <- glmer(Used ~ 1 + (1|TagId), data = d, family = 'binomial')
-# Call model output
-summary(mNull)
-mNull
-
-################################################################################
-
 # Running univariate models
 
 # New models for burn
@@ -65,34 +57,61 @@ mNull
 mBurn <- glmer(Used ~ burn_reclass + (1|TagId), data = d1, family = 'binomial')
 summary(mBurn)
 
-#Estimate Std. Error z value Pr(>|z|)  
-#(Intercept)   -0.07563    0.12359  -0.612   0.5406  
-#burn_reclass3  0.09058    0.15473   0.585   0.5583  
-#burn_reclass6 -0.32529    0.15648  -2.079   0.0376 *
-#burn_reclass2  0.08061    0.11868   0.679   0.4970  
-#burn_reclass4  0.59560    0.74498   0.799   0.4240
-
+#               Estimate Std. Error z value Pr(>|z|)  
+#(Intercept)   -0.07563    0.12359  -0.612   0.5406     unburned
+#burn_reclass3  0.09058    0.15473   0.585   0.5583     year0-1
+#burn_reclass6 -0.32529    0.15648  -2.079   0.0376 *   year1-2
+#burn_reclass2  0.08061    0.11868   0.679   0.4970     year2-3
+#burn_reclass4  0.59560    0.74498   0.799   0.4240     year3-4
 model.matrix(mBurn)
+# pr(use) of unburned grassland
+plogis(-0.07563) #0.4811015
 
-# Model for burn type
+# pr(use) of grassland burned 0-1 years ago
+plogis(-0.07563 + 0.09058) #0.5037374
+# odds of use of 0-1 yr burn grassland relative to unburned
+exp(0.09058) #1.094809
+
+# pr(use) of grassland burned 1-2 years ago
+plogis(-0.07563 - 0.32529) #0.4010913
+# odds of use of 1-2 yr burn grassland relative to unburned
+exp(-0.32529) #0.7223179
+
+# pr(use) of grassland burned 2-3 years ago
+plogis(-0.07563 + 0.08061) #0.501245
+# odds of use of 2-3 yr burn grassland relative to unburned
+exp(0.08061) #1.083948
+
+# pr(use) of grassland burned 3-4 years ago
+plogis(-0.07563 + 0.59560) #0.6271408
+# odds of use of 3-4 yr burn grassland relative to unburned
+exp(0.59560) #1.814119
+
+# Model for burn type but written differently than mBurn just for context
 #including all dummy codes except for the unburned (to use as the comparison factor)
 mBurn2<- glmer(Used ~  Year0_1 + Year1_2 + Year2_3 + Year3_4
               + (1|TagId), data = d, family = 'binomial')
 summary(mBurn2)
+#             Estimate Std. Error z value Pr(>|z|)  
+#(Intercept) -0.07563    0.12359  -0.612   0.5406     unburned
+#Year0_1      0.09058    0.15473   0.585   0.5583  
+#Year1_2     -0.32529    0.15648  -2.079   0.0376 *
+#Year2_3      0.08061    0.11868   0.679   0.4970  
+#Year3_4      0.59560    0.74498   0.799   0.4240 
 
-
+# Model for burn type but without random effect for TagId
 mBurn3<- glm(Used ~  Year0_1 + Year1_2 + Year2_3 + Year3_4
                , data = d, family = binomial(link="logit"))
 summary(mBurn3)
-broom::tidy(mBurn3)
-#term        estimate std.error statistic p.value
-#<chr>          <dbl>     <dbl>     <dbl>   <dbl>
-#  1 (Intercept)  -0.0413    0.0798    -0.518  0.604 
-#2 Year0_1       0.122     0.104      1.17   0.240 
-#3 Year1_2      -0.259     0.112     -2.31   0.0208
-#4 Year2_3       0.0537    0.0994     0.540  0.589 
-#5 Year3_4       0.552     0.735      0.752  0.452 
+#Coefficients:
+#            Estimate Std. Error z value Pr(>|z|)  
+#(Intercept) -0.04134    0.07976  -0.518   0.6042     unburned
+#Year0_1      0.12247    0.10428   1.174   0.2402  
+#Year1_2     -0.25863    0.11186  -2.312   0.0208 *
+#Year2_3      0.05368    0.09943   0.540   0.5893  
+#Year3_4      0.55217    0.73452   0.752   0.4522 
 
+# Same as mBurn3 but was trying to use this to get around the predict() not working
 mBurn4<- glm(Used ~  year_zero_one + year_one_two + year_two_three + year_three_four
              , data = d, family = binomial(link="logit"))
 summary(mBurn4)
@@ -125,16 +144,19 @@ predData.burn$p <- plogis(pred.burn$fit) # back transform to probability scale
 predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
 predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
 
+
+#An alternate attempt?
 #Occurrence probability of time since burn
-predData.burn <- data.frame(burn = c('Unburned', 'year_zero_one', 'year_one_two', 'year_two_three', 'year_three_four'))
-pred.burn <- stats::predict(mBurn4, newdata = predData.burn, se.fit = TRUE)
+predData.burn <- data.frame(burn_reclass = factor(c('burn_reclass7', 'burn_reclass3', 'burn_reclass6', 'burn_reclass2', 'burn_reclass4'),
+                                                  levels = levels(d1$burn_reclass)))
+pred.burn <- stats::predict(mBurn, newdata = predData.burn, se.fit = TRUE)
 predData.burn$p <- plogis(pred.burn$fit) # back transform to the probability scale
 predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
 predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
 
 ggplot() +
-  geom_col(data = predData.burn, aes(x = Burn, y = p), fill = "grey60") +
-  geom_errorbar(data = predData.burn, aes(x = Burn, ymin = lower, ymax = upper),
+  geom_col(data = predData.burn, aes(x = burn_reclass, y = p), fill = "grey60") +
+  geom_errorbar(data = predData.burn, aes(x = burn_reclass, ymin = lower, ymax = upper),
                 width = 0.1) +
-  scale_y_continuous("Probability of USE") +
+  scale_y_continuous("Probability of Use") +
   scale_x_discrete("Time Since Burn")
