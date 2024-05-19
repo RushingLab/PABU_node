@@ -68,7 +68,7 @@ plot(veg_rclass)
 levels(veg_rclass)
 
 ## LSSI burn DATA FROM arcGIS (as Tracts)
-burn.data <- raster("data/spatial_layers/lssi_burn1.tif")
+burn.data <- raster("data/spatial_layers/lssiburn3.tif")
 #check classes and number of cells per class
 freq(burn.data)
 # plot
@@ -76,24 +76,14 @@ plot(burn.data)
 
 ##trying to rename burn classes
 # Reclass structure for burn
-burn_rclass_df <- data.frame(value = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17),
-                            name = c('Tract1', 
-                                        'Tract2', 
-                                        'Tract3', 
-                                        'Tract4', 
-                                        'Tract5', 
-                                        'Tract6', 
-                                        'Tract7', 
-                                        'Tract8', 
-                                        'Tract9', 
-                                        'Tract10', 
-                                        'Tract11', 
-                                        'Tract12', 
-                                        'Tract13', 
-                                        'Tract14', 
-                                        'Tract15', 
-                                        'Tract16', 
-                                        'Tract17'))
+burn_rclass_df <- data.frame(value = c(1, 2, 3, 4, 5, 6, 7),
+                            name = c('Year_4-5', 
+                                        'Year_2-3', 
+                                        'Year_0-1', 
+                                        'Year_3-4', 
+                                        'Year_1-2_Mow', 
+                                        'Year_1-2', 
+                                        'Unburned'))
 burn_rclass <- subs(burn.data, burn_rclass_df[,1:2], subsWithNA = T)
 names(burn_rclass) <- 'burn_reclass'
 as.factor(burn_rclass)
@@ -102,6 +92,7 @@ burn <- readRDS("data/veg_data.rds")
 
 ## LSSI burn DATA FROM arcGIS (as time since management)
 burn.data.time <- raster("data/spatial_layers/lssibtime_1.tif")
+
 #check classes and number of cells per class
 freq(burn.data.time)
 # plot
@@ -110,12 +101,12 @@ plot(burn.data.time)
 
 
 # Ensuring that rasters are the same extent
-rsts <- list(burn.data.time, veg_rclass)
+rsts <- list(burn_rclass, veg_rclass)
 for (i in 2:length(rsts)) {
-  rsts[[i]] <- resample(rsts[[i]], burn.data.time)
+  rsts[[i]] <- resample(rsts[[i]], burn_rclass)
 } 
 # Stacking the rasters
-rastStack <- stack(rsts)
+rastStack <- stack(burn_rclass)
 
 
 # Recall our used/avail combined data.frames
@@ -131,6 +122,8 @@ outDF <- cbind(df@data, predictors)
 str(outDF)
 names(outDF)
 
+na.omit
+outDF1 <- outDF[!is.na(outDF$burn_reclass),]
 
 # Identify columns with continuous variables to standardize continuous variables
 names(outDF) #lssibtime_1
@@ -145,11 +138,19 @@ sd(outDF$lssibtime_1, na.rm=T) #0.8786342
 outDF$lssibtime_1_std <- scale(outDF$lssibtime_1)
 
 
-d <- outDF
+d <- outDF1
 
 # Build dummy codes for veg
 # 1 if of that type
 # 0 if not of that type
+levels(d$burn_reclass)
+d$Year2_3 <- ifelse(d$burn_reclass=='2', 1, 0)
+d$Year0_1 <- ifelse(d$burn_reclass=='3', 1, 0)
+d$Year3_4 <- ifelse(d$burn_reclass=='4', 1, 0)
+d$Year1_2 <- ifelse(d$burn_reclass=='6', 1, 0)
+d$Unburned <- ifelse(d$burn_reclass=='7', 1, 0)
+str(d)
+
 levels(d$veg_reclass)
 d$Dune_Mar_Grassland <- ifelse(grepl('^1', d$veg_reclass), 1, 0)
 d$Fresh_Tidal_Marsh <- ifelse(grepl('^2', d$veg_reclass), 1, 0)
@@ -165,3 +166,5 @@ summary(d)
 
 # Saving RSF data as an RDS
 saveRDS(d, "data/rsf/rsf_data.rds")
+
+saveRDS(d, "data/rsf/rsf_data_burn.rds")

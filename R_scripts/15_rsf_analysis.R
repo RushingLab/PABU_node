@@ -16,7 +16,7 @@ rm(list=ls())
 
 ################################################################################
 # Reading in data
-d <- readRDS("data/rsf/rsf_data.rds")
+d <- readRDS("data/rsf/rsf_data_burn.rds")
 
 ################################################################################
 
@@ -31,6 +31,16 @@ class(d$veg_reclass_int)
 levels(d$veg_reclass_int)
 str(d)
 
+# burn_reclass storing as a factor
+d$burn_reclass <- as.factor(d$burn_reclass)
+levels(d$burn_reclass)
+d$burn_reclass <- factor(d$burn_reclass, levels=c('7', '3', '6', '2', '4'))
+str(d)
+
+d$year_two_three <- d$Year2_3
+d$year_zero_one <- d$Year0_1
+d$year_three_four <- d$Year3_4
+d$year_one_two <- d$Year1_2
 ################################################################################
 
 # Creating a GLMM
@@ -45,6 +55,23 @@ mNull
 
 # Running univariate models
 
+# New models for burn
+#model with burn type
+mBurn <- glmer(Used ~ burn_reclass + (1|TagId), data = d, family = 'binomial')
+summary(mBurn)
+
+# Model for burn type
+#including all dummy codes except for the unburned (to use as the comparison factor)
+mBurn2<- glmer(Used ~  Year0_1 + Year1_2 + Year2_3 + Year3_4
+              + (1|TagId), data = d, family = 'binomial')
+summary(mBurn2)
+
+
+mBurn3<- glm(Used ~  Year0_1 + Year1_2 + Year2_3 + Year3_4
+               , data = d, family = binomial(link="logit"))
+summary(mBurn3)
+broom::tidy(mBurn3)
+
 # Model for veg type
 # Getting rid of any veg columns with NA
 d1 <- d[!is.na(d$veg_reclass_int1), ]
@@ -58,87 +85,19 @@ mVegc<- glmer(Used ~  Fresh_Tidal_Marsh + Salt_Tidal_Marsh + Tidal_Wooded_Swamp 
          + (1|TagId), data = d1, family = 'binomial')
 summary(mVegc)
 
-# Model for years since burn
-# Getting rid of any burn columns with NA
-d2 <- d1[!is.na(d1$lssibtime_1), ]
-# doing the same except for the standardized column
-d3 <- d1[!is.na(d1$lssibtime_1_std), ]
-
-#model with years from burn without standardization
-mBurn <- glmer(Used ~ lssibtime_1 + (1|TagId), data = d2, family = 'binomial')
-summary(mBurn)
-
-
-#model with years from burn with standardization
-mBurnSd <- glmer(Used ~ lssibtime_1_std + (1|TagId), data = d3, family = 'binomial')
-summary(mBurnSd)
 
 ################################################################################
 
-# Model Selection
+#Occurrence probability of time since burn
+predData.burn <- data.frame(Burn = c('Unburned', 'Year0_1', 'Year1_2', 'Year2_3', 'Year3_4'))
+pred.burn <- predict(mBurn2, newdata = predData.burn, se.fit = TRUE)
+predData.burn$p <- plogis(pred.burn$fit) # back transform to probability scale
+predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
+predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
 
-aictab(list(mNull, mVeg, mVegc, mBurn, mBurnSd),
-       modnames = c('mNull', 'mVeg', 'mVegc', 'mBurn', 'mBurnSd'),
-       sort = T)
-
-################################################################################
-
-##likelihood ratio test
-mTop <- mNull
-mNull_glm <- glm(Used~ 1, data = d, family = 'binomial')
-# LRT using anova()
-anova(mNull, mNull_glm, test = 'Chisq')
-
-mTop <- mFeeder
-library(lme4)
-
-# Random effects and CI estimates
-(fixed <- fixef(mTop))
-(fixed.1 <- fixef(mTop1))
-
-parms <- names(fixed) 
-(fixedCI <- confint(mTop, level = 0.95, parm=parms, 
-                    method='profile'))  # Change method to 'Wald' for speed
-# Pull the coefficient estimates from the summary table
-loTable <- as.data.frame(coef(summary(mTop)))[,1:2]
-# Add the CIs
-(loTable <- cbind(loTable, fixedCI))
-(oTable <- exp(loTable))
-#export table
-write.csv(oTable, 'C:/Users/dklem/Documents/Classes/WILD 8321/TopModel_OddsRatio_PABURSF1.csv')
-
-#coefficient plots
-# Load ggplot2
-library(ggplot2)
-
-# Plot function
-pTable <- loTable
-pTable$params <- factor(rownames(loTable), levels = rownames(loTable))
-names(pTable)[3:4] <- c('ll', 'ul')
-
-# W/o intercept
-windows()
-qplot(params, Estimate, ymin=ll, ymax=ul, data=pTable[-1,],
-      geom='pointrange') + 
-  geom_hline(aes(yintercept = 0)) +
-  coord_flip() +
-  theme_bw()
-
-# For random effects modes and CI estimates
-(cV <- ranef(mTop, condVar=T))
-
-d2 <- read.csv('C:/Users/dklem/Documents/Classes/WILD 8321/RSFdata_std_3rdOrder_Kernel_rand10x.csv')
-knitr::kable(table(d2[d2$Used==1, 'ID'], d2[d2$Used==1, 'Year']), caption = "Table 3: Data counts by ID by Year")
-# Load the lattice (plotting) library
-library(lattice)
-
-# Random effects modes and CI estimates
-windows()
-dotplot(cV)
-
-1- exp(-0.539223)
-1- exp(-0.277)
-mFeeder
-1- exp(-0.003731)
-mFeeder
-
+ggplot() +
+  geom_col(data = predData.burn, aes(x = Burn, y = p), fill = "grey60") +
+  geom_errorbar(data = predData.burn, aes(x = Burn, ymin = lower, ymax = upper),
+                width = 0.1) +
+  scale_y_continuous("Probability of USE") +
+  scale_x_discrete("Time Since Burn")

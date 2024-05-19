@@ -47,7 +47,7 @@ veg_burn_clean$NATIVE_STATUS <- as.factor(veg_burn_clean$NATIVE_STATUS)
 veg_burn_clean$LOCATION <- as.factor(veg_burn_clean$LOCATION)
 veg_burn_clean$Management <- as.factor(veg_burn_clean$Management)
 
-veg_burn_clean$Date.for <- as.Date(paste0("01-", veg_burn_clean$Date), format = "%d-%b-%y")
+veg_burn_clean$Date.for <- as.Date(veg_burn_clean$Date, format = "%m/%d/%Y")
 veg_burn_clean$Current.date <- as.Date("2023-05-01")
 veg_burn_clean$Date.diff <- veg_burn_clean$Current.date - veg_burn_clean$Date.for # Difference in days since management
 veg_burn_clean$Date.year <- veg_burn_clean$Date.diff / 360 # Years since management
