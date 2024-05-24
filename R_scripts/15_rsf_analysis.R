@@ -56,13 +56,23 @@ d1 <- d %>%
 #model with burn type
 mBurn <- glmer(Used ~ burn_reclass + (1|TagId), data = d1, family = 'binomial')
 summary(mBurn)
-
 #               Estimate Std. Error z value Pr(>|z|)  
 #(Intercept)   -0.07563    0.12359  -0.612   0.5406     unburned
 #burn_reclass3  0.09058    0.15473   0.585   0.5583     year0-1
 #burn_reclass6 -0.32529    0.15648  -2.079   0.0376 *   year1-2
 #burn_reclass2  0.08061    0.11868   0.679   0.4970     year2-3
 #burn_reclass4  0.59560    0.74498   0.799   0.4240     year3-4
+
+mBurn.glm <- glm(Used ~ burn_reclass, family = binomial(link = "logit"), data = d1)
+summary(mBurn.glm)
+#Coefficients:
+#               Estimate Std. Error z value Pr(>|z|)  
+#(Intercept)   -0.04134    0.07976  -0.518   0.6042     unburned
+#burn_reclass3  0.12247    0.10428   1.174   0.2402     year0-1
+#burn_reclass6 -0.25863    0.11186  -2.312   0.0208 *   year1-2
+#burn_reclass2  0.05368    0.09943   0.540   0.5893     year2-3
+#burn_reclass4  0.55217    0.73452   0.752   0.4522     year3-4
+
 model.matrix(mBurn)
 # pr(use) of unburned grassland
 plogis(-0.07563) #0.4811015
@@ -132,31 +142,29 @@ broom::tidy(mBurn4)
 
 
 ################################################################################
-# Attempt with glmer() with fixed effect for TagId
-#Occurrence probability of time since burn
-predData.burn <- data.frame(burn_reclass = factor(c('burn_reclass7', 'burn_reclass3', 'burn_reclass6', 'burn_reclass2', 'burn_reclass4'),
-                              levels = levels(d1$burn_reclass)),
-                            TagId = factor(c('072A0766', '072D4B55', '2A524C07', '2A55784C', '2D2D2D33', '2D4B662D', '2D55194C', '344C2A55', '4B612D4B', '4C332A19', 
-                                             '521E1934', '521E3334', '52787819', '554C5507', '78076678'), levels = levels(d1$TagId)))
-pred.burn <- predict(mBurn, newdata = predData.burn, re.form = ~1 , type = "response", se.fit = TRUE)
-#Error in X %*% fixef(object) : non-conformable arguments :-(
-predData.burn$p <- plogis(pred.burn$fit) # back transform to probability scale
-predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
-predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
-
+# Predicting the data to try and make data visualizations
 
 #An alternate attempt?
 #Occurrence probability of time since burn
-predData.burn <- data.frame(burn_reclass = factor(c('burn_reclass7', 'burn_reclass3', 'burn_reclass6', 'burn_reclass2', 'burn_reclass4'),
-                                                  levels = levels(d1$burn_reclass)))
-pred.burn <- stats::predict(mBurn, newdata = predData.burn, se.fit = TRUE)
+predData.burn <- data.frame(burn_reclass = c('7', '3', '6', '2', '4'),
+                            levels = levels(d1$burn_reclass))
+pred.burn <- stats::predict(mBurn.glm, newdata = predData.burn, se.fit = TRUE)
 predData.burn$p <- plogis(pred.burn$fit) # back transform to the probability scale
 predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
 predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
+predData.burn$burn_reclass <- factor(predData.burn$burn_reclass,
+                                     levels = c('7', '3', '6', '2', '4'),
+                                     labels = c("Unburned", "0-1 Years", "1-2 Years", "2-3 Years", "3-4 Years"))
 
-ggplot() +
+
+tsb_node <-ggplot() +
   geom_col(data = predData.burn, aes(x = burn_reclass, y = p), fill = "grey60") +
   geom_errorbar(data = predData.burn, aes(x = burn_reclass, ymin = lower, ymax = upper),
                 width = 0.1) +
   scale_y_continuous("Probability of Use") +
   scale_x_discrete("Time Since Burn")
+
+# Saving plot
+ggsave("data/figures/plots/tsb_node.pdf", plot = tsb_node, width = 5, height = 5)
+ggsave( "data/figures/plots/tsb_node.jpeg", plot = tsb_node, width = 7, height = 7, dpi = 600)
+
