@@ -2,6 +2,11 @@
 library(MASS)
 library(ctmm)
 library(tidyverse)
+library(rempsyc)
+library(flextable)
+library(broom)
+library(report)
+library(effectsize)
 
 # Read in file
 locations <- readRDS("data/trilateration/Error.sd.cov.Estimated.Locations90p-90_2023-05-10_2023-11-20.rds")
@@ -198,9 +203,45 @@ hr_df <- readRDS("data/clark_hr/results/hr_all.rds")
 hr_summ <- hr_df %>% group_by(ID, hr) %>% summarise(med = quantile(est, probs = 0.5), 
                                                     lci = quantile(est, probs = 0.025),
                                                     uci = quantile(est, probs = 0.975))
+tags <- readRDS("data/tagged_birds.rds")
+tags$ID <- tags$AUX_TAG_NO
+tags <- tags %>% select(-AUX_TAG_NO)
+tags$month <- c("May", "July", "July", "May", "June", 
+                "May", "May", "June", "August", "June",
+                "June", "July", "August", "September", "September",
+                "September", "September", "September")
+tags
+tag_hrs <- left_join(hr_summ, tags, by = "ID") # homerange estimates with tag id, age, sex, loc, attached
 
-ggplot() +
+hr_50 <- tag_hrs %>%
+            filter(hr == 50) %>%
+            arrange(BAND_NO)
+meds <- hr_50 %>%
+          ungroup() %>%
+          select(c(med, lci, uci)) %>%
+            dplyr::summarise(mean_med = median(med), 
+                    lci_med = median(lci),
+                    uci_med = median(uci)
+                    )
+
+hr_90_m <- tag_hrs %>%
+  filter(hr == 90) %>%
+  arrange(BAND_NO) %>%
+  filter(month == "September")
+meds <- hr_90_m %>%
+  ungroup() %>%
+  select(c(med, lci, uci)) %>%
+  dplyr::summarise(mean_med = median(med), 
+                   lci_med = median(lci),
+                   uci_med = median(uci)
+  )
+
+
+hr <-ggplot() +
   geom_point(data = hr_df, aes(x = est, y = ID, color = hr), alpha = 0.1, size = 1) +
   geom_boxplot(data = hr_df, aes(x = est, y = ID, color = hr)) +
   theme_classic() +
-  scale_x_continuous("Home range size", limits = c(0, 30))
+  scale_x_continuous("Home Range Size", limits = c(0, 30)) +
+  scale_y_discrete("Tag ID") +
+  labs(color = "Home Range Size")
+ggsave("data/figures/HRs/boxplot.jpg")

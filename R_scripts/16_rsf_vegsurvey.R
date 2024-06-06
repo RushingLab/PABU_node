@@ -3,6 +3,7 @@
 ## May 10 2024
 ##
 ## Code to run RSF for veg survey used and available points
+## DISREGARD: DONE INCORRECTLY. FIXING IN 19_...R script
 ##
 ## Output:
 ##    - data/rsf/used_avail.rds
@@ -22,7 +23,7 @@ rm(list=ls())
 
 # Read in veg survey data
 veg_burn_clean <- readRDS("data/vegetation/veg_data.rds")
-
+n_distinct(veg_burn_clean$SPECIES)
 ###################################################################################
 
 # Looking at the number of points per burn tract

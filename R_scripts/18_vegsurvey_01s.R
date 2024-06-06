@@ -29,10 +29,7 @@ veg <- readRDS("data/vegetation/veg_for_rsf.rds")
 
 # Removing the species column
 veg1 <- veg %>%
-          select(-c(SPECIES, BURN_TRACT_ID))
-
-# Just TYPE category (Forbs, Native_Poales, Nonnative_Poales, Shrub): 4
-# Just FAMILY_TYPE category(Asteraceae, Forbs, Native_Poales, Nonnative_Poales, Rosales, Shrub): 6
+          select(-c(SPECIES, BURN_TRACT_ID, Diff.Years))
 
 ###################################################################################
 
@@ -56,7 +53,6 @@ veg.1 <- veg1 %>%
     STEM_DENSITY = sum(STEM_DENSITY),
     PERCENT_VEG = first(PERCENT_VEG),
     used = first(used),
-    Diff.Years = first(Diff.Years),
     time_since_burn = first(time_since_burn)) %>%
   ungroup()
 head(veg.1)
@@ -86,12 +82,39 @@ veg.grass <- veg.NA %>%
   mutate(
     PERCENT_VEG = replace_na_within_group(PERCENT_VEG),
     used = replace_na_within_group(used),
-    Diff.Years = replace_na_within_group(Diff.Years),
     time_since_burn = replace_na_within_group(time_since_burn)
   ) %>%
   ungroup()  # Remove grouping
 head(veg.grass)
-saveRDS(veg.grass, "data/veg_sample_rsf_01/veg_grass.rds")
+
+veg.grass$time_since_burn <- factor(veg.grass$time_since_burn, levels = c("unmanaged", "0-1_years", "1-2_years", "2-3_years"))
+veg.grass$GRASS <- factor(veg.grass$GRASS, levels = c("Not_Grass", "Cyperaceae", "Poaceae", "Nonnative_Poales"))
+head(veg.grass)
+
+veg.grass2 <- veg.grass %>%
+  group_by(POINT) %>%
+  summarize(
+    PERCENT_VEG = first(PERCENT_VEG),
+    used = first(used),
+    time_since_burn = first(time_since_burn),
+    SD_Not_Grass = sum(ifelse(GRASS == "Not_Grass", STEM_DENSITY, 0)),
+    SD_Cyperaceae = sum(ifelse(GRASS == "Cyperaceae", STEM_DENSITY, 0)),
+    SD_Poaceae = sum(ifelse(GRASS == "Poaceae", STEM_DENSITY, 0)),
+    SD_Nonnative_Poales = sum(ifelse(GRASS == "Nonnative_Poales", STEM_DENSITY, 0))
+  )
+
+head(veg.grass2)
+
+# Standardizing Continuous Variable
+veg.grass2$PERCENT_VEG.c <- veg.grass2$PERCENT_VEG - mean(veg.grass2$PERCENT_VEG)
+veg.grass2$SD_Not_Grass.c <- veg.grass2$SD_Not_Grass - mean(veg.grass2$SD_Not_Grass)
+veg.grass2$SD_Cyperaceae.c <- veg.grass2$SD_Cyperaceae - mean(veg.grass2$SD_Cyperaceae)
+veg.grass2$SD_Poaceae.c <- veg.grass2$SD_Poaceae - mean(veg.grass2$SD_Poaceae)
+veg.grass2$SD_Nonnative_Poales.c <- veg.grass2$SD_Nonnative_Poales - mean(veg.grass2$SD_Nonnative_Poales)
+
+head(veg.grass2)
+
+saveRDS(veg.grass2, "data/veg_sample_rsf_01/veg_grass.rds")
 ###########################################
 
 # Just TYPE category (Forbs, Native_Poales, Nonnative_Poales, Shrub): 4
@@ -103,7 +126,6 @@ veg.1 <- veg1 %>%
     STEM_DENSITY = sum(STEM_DENSITY),
     PERCENT_VEG = first(PERCENT_VEG),
     used = first(used),
-    Diff.Years = first(Diff.Years),
     time_since_burn = first(time_since_burn)) %>%
   ungroup()
 
@@ -135,12 +157,37 @@ veg.type <- veg.NA %>%
   mutate(
     PERCENT_VEG = replace_na_within_group(PERCENT_VEG),
     used = replace_na_within_group(used),
-    Diff.Years = replace_na_within_group(Diff.Years),
     time_since_burn = replace_na_within_group(time_since_burn)
   ) %>%
   ungroup()  # Remove grouping
 head(veg.type)
-saveRDS(veg.type, "data/veg_sample_rsf_01/veg_type.rds")
+
+veg.type$time_since_burn <- factor(veg.type$time_since_burn, levels = c("unmanaged", "0-1_years", "1-2_years", "2-3_years"))
+veg.type$TYPE <- factor(veg.type$TYPE, levels = c("Shrub", "Forbs", "Native_Poales", "Nonnative_Poales"))
+head(veg.type)
+
+veg.type2 <- veg.type %>%
+  group_by(POINT) %>%
+  summarize(
+    PERCENT_VEG = first(PERCENT_VEG),
+    used = first(used),
+    time_since_burn = first(time_since_burn),
+    SD_Shrub = sum(ifelse(TYPE == "Shrub", STEM_DENSITY, 0)),
+    SD_Forbs = sum(ifelse(TYPE == "Forbs", STEM_DENSITY, 0)),
+    SD_Native_Poales = sum(ifelse(TYPE == "Native_Poales", STEM_DENSITY, 0)),
+    SD_Nonnative_Poales = sum(ifelse(TYPE == "Nonnative_Poales", STEM_DENSITY, 0))
+  )
+head(veg.type2)
+
+# Standardizing Continuous Variable
+veg.type2$PERCENT_VEG.c <- veg.type2$PERCENT_VEG - mean(veg.type2$PERCENT_VEG)
+veg.type2$SD_Shrub.c <- veg.type2$SD_Shrub - mean(veg.type2$SD_Shrub)
+veg.type2$SD_Forbs.c <- veg.type2$SD_Forbs - mean(veg.type2$SD_Forbs)
+veg.type2$SD_Native_Poales.c <- veg.type2$SD_Native_Poales - mean(veg.type2$SD_Native_Poales)
+veg.type2$SD_Nonnative_Poales.c <- veg.type2$SD_Nonnative_Poales - mean(veg.type2$SD_Nonnative_Poales)
+head(veg.type2)
+
+saveRDS(veg.type2, "data/veg_sample_rsf_01/veg_type.rds")
 ###########################################
 
 # Just FAMILY_TYPE category(Asteraceae, Forbs, Native_Poales, Nonnative_Poales, Rosales, Shrub): 6
@@ -152,7 +199,6 @@ veg.1 <- veg1 %>%
     STEM_DENSITY = sum(STEM_DENSITY),
     PERCENT_VEG = first(PERCENT_VEG),
     used = first(used),
-    Diff.Years = first(Diff.Years),
     time_since_burn = first(time_since_burn)) %>%
   ungroup()
 
@@ -185,9 +231,38 @@ veg.family <- veg.NA %>%
   mutate(
     PERCENT_VEG = replace_na_within_group(PERCENT_VEG),
     used = replace_na_within_group(used),
-    Diff.Years = replace_na_within_group(Diff.Years),
     time_since_burn = replace_na_within_group(time_since_burn)
   ) %>%
   ungroup()  # Remove grouping
 head(veg.family)
-saveRDS(veg.family, "data/veg_sample_rsf_01/veg_family.rds")
+
+veg.family$time_since_burn <- factor(veg.family$time_since_burn, levels = c("unmanaged", "0-1_years", "1-2_years", "2-3_years"))
+veg.family$FAMILY_TYPE <- factor(veg.family$FAMILY_TYPE, levels = c("Shrub", "Forbs", "Asteraceae", "Rosales", "Native_Poales", "Nonnative_Poales"))
+head(veg.family)
+
+veg.family2 <- veg.family %>%
+  group_by(POINT) %>%
+  summarize(
+    PERCENT_VEG = first(PERCENT_VEG),
+    used = first(used),
+    time_since_burn = first(time_since_burn),
+    SD_Shrub = sum(ifelse(FAMILY_TYPE == "Shrub", STEM_DENSITY, 0)),
+    SD_Forbs = sum(ifelse(FAMILY_TYPE == "Forbs", STEM_DENSITY, 0)),
+    SD_Asteraceae = sum(ifelse(FAMILY_TYPE == "Asteraceae", STEM_DENSITY, 0)),
+    SD_Rosales = sum(ifelse(FAMILY_TYPE == "Rosales", STEM_DENSITY, 0)),
+    SD_Native_Poales = sum(ifelse(FAMILY_TYPE == "Native_Poales", STEM_DENSITY, 0)),
+    SD_Nonnative_Poales = sum(ifelse(FAMILY_TYPE == "Nonnative_Poales", STEM_DENSITY, 0))
+  )
+head(veg.family2)
+
+# Standardizing Continuous Variable
+veg.family2$PERCENT_VEG.c <- veg.family2$PERCENT_VEG - mean(veg.family2$PERCENT_VEG)
+veg.family2$SD_Shrub.c <- veg.family2$SD_Shrub - mean(veg.family2$SD_Shrub)
+veg.family2$SD_Forbs.c <- veg.family2$SD_Forbs - mean(veg.family2$SD_Forbs)
+veg.family2$SD_Asteraceae.c <- veg.family2$SD_Asteraceae - mean(veg.family2$SD_Asteraceae)
+veg.family2$SD_Rosales.c <- veg.family2$SD_Rosales - mean(veg.family2$SD_Rosales)
+veg.family2$SD_Native_Poales.c <- veg.family2$SD_Native_Poales - mean(veg.family2$SD_Native_Poales)
+veg.family2$SD_Nonnative_Poales.c <- veg.family2$SD_Nonnative_Poales - mean(veg.family2$SD_Nonnative_Poales)
+head(veg.family2)
+
+saveRDS(veg.family2, "data/veg_sample_rsf_01/veg_family.rds")

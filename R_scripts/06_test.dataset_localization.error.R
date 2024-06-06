@@ -374,3 +374,21 @@ Dist.filters <- trilateration.TestData.Distance.Filter(combined.data)
 #2          13     9.230769 101.53675 79.19712 58.48549 144.5880  72.72432 12.88807 232.0707   Distance 300
 #3          13    11.769231  92.77738 68.73108 55.41542 130.1393 104.01095 12.44916 256.3667   Distance 450
 #4          13    13.615385 103.64574 66.68604 67.39546 139.8960 105.46957 15.43882 256.3667   Distance 600
+
+# Creating tables for paper
+df<- data.frame(Filter = c("Distance 187.5 m", "Distance 300 m", "Distance 450 m", "Distance 600 m", 
+                             "RSS -80", "RSS -85", "RSS -90", "RSS -95", "RSS -100"),
+                avg.diff = c(101.43, 101.54, 92.78, 103.65, 44.67, 45.24, 51.33, 68.16, 92.30),
+                sd.diff = c(79.77,79.20, 68.73, 66.69, 27.57, 24.41, 27.61, 56.01, 68.12),
+                lower.ci = c(58.07, 58.49, 55.42, 67.40, 27.58, 31.43, 36.32, 37.71, 55.27),
+                upper.ci = c(144.79, 144.59, 130.14, 139.90, 61.76, 59.05, 66.34, 98.61, 129.33),
+                med.diff = c(65.15, 72.72, 104.01, 105.47, 39.56, 39.32, 42.43, 49.22, 63.16),
+                min.diff = c(17.57, 12.89, 12.45, 15.44, 12.20, 15.26, 15.26, 15.83, 9.06),
+                max.dist = c(228.24, 232.07, 256.37, 256.37, 99.41, 86.54, 87.87, 199.09, 237.70),
+                data.loss = c(0,0,0,0, 23.08, 7.69, 0,0,0)
+)
+stats.table <- kableExtra::kable(df, conf.int = FALSE)
+tab <- knitr::kable(stats.table)
+my_table <- rempsyc::nice_table(df,
+                                title = c("Localization error of trilateration estimates under different data filters"))
+print(my_table, preview = "docx")

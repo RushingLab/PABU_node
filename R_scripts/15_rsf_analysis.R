@@ -9,7 +9,16 @@
 # Loading necessary packages
 library(tidyverse)
 library(lme4)
-library(AICcmodavg)
+library(magrittr)
+library(ggeffects)
+library(sjmisc)
+library(splines)
+library(coxme)
+library(car) 
+library(survival)
+library(broom.mixed)
+library(rlang)
+library(kableExtra)
 
 # Reset R's brain - removes all previous objects
 rm(list=ls())
@@ -52,16 +61,43 @@ d1 <- d %>%
 
 # Running univariate models
 
+## USE THIS ONE FOR REPORTING AND TABLE
 # New models for burn
 #model with burn type
-mBurn <- glmer(Used ~ burn_reclass + (1|TagId), data = d1, family = 'binomial')
-summary(mBurn)
+mBurn <- glmer(Used ~ burn_reclass + (1|TagId), data = d, family = 'binomial')
+stats.table <- summary(mBurn)
 #               Estimate Std. Error z value Pr(>|z|)  
 #(Intercept)   -0.07563    0.12359  -0.612   0.5406     unburned
 #burn_reclass3  0.09058    0.15473   0.585   0.5583     year0-1
 #burn_reclass6 -0.32529    0.15648  -2.079   0.0376 *   year1-2
 #burn_reclass2  0.08061    0.11868   0.679   0.4970     year2-3
 #burn_reclass4  0.59560    0.74498   0.799   0.4240     year3-4
+
+# pr(use) of  1-2 yr grassland
+plogis(-0.07563 -0.32529) #0.4010913
+lowerval <- plogis(-0.07563 -0.32529 - 1.96 * 0.15648) #0.3301248
+upperval <- plogis(-0.07563 -0.32529 + 1.96 * 0.15648) #0.4764626
+exp(-0.32529)
+
+nrow(d)
+used <- d %>%
+          filter(burn_reclass == "2")
+nrow(used)
+
+df<- data.frame(Location = c("Bass Creek Grid", "Bass Creek Grid", "Bass Creek Grid", 
+                             "Mosquito Creek Grid", "Mosquito Creek Grid", "Mosquito Creek Grid"),
+                Age_Sex = c("After-second-year (ASY) male", "After-second-year (ASY) female", "Second-year (SY) female",
+                            "After-second-year (ASY) male", "After-second-year (ASY) female", "Second-year (SY) female"),
+                Tags = c(4, 2, 3, 1, 6, 2),
+                Total = c("22.22%", "11.11%", "16.67%", 
+                          "5.56%", "33.33%", "11.11%")
+                )
+stats.table <- kableExtra::kable(df, conf.int = FALSE)
+tab <- knitr::kable(stats.table)
+my_table <- rempsyc::nice_table(df,
+                                title = c("Tagged Painted Bunting distribution"),
+                                note = c("* p < .05, ** p < .01"))
+print(my_table, preview = "docx")
 
 mBurn.glm <- glm(Used ~ burn_reclass, family = binomial(link = "logit"), data = d1)
 summary(mBurn.glm)
@@ -143,6 +179,7 @@ broom::tidy(mBurn4)
 
 ################################################################################
 # Predicting the data to try and make data visualizations
+colors2 <- c("#E3E418FF", "#5DC863FF", "#2C728EFF","#3E4A89FF", "#481F70FF")
 
 #An alternate attempt?
 #Occurrence probability of time since burn
@@ -153,18 +190,20 @@ predData.burn$p <- plogis(pred.burn$fit) # back transform to the probability sca
 predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
 predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
 predData.burn$burn_reclass <- factor(predData.burn$burn_reclass,
-                                     levels = c('7', '3', '6', '2', '4'),
-                                     labels = c("Unburned", "0-1 Years", "1-2 Years", "2-3 Years", "3-4 Years"))
+                                     levels = c('3', '6', '2', '4', '7'),
+                                     labels = c("0-1 Years", "1-2 Years", "2-3 Years", "3-4 Years", "Unburned"))
 
 
 tsb_node <-ggplot() +
-  geom_col(data = predData.burn, aes(x = burn_reclass, y = p), fill = "grey60") +
+  geom_col(data = predData.burn, aes(x = burn_reclass, y = p, fill = burn_reclass), show.legend = FALSE) +
   geom_errorbar(data = predData.burn, aes(x = burn_reclass, ymin = lower, ymax = upper),
                 width = 0.1) +
+  scale_fill_manual(values = colors2) +
   scale_y_continuous("Probability of Use") +
-  scale_x_discrete("Time Since Burn")
+  scale_x_discrete("Time Since Burn") +
+  theme_classic()
 
 # Saving plot
-ggsave("data/figures/plots/tsb_node.pdf", plot = tsb_node, width = 5, height = 5)
-ggsave( "data/figures/plots/tsb_node.jpeg", plot = tsb_node, width = 7, height = 7, dpi = 600)
+ggsave("data/figures/plots/tsb_node_color.pdf", plot = tsb_node, width = 5, height = 5)
+ggsave( "data/figures/plots/tsb_node_color.jpeg", plot = tsb_node, width = 7, height = 7, dpi = 600)
 
