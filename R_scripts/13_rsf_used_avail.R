@@ -138,3 +138,22 @@ used_avail_comb$UTMy<- as.numeric(used_avail_comb$UTMy)
 str(used_avail_comb)
 
 saveRDS(used_avail_comb, "data/rsf/used_avail.rds") # changed name for ease
+
+######################################################################
+# calculating mean/sed for paper
+
+used_avail <- readRDS("data/rsf/used_avail.rds")
+
+use <- used_avail %>%
+          filter(Used == 1) %>%
+          group_by(TagId) %>%
+          summarise(nrows = n())
+mean_use <- mean(use$nrows) #318.2143
+sd_use <- sd(use$nrows) #199.1822
+
+av <- used_avail %>%
+  filter(Used == 0) %>%
+  group_by(TagId) %>%
+  summarise(nrows = n())
+mean_av <- mean(av$nrows) #318.2143
+sd_av <- sd(av$nrows) #199.1822

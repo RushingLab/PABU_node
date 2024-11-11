@@ -55,8 +55,29 @@ str(d)
 
 d1 <- d %>%
         select(TagId, Used, burn_reclass)
-################################################################################
 
+tag <- readRDS("data/tagged_birds.rds")
+tags <- tag[c("AUX_TAG_NO", "AGE", "SEX")] 
+tag1 <- tags %>%
+          rename(TagId = AUX_TAG_NO)
+
+d_combined <- left_join (d, tag1, by = "TagId")
+str(d_combined)
+d_combined$AGE <- as.factor(d_combined$AGE)
+d_combined$SEX <- as.factor(d_combined$SEX)
+################################################################################
+# GLM with sex and age too 
+
+burn.mod <- glmer(Used ~ Year0_1 + Year1_2 + Year2_3 + Year3_4 + (1|TagId), data = d_combined, family = 'binomial')
+burn.mod.m <- glm(Used ~ Year0_1 + Year1_2 + Year2_3 + Year3_4, data = d_combined, family = binomial(link="logit"))
+d_combined$burn_reclass <- as.factor(d_combined$burn_reclass)
+burn.model <- glm(Used ~ burn_reclass + AGE + SEX, data = d_combined, family = binomial(link="logit"))
+summary(burn.model)
+summary(burn.mod)
+summary(burn.mod.m)
+stats.table <- summary(burn.mod)
+
+################################################################################
 # Creating a GLMM
 
 # Running univariate models
@@ -75,6 +96,7 @@ stats.table <- summary(mBurn)
 
 # pr(use) of  1-2 yr grassland
 plogis(-0.07563 -0.32529) #0.4010913
+plogis(-0.07563) #0.4811015
 lowerval <- plogis(-0.07563 -0.32529 - 1.96 * 0.15648) #0.3301248
 upperval <- plogis(-0.07563 -0.32529 + 1.96 * 0.15648) #0.4764626
 exp(-0.32529)
@@ -183,27 +205,49 @@ colors2 <- c("#E3E418FF", "#5DC863FF", "#2C728EFF","#3E4A89FF", "#481F70FF")
 
 #An alternate attempt?
 #Occurrence probability of time since burn
-predData.burn <- data.frame(burn_reclass = c('7', '3', '6', '2', '4'),
-                            levels = levels(d1$burn_reclass))
-pred.burn <- stats::predict(mBurn.glm, newdata = predData.burn, se.fit = TRUE)
-predData.burn$p <- plogis(pred.burn$fit) # back transform to the probability scale
-predData.burn$lower <- plogis(pred.burn$fit - pred.burn$se.fit)
-predData.burn$upper <- plogis(pred.burn$fit + pred.burn$se.fit)
-predData.burn$burn_reclass <- factor(predData.burn$burn_reclass,
+predData.burn.m <- data.frame(burn_reclass = c('2', '3', '4', '6', '7'))
+predData.burn.m$burn_reclass <- as.factor(predData.burn.m$burn_reclass)
+pred.burn.m <- stats::predict(mBurn.glm, newdata = predData.burn.m, se.fit = TRUE)
+predData.burn.m$p <- plogis(pred.burn.m$fit) # back transform to the probability scale
+predData.burn.m$lower <- plogis(pred.burn.m$fit - pred.burn.m$se.fit)
+predData.burn.m$upper <- plogis(pred.burn.m$fit + pred.burn.m$se.fit)
+predData.burn.m$burn_reclass <- factor(predData.burn.m$burn_reclass,
                                      levels = c('3', '6', '2', '4', '7'),
                                      labels = c("0-1 Years", "1-2 Years", "2-3 Years", "3-4 Years", "Unburned"))
 
+predData.burn.f <- data.frame(burn_reclass = c('2', '3', '4', '6', '7'))
+predData.burn.f$burn_reclass <- as.factor(predData.burn.f$burn_reclass)
+pred.burn.f <- stats::predict(burn.model, newdata = predData.burn.f, se.fit = TRUE)
+predData.burn.f$p <- plogis(pred.burn.f$fit) # back transform to the probability scale
+predData.burn.f$lower <- plogis(pred.burn.f$fit - pred.burn.f$se.fit)
+predData.burn.f$upper <- plogis(pred.burn.f$fit + pred.burn.f$se.fit)
+predData.burn.f$burn_reclass <- factor(predData.burn.f$burn_reclass,
+                                       levels = c('3', '6', '2', '4', '7'),
+                                       labels = c("0-1 Years", "1-2 Years", "2-3 Years", "3-4 Years", "Unburned"))
+
 
 tsb_node <-ggplot() +
-  geom_col(data = predData.burn, aes(x = burn_reclass, y = p, fill = burn_reclass), show.legend = FALSE) +
-  geom_errorbar(data = predData.burn, aes(x = burn_reclass, ymin = lower, ymax = upper),
+  geom_col(data = predData.burn.m, aes(x = burn_reclass, y = p)) +
+  geom_errorbar(data = predData.burn.m, aes(x = burn_reclass, ymin = lower, ymax = upper),
                 width = 0.1) +
-  scale_fill_manual(values = colors2) +
+  scale_y_continuous("Probability of Use") +
+  scale_x_discrete("Time Since Burn") +
+  theme_classic()
+
+tsb_nodef <-ggplot() +
+  geom_col(data = predData.burn.f, aes(x = burn_reclass, y = p)) +
+  geom_errorbar(data = predData.burn.f, aes(x = burn_reclass, ymin = lower, ymax = upper),
+                width = 0.1) +
   scale_y_continuous("Probability of Use") +
   scale_x_discrete("Time Since Burn") +
   theme_classic()
 
 # Saving plot
-ggsave("data/figures/plots/tsb_node_color.pdf", plot = tsb_node, width = 5, height = 5)
-ggsave( "data/figures/plots/tsb_node_color.jpeg", plot = tsb_node, width = 7, height = 7, dpi = 600)
+use_sexes <- ggpubr::ggarrange(tsb_node,
+                                     tsb_nodef,
+                                     nrow =1, ncol =2)
+
+ggsave("data/figures/plots/tsb_node_gray.pdf", plot = tsb_node, width = 5, height = 5)
+ggsave( "data/figures/plots/tsb_node_gray.jpeg", plot = tsb_node, width =5, height = 5, dpi = 600)
+ggsave( "data/figures/plots/tsb_node_gray_female.jpeg", plot = tsb_nodef, width = 6, height = 6, dpi = 600)
 

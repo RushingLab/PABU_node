@@ -3,8 +3,6 @@ library(tidyverse)
 library(ggplot2)
 library(dplyr)
 library(ggpubr)
-install.packages("viridis")
-install.packages("RColorBrewer")
 library(viridis)  
 library(RColorBrewer)
 
@@ -69,30 +67,30 @@ veg.23 <- veg3 %>%
 
 # Predicting and creating visualizations for unmanaged burn tracts
 # Predicted data
-predData.ngrass.unman <- data.frame(SD_Native_Poales = seq(min(veg3$SD_Native_Poales), max(veg3$SD_Native_Poales), length = 100),
-                                 PERCENT_VEG = mean(veg3$PERCENT_VEG),
+predData.ngrass.unman <- data.frame(SD_Native_Poales = seq(min(veg.ub$SD_Native_Poales), max(veg.ub$SD_Native_Poales), length = 100),
+                                 PERCENT_VEG = mean(veg.ub$PERCENT_VEG),
                                  time_since_burn = "unmanaged",
-                                 SD_Shrub = mean(veg3$SD_Shrub),
-                                 SD_Forbs = mean(veg3$SD_Forbs),
-                                 SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
-predData.ngrass.01 <- data.frame(SD_Native_Poales = seq(min(veg3$SD_Native_Poales), max(veg3$SD_Native_Poales), length = 100),
-                                 PERCENT_VEG = mean(veg3$PERCENT_VEG),
+                                 SD_Shrub = mean(veg.ub$SD_Shrub),
+                                 SD_Forbs = mean(veg.ub$SD_Forbs),
+                                 SD_Nonnative_Poales = mean(veg.ub$SD_Nonnative_Poales))
+predData.ngrass.01 <- data.frame(SD_Native_Poales = seq(min(veg.01$SD_Native_Poales), max(veg.01$SD_Native_Poales), length = 100),
+                                 PERCENT_VEG = mean(veg.01$PERCENT_VEG),
                                  time_since_burn = "0-1_years",
-                                 SD_Shrub = mean(veg3$SD_Shrub),
-                                 SD_Forbs = mean(veg3$SD_Forbs),
-                                 SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
-predData.ngrass.12 <- data.frame(SD_Native_Poales = seq(min(veg3$SD_Native_Poales), max(veg3$SD_Native_Poales), length = 100),
-                                 PERCENT_VEG = mean(veg3$PERCENT_VEG),
+                                 SD_Shrub = mean(veg.01$SD_Shrub),
+                                 SD_Forbs = mean(veg.01$SD_Forbs),
+                                 SD_Nonnative_Poales = mean(veg.01$SD_Nonnative_Poales))
+predData.ngrass.12 <- data.frame(SD_Native_Poales = seq(min(veg.12$SD_Native_Poales), max(veg.12$SD_Native_Poales), length = 100),
+                                 PERCENT_VEG = mean(veg.12$PERCENT_VEG),
                                  time_since_burn = "1-2_years",
-                                 SD_Shrub = mean(veg3$SD_Shrub),
-                                 SD_Forbs = mean(veg3$SD_Forbs),
-                                 SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
-predData.ngrass.23 <- data.frame(SD_Native_Poales = seq(min(veg3$SD_Native_Poales), max(veg3$SD_Native_Poales), length = 100),
-                                 PERCENT_VEG = mean(veg3$PERCENT_VEG),
+                                 SD_Shrub = mean(veg.12$SD_Shrub),
+                                 SD_Forbs = mean(veg.12$SD_Forbs),
+                                 SD_Nonnative_Poales = mean(veg.12$SD_Nonnative_Poales))
+predData.ngrass.23 <- data.frame(SD_Native_Poales = seq(min(veg.23$SD_Native_Poales), max(veg.23$SD_Native_Poales), length = 100),
+                                 PERCENT_VEG = mean(veg.23$PERCENT_VEG),
                                  time_since_burn = "2-3_years",
-                                 SD_Shrub = mean(veg3$SD_Shrub),
-                                 SD_Forbs = mean(veg3$SD_Forbs),
-                                 SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
+                                 SD_Shrub = mean(veg.23$SD_Shrub),
+                                 SD_Forbs = mean(veg.23$SD_Forbs),
+                                 SD_Nonnative_Poales = mean(veg.23$SD_Nonnative_Poales))
 
 # unmanaged
 pred.link.unman <- predict(fm.t, newdata = predData.ngrass.unman, se.fit = TRUE)
@@ -123,49 +121,49 @@ colors4 <- c("#1f78b4", "#ff7f00", "#33a02c", "#e31a1c")
 # Plotting the predictions and observations
 plot <- ggplot() +
   geom_point(data = veg3, aes(x = SD_Native_Poales, y = used, color = time_since_burn)) +
-  geom_path(data = predData.ngrass.unman, aes(x = SD_Native_Poales, y = p, color = time_since_burn)) +
-  geom_path(data = predData.ngrass.01, aes(x = SD_Native_Poales, y = p, color =  time_since_burn)) +
-  geom_path(data = predData.ngrass.12, aes(x = SD_Native_Poales, y = p, color = time_since_burn)) +
-  geom_path(data = predData.ngrass.23, aes(x = SD_Native_Poales, y = p, color = time_since_burn)) +
+  geom_path(data = predData.ngrass.unman, aes(x = SD_Native_Poales, y = p, color = time_since_burn), size = 1.1) +
+  geom_path(data = predData.ngrass.01, aes(x = SD_Native_Poales, y = p, color =  time_since_burn), size = 1.1) +
+  geom_path(data = predData.ngrass.12, aes(x = SD_Native_Poales, y = p, color = time_since_burn), size = 1.1) +
+  geom_path(data = predData.ngrass.23, aes(x = SD_Native_Poales, y = p, color = time_since_burn), size = 1.1) +
   geom_ribbon(data = predData.ngrass.unman, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
-              fill = NA, color = "#1f78b4", linetype = "longdash") +
+              fill = "#1f78b4", color = "#1f78b4", linetype = "longdash", alpha = 0.1) +
   geom_ribbon(data = predData.ngrass.01, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
-              fill = NA, color = "#ff7f00",linetype = "longdash") +
+              fill = "#ff7f00", color = "#ff7f00",linetype = "longdash", alpha = 0.1) +
   geom_ribbon(data = predData.ngrass.12, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
-              fill = NA, color = "#33a02c",linetype = "longdash") +
+              fill = "#33a02c", color = "#33a02c",linetype = "longdash", alpha = 0.1) +
   geom_ribbon(data = predData.ngrass.23, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
-              fill = NA, color = "#e31a1c", linetype = "longdash") +
+              fill = "#e31a1c", color = "#e31a1c", linetype = "longdash", alpha = 0.1) +
   scale_color_manual(values = colors4) +
   scale_y_continuous("Probability of Foraging Use") +
   scale_x_continuous("Native Grass Stem Density in Grassland") +
   theme_classic()
 
 plotun <- ggplot() +
-  geom_point(data = veg.ub, aes(x = SD_Native_Poales, y = used)) +
+  geom_point(data = veg.ub, aes(x = SD_Native_Poales, y = used), alpha = 0.25) +
   geom_path(data = predData.ngrass.unman, aes(x = SD_Native_Poales, y = p)) +
   geom_ribbon(data = predData.ngrass.unman, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
               fill = NA, color = "black", linetype = "longdash") +
   scale_y_continuous("Probability of Foraging Use") +
-  scale_x_continuous("Native Grass Stem Density in Unburned Grassland") +
+  scale_x_continuous("Native Grass Stem Density in Unburned Grassland",limits = c(NA, 10), breaks = seq(0,10, by = 2)) +
   theme_classic()
 plot01 <- ggplot() +
-  geom_point(data = veg.01, aes(x = SD_Native_Poales, y = used)) +
+  geom_point(data = veg.01, aes(x = SD_Native_Poales, y = used), alpha = 0.25) +
   geom_path(data = predData.ngrass.01, aes(x = SD_Native_Poales, y = p)) +
   geom_ribbon(data = predData.ngrass.01, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
               fill = NA, color = "black", linetype = "longdash") +
   scale_y_continuous("Probability of Foraging Use") +
-  scale_x_continuous("Native Grass Stem Density 0-1 Years Post-Burn") +
+  scale_x_continuous("Native Grass Stem Density 0-1 Years Post-Burn", limits = c(NA, 20)) +
   theme_classic()
 plot12 <- ggplot() +
-  geom_point(data = veg.12, aes(x = SD_Native_Poales, y = used)) +
+  geom_point(data = veg.12, aes(x = SD_Native_Poales, y = used), alpha = 0.25) +
   geom_path(data = predData.ngrass.12, aes(x = SD_Native_Poales, y = p)) +
   geom_ribbon(data = predData.ngrass.12, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
               fill = NA, color = "black", linetype = "longdash") +
   scale_y_continuous("Probability of Foraging Use") +
-  scale_x_continuous("Native Grass Stem Density 1-2 Years Post-Burn") +
+  scale_x_continuous("Native Grass Stem Density 1-2 Years Post-Burn", limits = c(NA, 20)) +
   theme_classic()
 plot23 <- ggplot() +
-  geom_point(data = veg.23, aes(x = SD_Native_Poales, y = used)) +
+  geom_point(data = veg.23, aes(x = SD_Native_Poales, y = used), alpha = .25) +
   geom_path(data = predData.ngrass.23, aes(x = SD_Native_Poales, y = p)) +
   geom_ribbon(data = predData.ngrass.23, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
               fill = NA, color = "black", linetype = "longdash") +
@@ -297,12 +295,12 @@ ggsave( "data/figures/use_covariates/natgrass_years.jpeg", plot = combined_pr_us
 
 # Predicting and creating visualizations for native grass burn tracts
 # Predicted data
-predData.ngrass.un <- data.frame(SD_Native_Poales = seq(min(veg3$SD_Native_Poales), max(veg3$SD_Native_Poales), length = 100),
-                                 PERCENT_VEG = mean(veg3$PERCENT_VEG),
+predData.ngrass.un <- data.frame(SD_Native_Poales = seq(min(veg.12$SD_Native_Poales), max(veg.12$SD_Native_Poales), length = 100),
+                                 PERCENT_VEG = mean(veg.12$PERCENT_VEG),
                                  time_since_burn = "1-2_years",
-                                 SD_Shrub = mean(veg3$SD_Shrub),
-                                 SD_Forbs = mean(veg3$SD_Forbs),
-                                 SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
+                                 SD_Shrub = mean(veg.12$SD_Shrub),
+                                 SD_Forbs = mean(veg.12$SD_Forbs),
+                                 SD_Nonnative_Poales = mean(veg.12$SD_Nonnative_Poales))
 head(predData.ngrass.un)
 # Switching to the link scale to get confidence intervals on the probability scale
 pred.link <- predict(fm.t, newdata = predData.ngrass.un, se.fit = TRUE)
@@ -311,23 +309,23 @@ predData.ngrass.un$lower <- plogis(pred.link$fit - 1.96 * pred.link$se.fit)
 predData.ngrass.un$upper <- plogis(pred.link$fit + 1.96 * pred.link$se.fit)
 # Plotting the predictions and observations
 plot.n <- ggplot() +
-  geom_point(data = veg3, aes(x = SD_Native_Poales, y = used)) +
+  geom_point(data = veg.12, aes(x = SD_Native_Poales, y = used), alpha = 0.25) +
   geom_path(data = predData.ngrass.un, aes(x = SD_Native_Poales, y = p)) +
   geom_ribbon(data = predData.ngrass.un, aes(x = SD_Native_Poales, ymin = lower, ymax = upper),
               fill = NA, color = "black", linetype = "longdash") +
   scale_y_continuous("Probability of Foraging Use") +
-  scale_x_continuous("Native Grass Stem Density 1-2 Years Post-Burn") +
+  scale_x_continuous("Native Grass Stem Density 1-2 Years Post-Burn", limits = c(NA, 20)) +
   theme_classic()
 
 
 # Predicting and creating visualizations for nonnative grasses in 1-2yr burn tracts
 # Predicted data
-predData.ngrass.un <- data.frame(SD_Native_Poales = mean(veg3$SD_Native_Poales),
-                                 PERCENT_VEG = mean(veg3$PERCENT_VEG),
+predData.ngrass.un <- data.frame(SD_Native_Poales = mean(veg.12$SD_Native_Poales),
+                                 PERCENT_VEG = mean(veg.12$PERCENT_VEG),
                                  time_since_burn = "1-2_years",
-                                 SD_Shrub = mean(veg3$SD_Shrub),
-                                 SD_Forbs = mean(veg3$SD_Forbs),
-                                 SD_Nonnative_Poales = seq(min(veg3$SD_Nonnative_Poales), max(veg3$SD_Nonnative_Poales), length = 100))
+                                 SD_Shrub = mean(veg.12$SD_Shrub),
+                                 SD_Forbs = mean(veg.12$SD_Forbs),
+                                 SD_Nonnative_Poales = seq(min(veg.12$SD_Nonnative_Poales), max(veg.12$SD_Nonnative_Poales), length = 100))
 head(predData.ngrass.un)
 # Switching to the link scale to get confidence intervals on the probability scale
 pred.link <- predict(fm.t, newdata = predData.ngrass.un, se.fit = TRUE)
@@ -336,7 +334,7 @@ predData.ngrass.un$lower <- plogis(pred.link$fit - 1.96 * pred.link$se.fit)
 predData.ngrass.un$upper <- plogis(pred.link$fit + 1.96 * pred.link$se.fit)
 # Plotting the predictions and observations
 plot.nn <- ggplot() +
-  geom_point(data = veg3, aes(x = SD_Nonnative_Poales, y = used)) +
+  geom_point(data = veg.12, aes(x = SD_Nonnative_Poales, y = used), alpha = .25) +
   geom_path(data = predData.ngrass.un, aes(x = SD_Nonnative_Poales, y = p)) +
   geom_ribbon(data = predData.ngrass.un, aes(x = SD_Nonnative_Poales, ymin = lower, ymax = upper),
               fill = NA, color = "black", linetype = "longdash") +
@@ -347,12 +345,12 @@ plot.nn <- ggplot() +
 
 # Predicting and creating visualizations for 1-2year burn tracts
 # Predicted data
-predData.ngrass.un <- data.frame(SD_Native_Poales = mean(veg3$SD_Native_Poales),
-                                 PERCENT_VEG = mean(veg3$PERCENT_VEG),
+predData.ngrass.un <- data.frame(SD_Native_Poales = mean(veg.12$SD_Native_Poales),
+                                 PERCENT_VEG = mean(veg.12$PERCENT_VEG),
                                  time_since_burn = "1-2_years",
-                                 SD_Shrub = seq(min(veg3$SD_Shrub), max(veg3$SD_Shrub), length = 100),
-                                 SD_Forbs = mean(veg3$SD_Forbs),
-                                 SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
+                                 SD_Shrub = seq(min(veg.12$SD_Shrub), max(veg.12$SD_Shrub), length = 100),
+                                 SD_Forbs = mean(veg.12$SD_Forbs),
+                                 SD_Nonnative_Poales = mean(veg.12$SD_Nonnative_Poales))
 head(predData.ngrass.un)
 # Switching to the link scale to get confidence intervals on the probability scale
 pred.link <- predict(fm.t, newdata = predData.ngrass.un, se.fit = TRUE)
@@ -361,7 +359,7 @@ predData.ngrass.un$lower <- plogis(pred.link$fit - 1.96 * pred.link$se.fit)
 predData.ngrass.un$upper <- plogis(pred.link$fit + 1.96 * pred.link$se.fit)
 # Plotting the predictions and observations
 plot.s <- ggplot() +
-  geom_point(data = veg3, aes(x = SD_Shrub, y = used)) +
+  geom_point(data = veg.12, aes(x = SD_Shrub, y = used), alpha = .25) +
   geom_path(data = predData.ngrass.un, aes(x = SD_Shrub, y = p)) +
   geom_ribbon(data = predData.ngrass.un, aes(x = SD_Shrub, ymin = lower, ymax = upper),
               fill = NA, color = "black", linetype = "longdash") +
@@ -372,12 +370,12 @@ plot.s <- ggplot() +
 
 # Predicting and creating visualizations for forbs
 # Predicted data
-predData.ngrass.un <- data.frame(SD_Native_Poales = mean(veg3$SD_Native_Poales),
-                                 PERCENT_VEG = mean(veg3$PERCENT_VEG),
+predData.ngrass.un <- data.frame(SD_Native_Poales = mean(veg.12$SD_Native_Poales),
+                                 PERCENT_VEG = mean(veg.12$PERCENT_VEG),
                                  time_since_burn = "1-2_years",
-                                 SD_Shrub = mean(veg3$SD_Shrub),
-                                 SD_Forbs = seq(min(veg3$SD_Forbs), max(veg3$SD_Forbs), length = 100),
-                                 SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
+                                 SD_Shrub = mean(veg.12$SD_Shrub),
+                                 SD_Forbs = seq(min(veg.12$SD_Forbs), max(veg.12$SD_Forbs), length = 100),
+                                 SD_Nonnative_Poales = mean(veg.12$SD_Nonnative_Poales))
 head(predData.ngrass.un)
 # Switching to the link scale to get confidence intervals on the probability scale
 pred.link <- predict(fm.t, newdata = predData.ngrass.un, se.fit = TRUE)
@@ -386,7 +384,7 @@ predData.ngrass.un$lower <- plogis(pred.link$fit - 1.96 * pred.link$se.fit)
 predData.ngrass.un$upper <- plogis(pred.link$fit + 1.96 * pred.link$se.fit)
 # Plotting the predictions and observations
 plot.f <- ggplot() +
-  geom_point(data = veg3, aes(x = SD_Forbs, y = used)) +
+  geom_point(data = veg.12, aes(x = SD_Forbs, y = used), alpha = .25) +
   geom_path(data = predData.ngrass.un, aes(x = SD_Forbs, y = p)) +
   geom_ribbon(data = predData.ngrass.un, aes(x = SD_Forbs, ymin = lower, ymax = upper),
               fill = NA, color = "black", linetype = "longdash") +
@@ -395,7 +393,6 @@ plot.f <- ggplot() +
   theme_classic()
 
 combined_veg <- ggpubr::ggarrange(plot.n,
-                                  plot.nn,
                                   plot.s,
                                   plot.f,
                                   nrow =2, ncol =2)
@@ -552,10 +549,9 @@ predData.burn$time_since_burn <- factor(predData.burn$time_since_burn,
                                         labels = c("0-1 Years", "1-2 Years", "2-3 Years", "Unburned"))
 
 nat.pl <-ggplot() +
-  geom_col(data = predData.burn, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE) +
+  geom_col(data = predData.burn, aes(x = time_since_burn, y = p), show.legend = FALSE) +
   geom_errorbar(data = predData.burn, aes(x = time_since_burn, ymin = lower, ymax = upper),
                 width = 0.1) +
-  scale_fill_manual(values = colors2) +
   scale_y_continuous(limit = c(0,50),"Native Grass Stem Density") +
   scale_x_discrete("Time Since Burn")+
   theme_classic()
@@ -585,10 +581,9 @@ predData.burn$time_since_burn <- factor(predData.burn$time_since_burn,
                                         labels = c("0-1 Years", "1-2 Years", "2-3 Years", "Unburned"))
 
 nonnat.pl <-ggplot() +
-  geom_col(data = predData.burn, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE ) +
+  geom_col(data = predData.burn, aes(x = time_since_burn, y = p), show.legend = FALSE ) +
   geom_errorbar(data = predData.burn, aes(x = time_since_burn, ymin = lower, ymax = upper),
                 width = 0.1) +
-  scale_fill_manual(values = colors2)+
   scale_y_continuous(limit = c(0,50),"Nonnative Grass Stem Density") +
   scale_x_discrete("Time Since Burn")+
   theme_classic()
@@ -618,10 +613,9 @@ predData.burn$time_since_burn <- factor(predData.burn$time_since_burn,
                                         labels = c("0-1 Years", "1-2 Years", "2-3 Years", "Unburned"))
 
 shrub.pl <-ggplot() +
-  geom_col(data = predData.burn, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE ) +
+  geom_col(data = predData.burn, aes(x = time_since_burn, y = p), show.legend = FALSE ) +
   geom_errorbar(data = predData.burn, aes(x = time_since_burn, ymin = lower, ymax = upper),
                 width = 0.1) +
-  scale_fill_manual(values = colors2) +
   scale_y_continuous(limit = c(0,50),"Shrub Stem Density") +
   scale_x_discrete("Time Since Burn")+
   theme_classic()
@@ -651,10 +645,9 @@ predData.burn$time_since_burn <- factor(predData.burn$time_since_burn,
                                         labels = c("0-1 Years", "1-2 Years", "2-3 Years", "Unburned"))
 
 forb.pl <-ggplot() +
-  geom_col(data = predData.burn, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE ) +
+  geom_col(data = predData.burn, aes(x = time_since_burn, y = p), show.legend = FALSE ) +
   geom_errorbar(data = predData.burn, aes(x = time_since_burn, ymin = lower, ymax = upper),
                 width = 0.1) +
-  scale_fill_manual(values = colors2) +
   scale_y_continuous(limit = c(0,50),"Forb Stem Density") +
   scale_x_discrete("Time Since Burn")+
   theme_classic()
@@ -685,23 +678,21 @@ predData.burn$time_since_burn <- factor(predData.burn$time_since_burn,
                                         labels = c("0-1 Years", "1-2 Years", "2-3 Years", "Unburned"))
 
 pc.pl <-ggplot() +
-  geom_col(data = predData.burn, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE ) +
+  geom_col(data = predData.burn, aes(x = time_since_burn, y = p)) +
   geom_errorbar(data = predData.burn, aes(x = time_since_burn, ymin = lower, ymax = upper),
                 width = 0.1) +
-  scale_fill_manual(values = colors2) +
   scale_y_continuous("Percent Vegetative Cover") +
   scale_x_discrete("Time Since Burn")+
   theme_classic()
 
 
 tsb.sd.pcover <- ggpubr::ggarrange(nat.pl,
-                            nonnat.pl,
                             forb.pl,
-                            shrub.pl,
+                            pc.pl,
                             nrow =2, ncol =2)
 # Saving plot
-ggsave("data/figures/use_covariates/covars_samescale_color_shrub.pdf", plot = tsb.sd.pcover, width = 10, height = 10)
-ggsave( "data/figures/use_covariates/covars_samescale_color_shrub.jpeg", plot = tsb.sd.pcover, width = 10, height = 10, dpi = 600)
+ggsave("data/figures/use_covariates/covars_samescale_gray.pdf", plot = tsb.sd.pcover, width = 8, height = 8)
+ggsave( "data/figures/use_covariates/covars_samescale_gray.jpeg", plot = tsb.sd.pcover, width = 8, height = 8, dpi = 600)
 
 
 #######################
@@ -765,24 +756,28 @@ predData.ngrass.unman <- data.frame(SD_Native_Poales = mean(veg3$SD_Native_Poale
                                     SD_Shrub = mean(veg3$SD_Shrub),
                                     SD_Forbs = mean(veg3$SD_Forbs),
                                     SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
+
 predData.ngrass.01 <- data.frame(SD_Native_Poales = mean(veg3$SD_Native_Poales),
                                  PERCENT_VEG = mean(veg3$PERCENT_VEG),
                                  time_since_burn = "0-1_years",
                                  SD_Shrub = mean(veg3$SD_Shrub),
                                  SD_Forbs = mean(veg3$SD_Forbs),
                                  SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
+
 predData.ngrass.12 <- data.frame(SD_Native_Poales = mean(veg3$SD_Native_Poales),
                                  PERCENT_VEG = mean(veg3$PERCENT_VEG),
                                  time_since_burn = "1-2_years",
                                  SD_Shrub = mean(veg3$SD_Shrub),
                                  SD_Forbs = mean(veg3$SD_Forbs),
                                  SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
+
 predData.ngrass.23 <- data.frame(SD_Native_Poales = mean(veg3$SD_Native_Poales),
                                  PERCENT_VEG = mean(veg3$PERCENT_VEG),
                                  time_since_burn = "2-3_years",
                                  SD_Shrub = mean(veg3$SD_Shrub),
                                  SD_Forbs = mean(veg3$SD_Forbs),
                                  SD_Nonnative_Poales = mean(veg3$SD_Nonnative_Poales))
+
 
 # unmanaged
 pred.link.unman <- predict(fm.t, newdata = predData.ngrass.unman, se.fit = TRUE)
@@ -809,10 +804,10 @@ predData.ngrass.23$lower <- plogis(pred.link.23$fit - 1.96 * pred.link.23$se.fit
 predData.ngrass.23$upper <- plogis(pred.link.23$fit + 1.96 * pred.link.23$se.fit)
 
 p.n <- ggplot() +
-  geom_col(data = predData.ngrass.unman, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE) +
-  geom_col(data = predData.ngrass.01, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE) +
-  geom_col(data = predData.ngrass.12, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE) +
-  geom_col(data = predData.ngrass.23, aes(x = time_since_burn, y = p, fill = time_since_burn), show.legend = FALSE) +
+  geom_col(data = predData.ngrass.unman, aes(x = time_since_burn, y = p)) +
+  geom_col(data = predData.ngrass.01, aes(x = time_since_burn, y = p)) +
+  geom_col(data = predData.ngrass.12, aes(x = time_since_burn, y = p)) +
+  geom_col(data = predData.ngrass.23, aes(x = time_since_burn, y = p)) +
   geom_errorbar(data = predData.ngrass.unman, aes(x = time_since_burn, ymin = lower, ymax = upper),
                 width = 0.1) +
   geom_errorbar(data = predData.ngrass.01, aes(x = time_since_burn, ymin = lower, ymax = upper),
@@ -821,15 +816,14 @@ p.n <- ggplot() +
                 width = 0.1) +
   geom_errorbar(data = predData.ngrass.23, aes(x = time_since_burn, ymin = lower, ymax = upper),
                 width = 0.1) +
-  scale_fill_manual(values = colors2) +
   scale_y_continuous("Probability of Foraging Use") +
-  scale_x_discrete("Time Since Burn") +
+  scale_x_discrete("Time Since Burn", labels = c("0-1 Years", "1-2 Years", "2-3 Years", "Unburned")) +
   theme_classic()
 
+ # Add a legend title
 
-
-ggsave("data/figures/use_covariates/pr_use_tsb_color.pdf", plot = p.n, width = 5, height = 5)
-ggsave( "data/figures/use_covariates/pr_use_tsb_color.jpeg", plot = p.n, width = 5, height = 5, dpi = 600)
+ggsave("data/figures/use_covariates/pr_use_tsb_gray.pdf", plot = p.n, width = 5, height = 5)
+ggsave( "data/figures/use_covariates/pr_use_tsb_gray.jpeg", plot = p.n, width = 5, height = 5, dpi = 600)
 
 ###########################################
 
