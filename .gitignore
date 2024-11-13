@@ -31,6 +31,7 @@ data/localizations/Trilateration.Test.Data_Filters.RSSI*.csv
 data/localizations/LocError*.csv
 data/localizations/Calibration*.csv
 data/localizations/comparing_loc_filters.xlsx
+data/pabu_2d2d2d33.rds
 
 data/simulations
 data/trilateration/Estimated.Locations80p-85_2023-05-10_2023-11-20.rds
